@@ -5,76 +5,98 @@
     <title>Nayoung's Page</title>
 </head>
 <body>
-<!--It provides more structure-->
-<h1>Hello World <span>25-02-2020</span></h1>
 
-<p>Understanding HTML is <em>really</em> <strong>important</strong>!</p>
-<hr>
-<p>
-    Understanding HTML is
-    <em>
-        <strong>
-            really important
-        </strong>
-    </em>!
-</p>
+<header>
+    <!--It provides more structure-->
+    <h1>Hello World <span>25-02-2020</span></h1>
+</header>
 
-<div id="main-header">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br><br>Ad architecto consequuntur delectus distinctio ea eaque earum illo iste odio officia optio, porro qui quis quod quos repellat sapiente suscipit vitae!
-</div>
+<nav>
+    <ul>
+        <li><a href="#">Intro</a></li>
+        <li><a href="#">HTML</a></li>
+    </ul>
+</nav>
 
 <main id="main-content">
+    <hr>
+
+    <section>Understanding HTML is <em>really</em> <strong>important</strong>!</section>
+
+    <section>
+        Understanding HTML is
+        <em>
+            <strong>
+                really important
+            </strong>
+        </em>!
+    </section>
+
+    <section id="main-header">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br><br>Ad architecto consequuntur delectus distinctio ea eaque earum illo iste odio officia optio, porro qui quis quod quos repellat sapiente suscipit vitae!
+    </section>
+
+
     <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam dicta ducimus eaque laudantium neque nihil soluta, voluptatem voluptatibus. Alias atque doloremque doloribus earum eius facilis incidunt, quasi rem rerum      vero!
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam dicta ducimus eaque laudantium neque nihil
+        soluta, voluptatem voluptatibus. Alias atque doloremque doloribus earum eius facilis incidunt, quasi rem rerum
+        vero!
     </p>
 
     <p>
-       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium animi deserunt hic labore magnam molestias veniam veritatis voluptatibus. Ab architecto culpa eveniet, expedita facere facilis illo necessitatibus possimus sunt tempora!
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium animi deserunt hic labore magnam molestias
+        veniam veritatis voluptatibus. Ab architecto culpa eveniet, expedita facere facilis illo necessitatibus possimus
+        sunt tempora!
     </p>
+
+    <div>
+        <ol>
+            <li>Apples</li>
+            <li>Cherries</li>
+            <li>Bananas</li>
+        </ol>
+        <ul>
+            <li>Java</li>
+            <li>JavaScript</li>
+            <li>Python</li>
+            <li>
+                <a href="https://www.php.net" target="blank">PHP</a>
+            </li>
+        </ul>
+    </div>
+
+    <div>
+        <!--Image hotlink-->
+        <img src="https://i.ytimg.com/vi/MPV2METPeJU/maxresdefault.jpg" alt="picture of a dog" width="100%">
+        <!--local file-->
+        <img src="imgs/pug.jpg" alt="picture of a pug" width="25%">
+    </div>
+
+    <div>
+        <table border="1">
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Vegan</th>
+            </tr>
+            <tr>
+                <td>Iced Tea</td>
+                <td>$3.99</td>
+                <td>Yes</td>
+            </tr>
+            <tr>
+                <td>Hot-dog</td>
+                <td>$5.99</td>
+                <td>No</td>
+            </tr>
+        </table>
+    </div>
+
 </main>
 
-<div>
-   <ol>
-       <li>Apples</li>
-       <li>Cherries</li>
-       <li>Bananas</li>
-   </ol>
-    <ul>
-        <li>Java</li>
-        <li>JavaScript</li>
-        <li>Python</li>
-        <li>
-            <a href="https://www.php.net" target="blank">PHP</a>
-        </li>
-    </ul>
-</div>
-
-<div>
-<!--Image hotlink-->
-    <img src="https://i.ytimg.com/vi/MPV2METPeJU/maxresdefault.jpg" alt="picture of a dog" width="100%">
-<!--local file-->
-    <img src="imgs/pug.jpg"  alt="picture of a pug" width="25%">
-</div>
-
-<div>
-    <table border="1">
-        <tr>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Vegan</th>
-        </tr>
-        <tr>
-            <td>Iced Tea</td>
-            <td>$3.99</td>
-            <td>Yes</td>
-        </tr>
-        <tr>
-            <td>Hot-dog</td>
-            <td>$5.99</td>
-            <td>No</td>
-        </tr>
-    </table>
-</div>
+<footer>
+    Secondary links and copyright notices
+</footer>
 
 </body>
 </html>
