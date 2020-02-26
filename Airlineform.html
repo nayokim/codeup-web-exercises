@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>American Airlines Airline tickets and cheap flights at aa.com</title>
+</head>
+<body>
+<form action="https://request-inspector.glitch.me" method="GET">
+
+    <div>
+        <input id="roundtrip" type="radio" name="trip-choice" value="roundtrip">
+        <label for="roundtrip">Round Trip</label>
+        <input id="oneway" type="radio" name="trip-choice" value="oneway">
+        <label for="oneway">One way</label>
+        <input id="redeem" name="redeem_miles" value="true" type="checkbox">
+        <label for="redeem">Redeem miles</label>
+    </div>
+
+    <div>
+        <label for="from">From</label>
+        <input id="from" type="text" name="from" placeholder="City or airport"><br>
+    </div>
+
+    <div>
+        <label for="to">To</label>
+        <input id="to" type="text" name="to" placeholder="City or airport">
+    </div>
+
+    <div>
+        <label for="Numberofpassengers">Number of passengers</label>
+        <select id="Numberofpassengers" name="numberofpassengers">
+            <option value="1"></option>
+            <option value="2"></option>
+            <option value="3"></option>
+            <option value="4"></option>
+            <option value="5"></option>
+            <option value="6"></option>
+        </select>
+    </div>
+    <div>
+        <label for="Depart">Depart</label>
+        <input id="Depart" type="date" name="date" placeholder="mm/dd/yyyy">
+    </div>
+    <div>
+        <label for="Return">Return</label>
+        <input id="Return" type="date" name="date" placeholder="mm/dd/yyyy">
+    </div>
+    <button type="submit">Search</button>
+
+
+
+
+</form>
+</body>
+</html>
