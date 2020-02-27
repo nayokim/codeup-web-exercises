@@ -1,6 +1,30 @@
 .fancy-header {
     color:lightblue;
     text-decoration: underline;
-    border:2px dotted cadetblue;
 
 }
+
+body{
+    background-image:url("../imgs/dot-grid.png");
+    font-family:'Nanum Myeongjo', SansSerif;
+
+}
+
+ul{
+    list-style: circle;
+}
+
+ol{
+    list-style:lower-roman;
+}
+
+td,th{
+    border: 1px solid black;
+    padding: 15px
+}
+
+a:link{
+    color:black
+
+}
+
