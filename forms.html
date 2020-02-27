@@ -6,34 +6,51 @@
 </head>
 <body>
 
-<form method="GET" action="https://request-inspector.glitch.me/">
+<form method="POST" action="https://request-inspector.glitch.me/">
 
     <div>
         <label for="email">E-mail</label>
-            <input id="email" type="text" name="email" placeholder="Enter your email address">
+            <input id="email" type="text" name="email" placeholder="Enter your email address"><br>
         <label for="password">Password</label>
-            <input id="password" type="password" name="password" placeholder="Enter your password">
-
+            <input id="password" type="password" name="password" placeholder="Enter your password"><br><br>
     </div>
     <div>
         <label for="bio">Biography</label>
-            <Textarea id="bio" placeholder="Tell us a little about yourself" ></Textarea>
+            <Textarea id="bio" name="bio" placeholder="Tell us a little about yourself" cols="40" rows="20" ></Textarea>
     </div>
 
     <div>
+        <!--select one choice
+         <h4>How did you hear about us?</h4>
+         <Label for="billboard">
+             <input id="billboard" type="radio" name="advertisement-method" value="billboard"> Billboard
+         </Label><br>
+         <Label for="radio-ads">
+             <input id="radio-ads" type="radio" name="advertisement-method" value="radio-ads"> Radio Advertisement
+         </Label><br>
+         <Label for="internet">
+             <input id="internet" type="radio" name="advertisement-method" value="internet"> Internet Advertisement
+         </Label><br>
+         <label for="other">
+             <input id="other" type="radio" name="advertisement-method" value="other"> Other
+         </label> <br><br>
+     </div> -->
+
+    <div>
+        <!--checkbox element-->
         <h4>How did you hear about us?</h4>
         <Label for="billboard">
-            <input id="billboard" type="radio" name="advertisement-method-1" value="billboard"> Billboard
+            <input id="billboard" type="checkbox" name="source-billboard" value="true"> Billboard
         </Label><br>
         <Label for="radio-ads">
-            <input id="radio-ads" type="radio" name="advertisement-method-2" value="radio-ads"> Radio Advertisement
+            <input id="radio-ads" type="checkbox" name="source-radioad" value="true"> Radio Advertisement
         </Label><br>
         <Label for="internet">
-            <input id="internet" type="radio" name="advertisement-method-3" value="internet"> Internet Advertisement
+            <input id="internet" type="checkbox" name="source-internet" value="true"> Internet Advertisement
         </Label><br>
         <label for="other">
-            <input id="other" type="radio" name="advertisement-method-4" value="other"> Other
-        </label>
+            <input id="other" type="checkbox" name="source-other" value="true"> Other
+        </label> <br><br>
     </div>
 
     <div>
