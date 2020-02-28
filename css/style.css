@@ -1,12 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Prata&display=swap');
+
+.title-header{
+    font-family: 'Prata';
+    color: lightsteelblue;
+    font-weight: bolder;
+    text-align: center;
+}
+
+
 .fancy-header {
     color:lightblue;
     text-decoration: underline;
 
 }
 
+.product-table{
+    font-size: 50px;
+    color:lightblue;
+    Text-decoration:underline;
+    text-align: center;
+}
+
 body{
     background-image:url("../imgs/dot-grid.png");
-    font-family:'Nanum Myeongjo', SansSerif;
+    font-family:'Prata','SansSerif;
 
 }
 
@@ -18,13 +35,23 @@ ol{
     list-style:lower-roman;
 }
 
+table{
+    margin-left: auto;
+    margin-right: auto;
+}
 td,th{
     border: 1px solid black;
-    padding: 15px
+    padding: 15px;
+    font-size:2em;
 }
 
-a:link{
-    color:black
+a:hover{
+    color:blue;
 
+}
+
+img {
+    width: 40%;
+    height: auto;
 }
 
