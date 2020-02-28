@@ -1,57 +1,71 @@
-@import url('https://fonts.googleapis.com/css?family=Prata&display=swap');
 
-.title-header{
-    font-family: 'Prata';
+.title-header {
     color: lightsteelblue;
     font-weight: bolder;
     text-align: center;
 }
 
-
 .fancy-header {
-    color:lightblue;
+    color: lightblue;
     text-decoration: underline;
-
 }
 
-.product-table{
+.product-table {
     font-size: 50px;
-    color:lightblue;
-    Text-decoration:underline;
+    color: lightblue;
+    Text-decoration: underline;
     text-align: center;
 }
 
-body{
-    background-image:url("../imgs/dot-grid.png");
-    font-family:'Prata','SansSerif;
+body {
+    background-image: url("../imgs/dot-grid.png");
+    font-family: 'Nanum Myeongjo', 'Prata';
 
 }
 
-ul{
+ul {
     list-style: circle;
 }
 
-ol{
-    list-style:lower-roman;
+ol {
+    list-style: lower-roman;
 }
 
-table{
+table {
     margin-left: auto;
     margin-right: auto;
 }
-td,th{
+
+td, th {
     border: 1px solid black;
     padding: 15px;
-    font-size:2em;
+    font-size: 2em;
 }
 
-a:hover{
-    color:blue;
+/*if you want to just change the rows but not the headings*/
+/*tr>td{*/
+/*    font-size:2em;*/
+/*}*/
 
+/*Pseudoclass*/
+a:hover {
+    color: blue;
+    background-color:dimgrey;
 }
+
+a:link{
+    color:red
+}
+
+a:visited{
+    color:lightseagreen;
+}
+
 
 img {
-    width: 40%;
-    height: auto;
+    width: 500px;
+    height: 600px;
+    padding: 10px;
+
 }
 
