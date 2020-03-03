@@ -1,12 +1,47 @@
-nav{
-    background-color:grey;
+.top{
+    background-color:black;
     position:fixed;
+    top:0;
+    left:0;
     width:100%;
+    height:60px;
 }
+
+.first-navbar{
+    text-align:center;
+}
+
 
 .top-navbar li{
     display:inline-block;
-    padding:1em 2.5em;
+    padding: 0 3em 3em 0;
+}
 
+.top-navbar-links{
+    color:white;
+    text-decoration: none;
+}
+
+.second-list{
+    list-style: none;
+    display:inline-block;
+}
+
+.rightside-navbar{
+    float:right;
+    margin: 0 1em;
+    padding: 0 4em;
+}
+
+.leftside-navbar{
+    float:left;
+    margin: 0;
 
 }
+
+.second-list a{
+padding:1em;
+    color:black;
+    text-decoration:none;
+}
+
