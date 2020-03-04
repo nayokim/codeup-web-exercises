@@ -1,0 +1,53 @@
+*{
+    box-sizing: border-box;
+}
+
+nav{
+    background-color: lightgray;
+    font-family: "Work Sans", Sans-Serif;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+body{
+    margin:0
+}
+header nav a:hover{
+    color:blue;
+}
+
+header nav a{
+    display:inline-block;
+    color:black;
+    text-decoration: none;
+    padding: 10px; /*this means that the 10px around the link is clickable */
+}
+
+header nav ul{
+    list-style: none;
+    display:flex;
+    margin:0;
+    padding:0;
+    justify-content: center;
+    flex: 1;
+}
+
+
+
+header nav .nav-bar-logo{
+    font-family: "montserrat", Sans-Serif;
+    font-size: 3em;
+    padding: 0.2em 0;
+
+}
+
+
+header nav .nav-bar-left{
+    display:flex;
+    justify-content: flex-start;
+}
+
+header nav .nav-bar-right{
+    justify-content: flex-end;
+}
