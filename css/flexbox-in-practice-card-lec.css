@@ -16,11 +16,11 @@ hr {
     width: 90px;
 }
 
+/*this section was added with the exercise*/
 header, main{
     width: 80%;
     max-width: 1300px;
     margin : 0 auto;
-
     padding: 1em;
     background: darkorange;
 
@@ -29,9 +29,9 @@ header, main{
 main{
     display:flex;
     flex-wrap:wrap;
-    justify-content: center;
-    height : 800px;
-    align-content: center;
+    justify-content: space-evenly;
+    height : 120vh;
+    align-content: flex-start;
     /* align content : on the cross axis and affects when there are multiple lines of contents. adjusting the space between the lines.
      */
 
