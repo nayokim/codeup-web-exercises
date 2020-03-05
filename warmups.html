@@ -36,6 +36,28 @@
     favoriteFoods.reverse();
     console.log(favoriteFoods);
 
+    //exercise 6
+    // Sort the favorite foods array in alphabetical order
+
+    favoriteFoods.sort();
+    console.log(favoriteFoods);
+
+    //exercise 7
+    //sort the favorite foods array in reverse alphabetical order
+    favoriteFoods.reverse();
+    console.log('the reverse order is', favoriteFoods);
+
+    // favoriteFoods.sort().reverse() this is a built-in function
+
+    //exercise 8
+    // create a new array of fruits and and add that array to the end of your favorite foods array
+    var fruits = ['apples','grapes','oranges'];
+    var concatedArray= favoriteFoods.concat(fruits);
+    Array.prototype.push.apply(favoriteFoods,fruits);
+    // favoriteFoods.push([fruits]); cannot use this
+    console.log('concat two arrays',concatedArray);
+
+
 </script>
 </body>
 </html>

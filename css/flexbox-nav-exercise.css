@@ -9,6 +9,7 @@ nav{
     justify-content: space-between;
     align-items: center;
 
+
 }
 body{
     margin:0
@@ -51,3 +52,4 @@ header nav .nav-bar-left{
 header nav .nav-bar-right{
     justify-content: flex-end;
 }
+
