@@ -2,83 +2,87 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>css-grid-layout-3</title>
+    <title>css grid layout 3</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
 
-        .wrapper{
-            display:grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-            height: 500px;
+        body {
+            margin: 0;
+        }
+
+        .wrapper {
+            display: grid;
+            height: 100vh;
+            width: 100vw;
+            grid-template-columns: repeat (4, 1fr);
+            grid-template-rows: repeat(5, 1fr);
             font-size: 2em;
             color: white;
-            grid-row-gap: 5px;
-            grid-column-gap: 5px;
+            grid-gap: 6px;
         }
 
-        .one{
+        .wrapper div {
             background-color: rgb(255, 215, 0);
+            padding: 8px;
+            color: white;
+        }
+
+        .one {
             grid-column: 1/span 4;
+            /*grid-area: 1/ 1 / 2 / -1;*/
         }
 
-        .two{
-            background-color: rgb(255, 215, 0);
+        .two {
+            /*grid-area: 2/ 2 / -1 / 1;*/
             grid-column: 1/span 1;
-            grid-row: 2/ span 3;
+            grid-row: 2/ span 4;
         }
 
-        .three{
-            background-color: rgb(255, 215, 0);
+        .three {
             grid-column: 2/ span 1;
             grid-row: 2/ span 1;
         }
 
-        .four{
-            background-color: rgb(255, 215, 0);
+        .four {
             grid-column: 3/ span 2;
             grid-row: 2/ span 1;
         }
 
-        .five{
-            background-color: rgb(255, 215, 0);
+        .five {
             grid-column: 2/ span 2;
             grid-row: 3/ span 1;
         }
 
-        .six{
-            background-color: rgb(255, 215, 0);
+        .six {
             grid-column: 4/ span 1;
             grid-row: 3 span 1;
         }
 
-        .seven{
-            background-color: rgb(255, 215, 0);
+        .seven {
             grid-column: 2/ span 1;
             grid-row: 4 / span 1;
 
         }
 
-        .eight{
-            background-color: rgb(255, 215, 0);
+        .eight {
             grid-column: 3/ span 1;
             grid-row: 4/ span 1;
         }
 
-        .nine{
-            background-color: rgb(255, 215, 0);
+        .nine {
             grid-column: 4/ span 1;
             grid-row: 4/ span 1;
         }
-        .ten{
-            background-color: rgb(255, 215, 0);
-            grid-column: 1/ span 4;
-            grid-row: 5/ span 1;
 
+        .ten {
+            grid-column: 2/ span 3;
+            grid-row: 5/ span 1;
         }
     </style>
 </head>
 <body>
-
 <div class="wrapper">
     <div class="one">1</div>
     <div class="two">2</div>
