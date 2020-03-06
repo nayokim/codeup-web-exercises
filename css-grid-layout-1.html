@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css-grid-layout-1</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .wrapper {
+            display: grid;
+            grid-template-columns: repeat(5, 200px);
+            grid-template-rows: repeat(6, 80px);
+            width: 100%vh;
+            height: 100%vh;
+            grid-row-gap: 5px;
+            grid-column-gap: 5px;
+        }
+
+        .header-top {
+            grid-column: 1 / span 5;
+            background-color: rgb(255, 215, 0);
+        }
+        .nav-side{
+            grid-row: 2 / span 5;
+            background-color: rgb(255, 215, 0);
+        }
+
+        .article{
+            grid-column: 2 /span 3;
+            grid-row: 2 /span 4;
+            background-color: rgb(255, 215, 0);
+        }
+
+        .Ads{
+            grid-column: 5 / span 1;
+            grid-row: 2/ span 4;
+            background-color: rgb(255, 215, 0);
+        }
+
+        .footer-bottom{
+            grid-column: 2/ span 4;
+            grid-row: 6/ span 1;
+            background-color: rgb(255, 215, 0);
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="wrapper">
+    <div class="header-top">Header</div>
+    <div class="nav-side">Nav</div>
+    <div class="article">Article</div>
+    <div class="Ads">Ads</div>
+    <div class="footer-bottom">Footer</div>
+</div>
+</body>
+</html>

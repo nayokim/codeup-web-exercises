@@ -1,0 +1,38 @@
+*{
+    /*border: 2px dotted red;*/
+    /*margin:0;*/
+}
+
+header{
+    margin: 0;
+    padding:0;
+}
+
+.wrapper{
+
+}
+
+nav .navbar-top{
+    margin: 0;
+}
+.navbar-top{
+    border: 2px solid green;
+    margin: 0;
+    padding: 0;
+    background: black;
+
+}
+
+.navbar-top ul{
+    display:flex;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 2px;
+    list-style: none;
+}
+
+.navbar-top a{
+    text-decoration: none;
+    color: white;
+    padding: 5px;
+}

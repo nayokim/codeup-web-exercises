@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css-grid-layout-2</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .wrapper{
+            display:grid;
+            grid-template-columns: 1fr 3fr;
+            grid-template-rows: 1fr 4fr 1fr 1fr;
+            height: 500px;
+            grid-row-gap: 5px;
+            grid-column-gap: 5px;
+
+        }
+
+        .header-top{
+            background-color: green;
+            grid-column: 1/ span 2;
+        }
+
+        .nav-side{
+            background-color: green;
+            grid-column: 1/ span 1;
+            grid-row: 2 / span 2;
+        }
+
+        .article{
+            background-color: green;
+            grid-column: 2/ span 1;
+        }
+        .Ads{
+            background-color: green;
+            grid-column: 2/ span 1;
+        }
+
+        .footer-bottom{
+            background-color: green;
+            grid-column: 1/ span 2;
+            grid-row: 4/ span 2;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <div class="header-top"></div>
+    <div class="nav-side"></div>
+    <div class="article"></div>
+    <div class="Ads"></div>
+    <div class="footer-bottom"></div>
+</body>
+</html>
