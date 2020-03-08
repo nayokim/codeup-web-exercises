@@ -1,6 +1,6 @@
 *{
     /*border: 2px dotted red;*/
-    /*margin:0;*/
+    margin:0;
 }
 
 header{
@@ -16,8 +16,6 @@ nav .navbar-top{
     margin: 0;
 }
 .navbar-top{
-    border: 2px solid green;
-    margin: 0;
     padding: 0;
     background: black;
 
@@ -35,4 +33,18 @@ nav .navbar-top{
     text-decoration: none;
     color: white;
     padding: 5px;
+}
+
+.menu {
+    display:flex;
+    border: 1px solid black;
+
+}
+.menu ul{
+    list-style: none;
+    padding: 20px;
+}
+.menu a{
+    text-decoration: none;
+    color: black;
 }
