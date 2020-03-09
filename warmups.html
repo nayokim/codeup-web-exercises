@@ -11,18 +11,18 @@
     //  Exercise 1
     // On the line below, create a variable named onMarsRightNow and assign it the boolean value of false
     var onMarsRightNow = false;
-    console.log(onMarsRightNow==false);
-    console.log(onMarsRightNow== true); //questioning the variable - is the variable onMarsRightNow == true? the console.log should output false since the value is actually "false" not "true"
+    console.log(onMarsRightNow == false);
+    console.log(onMarsRightNow == true); //questioning the variable - is the variable onMarsRightNow == true? the console.log should output false since the value is actually "false" not "true"
 
     //exercise 2
     //create an array with the names of five of your favorite foods
-    var favoriteFoods = ['pizza','ice-cream','tacos', 'cake','korean-food'];
+    var favoriteFoods = ['pizza', 'ice-cream', 'tacos', 'cake', 'korean-food'];
     console.log(favoriteFoods);
 
 
     //exercise 3
     // create an array of numbers from 1 to 10
-    var numbersOneToTen=[1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    var numbersOneToTen = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     console.log(numbersOneToTen);
 
     //exercise 4
@@ -51,11 +51,11 @@
 
     //exercise 8
     // create a new array of fruits and and add that array to the end of your favorite foods array
-    var fruits = ['apples','grapes','oranges'];
-    var concatedArray= favoriteFoods.concat(fruits);
-    Array.prototype.push.apply(favoriteFoods,fruits);
+    var fruits = ['apples', 'grapes', 'oranges'];
+    var concatedArray = favoriteFoods.concat(fruits);
+    Array.prototype.push.apply(favoriteFoods, fruits);
     // favoriteFoods.push([fruits]); cannot use this
-    console.log('concat two arrays',concatedArray);
+    console.log('concat two arrays', concatedArray);
 
     //exercise 9
     //write a javascript function called sayHello that, when sent a name like "douglas", it returns the string "hello douglas"
@@ -64,15 +64,26 @@
         return "Hello " + name + "!";
 
     }
+
     console.log(sayHello('apex'));
     //exercise 10
     // write a function called firstItem that takes in an array and returns the first item in the array
 
-    function firstItem(arr) {
-        return arr([0]);
-    }
+    // function firstItem(arr) {
+    //     return arr([0]);
+    // }
+    //
+    // console.log('return the first item of an array.', firstItem(favoriteFoods));
 
-    console.log('return the first item of an array.', firstItem(favoriteFoods));
+    //exercise 11 - create a function that returns the type of the value you enter in the input parameter of the function
+
+    function checkType(aValue) {
+        return typeof aValue;
+
+    }
+    console.log('this is a '+ checkType(1));
+    console.log('checkType(\'apex\')'+ checkType('apex'));
+    console.log('checkType(true)' + checkType(true));
 
 </script>
 </body>
