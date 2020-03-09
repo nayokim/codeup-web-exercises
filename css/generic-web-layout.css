@@ -10,12 +10,15 @@ header{
     padding:0;
     grid-column: 1 / span 3;
     grid-row: 1/ span 1;
+
 }
 
 .wrapper{
     display:grid;
     grid-template-columns: 1fr 50% 25%;
-    grid-template-rows: 20% 1fr 1fr 1fr;
+    grid-template-rows: 30px 50px 1fr 1fr;
+    height: 100vh;
+    width: 100vw;
 
 }
 
@@ -49,8 +52,8 @@ nav .navbar-top{
     grid-column: 1/span 1;
     grid-row: 2/ span 1;
     /*border: 1px solid black;*/
-    background-color: lightgray;
-    padding-top: 20px;
+    background-color: #e8e8e8;
+    padding-top: 10px;
     font-weight: bolder;
 
 
@@ -65,22 +68,24 @@ nav .navbar-top{
 }
 
 .navbar-side{
-    background-color: lightgray;
+    background-color: #e8e8e8;
     grid-column: 1/ span 1;
     grid-row: 3/ span 1;
     /*border: 2px dotted green;*/
-    width:
+
 
 }
 .navbar-side ul{
-   margin-left: 0;
+    margin-left: 0;
     padding-left: 10px;
+
 
 }
 
 .navbar-side li{
     list-style: none;
-    padding: 5px;
+    padding: 15px 15px 15px 0;
+
 }
 .navbar-side a{
     text-decoration: none;
