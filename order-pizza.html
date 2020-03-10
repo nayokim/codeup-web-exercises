@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Pizza Order</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -90,7 +90,7 @@
             </ul>
         </div>
         <div class="card-footer text-muted">
-            <a href="#" class="btn btn-primary">Checkout</a>
+            <a href="#" class="btn btn-primary page-1">Next Step &raquo</a>
         </div>
     </div>
 
@@ -101,25 +101,78 @@
             Choose Cheese and Sauce
         </div>
         <div class="card-body">
-            <ul class="list-group hand-tossed">
+            <ul class="list-group cheeses">
                 <li class="list-group-item header">Cheese</li>
-                <li class="list-group-item">Garlic seasoned crust with a rich, buttery taste</li>
+                <li class="list-group-item"><label for="exampleFormControlSelect1">How much?</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>Light</option>
+                        <option>Normal</option>
+                        <option>Extra</option>
+                        <option>Double</option>
+                    </select>
+                </li>
                 <div>
-                    <li class="list-group-item"> <input type="radio" id="small" name="size">
-                        <label for="small">Small (10")</label></li>
-                    <li class="list-group-item"> <input type="radio" id="medium" name="size" >
-                        <label for="medium">Medium (12")</label></li>
             </ul>
 
-            <ul class="list-group crispy">
-                <li class="list-group-item header">Crispy Thin</li>
-                <li class="list-group-item">Thin enough for optimum crispy to crunchy ratio</li>
+            <ul class="list-group sauce">
+                <li class="list-group-item header">Sauce</li>
+                <li class="list-group-item"><label for="exampleFormControlSelect1">What Type?</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>Tomato Sauce</option>
+                        <option>Marinara</option>
+                        <option>BBQ Sauce</option>
+                        <option>Alfredo Sauce</option>
+                    </select>
+                </li>
+                <li class="list-group-item sauce-amt"><label for="exampleFormControlSelect1">How much?</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>Light</option>
+                        <option>Normal</option>
+                        <option>Extra</option>
+                        <option>Double</option>
+                    </select>
                 <div>
-                    <li class="list-group-item"> <input type="radio" id="medium-crispy" name="size-crispy">
-                        <label for="medium-crispy">Medium (12") </label></li>
-                    <li class="list-group-item"> <input type="radio" id="large" name="size-crispy" >
-                        <label for="large">Large (14")</label></li>
             </ul>
+        </div>
+        <div class="card-footer text-muted">
+            <a href="#" class="btn btn-primary previous     "> &laquo;Previous Step</a><a href="#" class="btn btn-primary">Next Step &raquo;</a>
+        </div>
+    </div>
+
+    <!--toppings-->
+    <div class="card text-center">
+        <div class="card-header">
+            Choose Toppings
+        </div>
+        <div class="card-body">
+            <ul class="list-group meats">
+                <li class="list-group-item header">Choose Meats</li>
+                <div>
+                    <li class="list-group-item"> <input type="checkbox" id="beef">
+                        <label for="beef">Beef</label></li>
+                    <li class="list-group-item"> <input type="checkbox" id="Ham">
+                        <label for="Ham">Ham</label></li>
+                    <li class="list-group-item"> <input type="checkbox" id="Philly-steak">
+                        <label for="Philly-steak">Philly Steak</label></li>
+                    <li class="list-group-item"> <input type="checkbox" id="Bacon">
+                    <label for="Bacon">Bacon</label></li>
+            </ul>
+
+            <ul class="list-group non-meats">
+                <li class="list-group-item header">Choose Non-Meats</li>
+                <div>
+                    <li class="list-group-item"> <input type="checkbox" id="Green-peppers">
+                        <label for="Green-peppers">Green Peppers</label></li>
+                    <li class="list-group-item"> <input type="checkbox" id="mushrooms">
+                        <label for="mushrooms">Mushrooms</label></li>
+                    <li class="list-group-item"> <input type="checkbox" id="onions">
+                        <label for="onions">Onions</label></li>
+                    <li class="list-group-item"> <input type="checkbox" id="Jalepeno-peppers">
+                        <label for="Jalepeno-peppers">Jalepeno Peppers</label></li>
+            </ul>
+
+
+
         </div>
         <div class="card-footer text-muted">
             <a href="#" class="btn btn-primary">Checkout</a>

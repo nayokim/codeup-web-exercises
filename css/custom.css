@@ -37,6 +37,7 @@
 }
 .card-footer{
     text-align:right;
+    font-size: 0.;
 }
 
 .list-group{
@@ -53,3 +54,12 @@
 .hand-tossed{
     margin-bottom: 10px;
 }
+
+.cheeses{
+    margin-bottom: 10px;
+}
+
+.meats{
+    margin-bottom: 10px;
+}
+
