@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
 
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Pizza World</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -21,27 +25,118 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Menu</a>
                 </li>
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link" href="#">Pricing</a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>-->
-                </li>
             </ul>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Zipcode" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search stores near you</button>
         </div>
+        <a class="navbar-brand" href="#">
+            <img src="imgs/user-solid-24.png" width="30" height="30" class="d-inline-block align-top" alt="">
+            Sign up
+        </a>
+        </a>
     </nav>
 </header>
 
 <main class="container">
 
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Welcome to Pizza World!</h1>
+        </div>
+    </div>
+
+    <div>
+        <h2>
+            Build your own Pizza!
+        </h2>
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="#"><span class="badge badge-light">1</span>Size and Crust</a>
+
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><span class="badge badge-light">2</span>Cheese and Sauce</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><span class="badge badge-light">3</span>Toppings</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="card text-center">
+        <div class="card-header">
+            Choose size and crust
+        </div>
+        <div class="card-body">
+            <ul class="list-group hand-tossed">
+                <li class="list-group-item header">Hand Tossed</li>
+                <li class="list-group-item">Garlic seasoned crust with a rich, buttery taste</li>
+                <div>
+                <li class="list-group-item"> <input type="radio" id="small" name="size">
+                    <label for="small">Small (10")</label></li>
+                <li class="list-group-item"> <input type="radio" id="medium" name="size" >
+                    <label for="medium">Medium (12")</label></li>
+            </ul>
+
+            <ul class="list-group crispy">
+                <li class="list-group-item header">Crispy Thin</li>
+                <li class="list-group-item">Thin enough for optimum crispy to crunchy ratio</li>
+                <div>
+                    <li class="list-group-item"> <input type="radio" id="medium-crispy" name="size-crispy">
+                        <label for="medium-crispy">Medium (12") </label></li>
+                    <li class="list-group-item"> <input type="radio" id="large" name="size-crispy" >
+                        <label for="large">Large (14")</label></li>
+            </ul>
+        </div>
+        <div class="card-footer text-muted">
+            <a href="#" class="btn btn-primary">Checkout</a>
+        </div>
+    </div>
+
+    <!-- cheese and sauce-->
+
+    <div class="card text-center">
+        <div class="card-header">
+            Choose Cheese and Sauce
+        </div>
+        <div class="card-body">
+            <ul class="list-group hand-tossed">
+                <li class="list-group-item header">Cheese</li>
+                <li class="list-group-item">Garlic seasoned crust with a rich, buttery taste</li>
+                <div>
+                    <li class="list-group-item"> <input type="radio" id="small" name="size">
+                        <label for="small">Small (10")</label></li>
+                    <li class="list-group-item"> <input type="radio" id="medium" name="size" >
+                        <label for="medium">Medium (12")</label></li>
+            </ul>
+
+            <ul class="list-group crispy">
+                <li class="list-group-item header">Crispy Thin</li>
+                <li class="list-group-item">Thin enough for optimum crispy to crunchy ratio</li>
+                <div>
+                    <li class="list-group-item"> <input type="radio" id="medium-crispy" name="size-crispy">
+                        <label for="medium-crispy">Medium (12") </label></li>
+                    <li class="list-group-item"> <input type="radio" id="large" name="size-crispy" >
+                        <label for="large">Large (14")</label></li>
+            </ul>
+        </div>
+        <div class="card-footer text-muted">
+            <a href="#" class="btn btn-primary">Checkout</a>
+        </div>
+    </div>
+
 </main>
 
 
-
-
-
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
 </body>
 </html>
