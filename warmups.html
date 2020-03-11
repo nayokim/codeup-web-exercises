@@ -97,6 +97,38 @@
     }
         checkTypes([2,'Fer',false]);
 
+    //exercise 13: write a function called isString that accepts a single input, and returns true if the data type is a string or false if it is not a string
+
+
+    function isString(item){
+        return(checkType(item) === "string");
+    }
+    // function isString(input){
+    //     if (type = " ") {
+    //         return true;
+    //     } else{
+    //         return false;
+    //     }
+    // }
+
+    console.log('isString(true)' + isString(true));
+    console.log('isString(true)'+ isString("hello"));
+
+    //exercise 14: write a function called isNumber that accepts a single input, and returns true if the data type is a number or false if it is not a number
+
+    function isNumber (aNumber){
+        return typeof aNumber==="number";
+    }
+    // function isNumber(inp){
+    //     if (type = 'number' ){
+    //         return true;
+    //     } else{
+    //         return false;
+    //     }
+    // }
+
+    console.log('isNumber("hi")'+ isNumber("hi"));
+    console.log('isNumber(42)'+ isNumber(42));
 </script>
 </body>
 </html>
