@@ -1,3 +1,5 @@
+
+
 .btn-outline-success {
     border-color: grey;
     color: grey;
@@ -13,31 +15,29 @@
     border-color: grey;
 }
 
-.display-4{
-    background-color: white;
-    opacity:50%;
+#welcome-title{
+    background-color:rgba(255,255,255,0.7); /*the a with the rgb is allowing us to play with the color*/
     text-align:center;
 }
 
-.jumbotron {
+#main-jumbo {
     background-image: url("../imgs/pizza.png");
-
+    background-size:cover; /*finds the best size of the image for the size*/
 }
 
-@media only screen and (max-width: 500px) {
-    .jumbotron {
-       display:none;
-    }
-}
+/*@media only screen and (max-width: 500px) {*/
+/*    .jumbotron {*/
+/*       display:none;*/
+/*    }*/
+/*}*/
 
 .card-header{
-    background-color: #007bff;
+    /*background-color: #007bff;*/
     color:white;
     text-align:left;
 }
 .card-footer{
     text-align:right;
-    font-size: 0.;
 }
 
 .list-group{
@@ -49,10 +49,6 @@
 .custom-control{
     padding-left:0;
 
-}
-
-.hand-tossed{
-    margin-bottom: 10px;
 }
 
 .cheeses{
