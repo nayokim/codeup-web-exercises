@@ -81,28 +81,31 @@
         return typeof aValue;
 
     }
-    console.log('this is a '+ checkType(1));
-    console.log('checkType(\'apex\')'+ checkType('apex'));
+
+    console.log('this is a ' + checkType(1));
+    console.log('checkType(\'apex\')' + checkType('apex'));
     console.log('checkType(true)' + checkType(true));
 
     //exercise 12 : create a function that takes in an array of values and console.logs the data type of each.
 
 
-    function checkTypes(arr){
-        for (var i=0; i < arr.length; i++){
+    function checkTypes(arr) {
+        for (var i = 0; i < arr.length; i++) {
             // console.log('i: ' + i); //this line is just checking to see if it works
             console.log(arr[i]);
             console.log(checkType(arr[i])); // checkType is from the function from the above exercise
         }
     }
-        checkTypes([2,'Fer',false]);
+
+    checkTypes([2, 'Fer', false]);
 
     //exercise 13: write a function called isString that accepts a single input, and returns true if the data type is a string or false if it is not a string
 
 
-    function isString(item){
-        return(checkType(item) === "string");
+    function isString(item) {
+        return (checkType(item) === "string");
     }
+
     // function isString(input){
     //     if (type = " ") {
     //         return true;
@@ -112,13 +115,14 @@
     // }
 
     console.log('isString(true)' + isString(true));
-    console.log('isString(true)'+ isString("hello"));
+    console.log('isString(true)' + isString("hello"));
 
     //exercise 14: write a function called isNumber that accepts a single input, and returns true if the data type is a number or false if it is not a number
 
-    function isNumber (aNumber){
-        return typeof aNumber==="number";
+    function isNumber(aNumber) {
+        return typeof aNumber === "number";
     }
+
     // function isNumber(inp){
     //     if (type = 'number' ){
     //         return true;
@@ -127,8 +131,30 @@
     //     }
     // }
 
-    console.log('isNumber("hi")'+ isNumber("hi"));
-    console.log('isNumber(42)'+ isNumber(42));
+    console.log('isNumber("hi")' + isNumber("hi"));
+    console.log('isNumber(42)' + isNumber(42));
+
+    //exercise 15: create a function that generates and returns a random number between 0 and 10
+
+    function getRandomNumber(input) {
+        return Math.floor(Math.random() * 17);
+    }
+
+    console.log(getRandomNumber());
+
+    //exercise 16: create an array with your classmates name in it
+
+    var classmatesArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p'];
+
+    console.log('classmatesArray',classmatesArray);
+
+    //exercise 17: create a function that returns a random item from an array
+
+    function getRandomItem(array) {
+        return array[getRandomNumber()];
+    }
+
+    console.log('getRandomItem(classmatesArray): ', getRandomItem(classmatesArray));
 </script>
 </body>
 </html>
