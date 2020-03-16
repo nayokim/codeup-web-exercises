@@ -155,6 +155,23 @@
     }
 
     console.log('getRandomItem(classmatesArray): ', getRandomItem(classmatesArray));
+
+    //exercise 18: create a function that prints a list of names randomly from the apex array
+    // todo: make sure that there is no duplicates
+
+    function generateMicrowaveList(classmatesArray) {
+        //main problem to solive: only 1 item at the time
+        for (var x = 0; x < classmatesArray.length; x++) {
+            console.log('index: ' + x + ' ' + getRandomItem(classmatesArray));
+        }
+    }
+
+    generateMicrowaveList();
+
+
+
+
+
 </script>
 </body>
 </html>
