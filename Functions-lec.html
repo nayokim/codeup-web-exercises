@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--inline script is not recommended - this is just for the sake of the lecture-->
+<script>
+    // global scope var is available for every function or line of code
+    var globalCohortName = 'Apex';  // when you declare a variable outside of a function, you can reference it anywhere in your file.
+    // var ccNumber = 401938472; sensitive info should not be in the global scope. One way to fix it is to use a prompt for the user to enter it. This way, you can still use it in the global
+    var ccNumber = prompt('what is your cc number?')
+
+
+    function shower(){
+        var waterTemp = 'hot' // by default create your variables in the function
+        console.log('wake up');
+        console.log('turn the water on');
+        console.log('wash yourself');
+        console.log('dry yourself');
+        console.log ('inside console.log', globalCohortName) //function scope
+    }
+
+    // call the function shower: you call the function because if you want to create reusable codeblocks. if you didnt call the function, you would have to copy and paste the 4 lines of shower 3 times.
+    // shower();
+    // shower();
+    // shower();
+ console.log('outside console.log', globalCohortName); // global scope
+
+    function teachRemotely(internetConn, Mic){
+        return internetConn === true && Mic === true;
+
+    }
+
+    console.log(teachRemotely(true, false)); // function teachremotely is being called with two parameters being input into it and we are logging the results
+    console.log(teachRemotely(true,true));
+
+    //anon. functions
+    var callOnFaceTime = function (internetConn){ //creating a variable to hold the function
+        var videoStream = internetConn === true;
+        return videoStream;
+    };
+    console.log( 'callOnFaceTime', callOnFaceTime(true));
+    console.log( 'callOnFaceTime', callOnFaceTime(0));
+
+    //parameters/arguments
+
+    function bakeCake(ingredients){ // ingredients is a placeholder for values BUT not the actual values when using it in a function
+
+    };
+
+    function sellCake(price,client ){
+        var cake = null;
+
+        //function scope var helps to hide and protect the info
+        var ccNumber = prompt('what is your cc number?') // protecting your information from the global scope. If this is the only time you are using the cc number, you can keep it in the function.
+        cake = "mixing" + "baking" + "decorating";
+        console.log("order is ready for" + client + " $" + price);
+        return cake;
+    };
+
+
+
+    sellCake(100.56,"fernando") //when you call the function, you can set the values
+
+
+</script>
+</body>
+</html>
