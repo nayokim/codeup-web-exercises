@@ -100,7 +100,7 @@ console.log(calculateTip(.20, 20));
 var bill = Number(prompt ('How much was the total bill?'));
 var tipPercent = Number(prompt ('What percent do you want to tip?'));
 
-var amountDue= alert('you should tip:$ ' + calculateTip(tipPercent,bill));
+var amountDue= alert('you should really tip:$ ' + calculateTip(tipPercent,bill));
 
 /**
  * TODO:
@@ -117,8 +117,8 @@ var amountDue= alert('you should tip:$ ' + calculateTip(tipPercent,bill));
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
 
-function applyDiscount(originalPrice,discountPercentage){
-    return (1-discountPercentage)*originalPrice;
+function applyDiscount(originalPrice,discountPercent){
+    return (1-discountPercent)*originalPrice;
 
 }
 
