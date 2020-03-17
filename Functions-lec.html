@@ -8,14 +8,24 @@
 
 <!--inline script is not recommended - this is just for the sake of the lecture-->
 <script>
+"use strict"
+// IFFE function- helps us to get rid of global scope. you dont want to expose all variables, functions, etc to the global scope
+    (function(){
+        var globalCorhortName = 'Apex';
+
+        //rest of the code inside of IIFE
+
+        };
+        //rest of the code inside of the IIFE
+    })(); // this last part is how we call functions [();]
     // global scope var is available for every function or line of code
-    var globalCohortName = 'Apex';  // when you declare a variable outside of a function, you can reference it anywhere in your file.
+    // var globalCohortName = 'Apex';  // when you declare a variable outside of a function, you can reference it anywhere in your file.
     // var ccNumber = 401938472; sensitive info should not be in the global scope. One way to fix it is to use a prompt for the user to enter it. This way, you can still use it in the global
-    var ccNumber = prompt('what is your cc number?')
+    var ccNumber = prompt('what is your cc number?');
 
 
     function shower(){
-        var waterTemp = 'hot' // by default create your variables in the function
+        var waterTemp = 'hot' ;// by default create your variables in the function
         console.log('wake up');
         console.log('turn the water on');
         console.log('wash yourself');
@@ -27,7 +37,7 @@
     // shower();
     // shower();
     // shower();
- console.log('outside console.log', globalCohortName); // global scope
+ // console.log('outside console.log', globalCohortName); // global scope
 
     function teachRemotely(internetConn, Mic){
         return internetConn === true && Mic === true;
@@ -55,17 +65,39 @@
         var cake = null;
 
         //function scope var helps to hide and protect the info
-        var ccNumber = prompt('what is your cc number?') // protecting your information from the global scope. If this is the only time you are using the cc number, you can keep it in the function.
+        var ccNumber = prompt('what is your cc number?'); // protecting your information from the global scope. If this is the only time you are using the cc number, you can keep it in the function.
         cake = "mixing" + "baking" + "decorating";
         console.log("order is ready for" + client + " $" + price);
         return cake;
     };
 
-
-
     sellCake(100.56,"fernando") //when you call the function, you can set the values
 
 
+</script>
+
+<script>
+    "use strict";
+    (function(){
+        function makePayment(){
+            var cc = prompt("whats your CC number?");
+            // var expDate = prompt("what is your Exp date? MM/YY");
+            // var cvcCode = prompt ("what is your cvc number?");
+
+            return cc.length != 0;  //number of characters checking for length of string that is NOT zero.
+        }
+         console.log('makePayment', makePayment());
+    })();
+
+    // this is if you put the function outside the IIFE function - it is available in the global scope.
+
+    // function makePayment() {
+    //     var cc = prompt("whats your CC number?");
+    //     // var expDate = prompt("what is your Exp date? MM/YY");
+    //     // var cvcCode = prompt ("what is your cvc number?");
+    //
+    //     return cc.length != 0;  //number of characters checking for length of string that is NOT zero.
+    // };
 </script>
 </body>
 </html>
