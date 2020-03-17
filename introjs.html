@@ -76,6 +76,10 @@ var isOfferValid = console.log( (premiumMember && !offerExpired )|| (productsBou
 //
 
 
+// truthy vs falsy - in javascript there are values that evaluate to true and values that evulate to false.
+//truthy values: true, non-zero numbers, "strings", objects, arrays, functions
+//falsy values: false, 0, '' (empty strings), undefined (the values does not exist and the interpretor doesnt know what you are referring to), null (variable exist but has no value), NaN
+
 // Use the following code to follow the instructions below:
 //
 //     Copied to clipboard
@@ -105,7 +109,8 @@ console.log(usernameLength);
 
     username [0];
    username[username.length -1];
-   var isUsernameEndWithWhiteSpace = [{username[0] === ' ') || (username[username.length-1] === ' ')];
+
+var isUsernameEndWithWhiteSpace = [{username[0] === ' ') || (username[username.length-1] === ' ')];
 var isPasswordEndWithWhiteSpace = [{username[0] === ' ') || (username[username.length-1] === ' ')];
 var isUsernameAndPasswordValid = !isUsernameBeginorEndWhitespace &&
 

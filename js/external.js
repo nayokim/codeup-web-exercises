@@ -12,9 +12,9 @@ alert ('Great my favorite color is ' + userInput + ' too!');
 
 var dailyRate = prompt('what is the daily rate?');
 
-var littleMermaid = prompt('how many days will you be renting little mermaid?');
-var brotherBear = prompt('how many days will you be renting brother bear?');
-var hercules= prompt('how many days will you be renting hercules?');
+var littleMermaid = Number(prompt('how many days will you be renting little mermaid?'));
+var brotherBear =  Number(prompt('how many days will you be renting brother bear?'));
+var hercules= Number(prompt('how many days will you be renting hercules?'));
 
 var totalCost=(dailyRate * (littleMermaid + brotherBear + hercules));
 
