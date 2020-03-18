@@ -1,0 +1,68 @@
+/*primary font-family: Raleway, sans-serif;*/
+/*tablet width breakpoint:  992  px and below */
+/*mobile width breakpoint:  600  px and below*/
+/*content container width:  1400  px*/
+/*footer is in a fluid container*/
+
+* {
+    font-family: Raleway, Sans-Serif;
+
+}
+
+body {
+    background-color: #f1f1f1;
+}
+
+img.workshop{
+    width: 10%;
+    height:10%;
+}
+
+.lorem-nextline{
+    clear: both;
+    display: inline-block;
+    width: 100%;
+}
+.top-welcome-message {
+    margin-bottom: 30px;
+}
+
+.card {
+    width: 250px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: 0 auto;
+}
+
+
+p.card-message {
+    font-size: 0.7em;
+}
+
+.btn {
+    font-size: 0.8em;
+    border-radius: 0;
+    border: 1px solid #d9d9d9;
+    color: #131313;
+    width: 120px;
+}
+
+.comments{
+    font-size: 0.8em;
+}
+
+.about-me{
+    font-size: 0.8em;
+}
+
+
+.badge-square {
+    font-size: 0.5em;
+    border-radius: 0;
+}
+
+.badge-round {
+    font-size: 0.5em;
+    border-radius: 50%;
+}
+
+
