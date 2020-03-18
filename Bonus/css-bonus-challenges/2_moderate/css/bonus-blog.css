@@ -65,4 +65,9 @@ p.card-message {
     border-radius: 50%;
 }
 
+.img{
+    float: left;
+    margin-right:1rem;
+}
+
 
