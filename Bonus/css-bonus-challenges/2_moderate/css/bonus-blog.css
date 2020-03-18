@@ -68,6 +68,17 @@ p.card-message {
 .img{
     float: left;
     margin-right:1rem;
+    height: 50px;
+    width: 50px;
 }
 
+.list-lines{
+    overflow:auto;/* without overflow here, if the "Line 1" and "Line 2" is short then "Next elements" will display below "Line 2" and the image will cover the "Next elements"*/
+}
+.two-lines{
+    float: left; /*without float here, if "Line 1" and "Line 2" is long -> text will display both at right and bottom the image*/
+}
 
+.second-line-font-size{
+    font-size: 0.8em;
+}
