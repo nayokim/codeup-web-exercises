@@ -11,7 +11,7 @@ console.log('hi this is a test');
 //code here runs if condition evaluates to true
 
 var isAdmin = true;
-if (isAdmin){
+if (isAdmin) {
     console.log("Turn on the admin navbar.");
 }
 
@@ -38,7 +38,7 @@ if (currentBalance > itemCost) {
 //}
 
 var isAdmin = false;
-if (isAdmin){
+if (isAdmin) {
     //if true run this code;
     console.log('display admin navbar')
 } else {
@@ -58,13 +58,14 @@ if (isAdmin){
 // console.log(typeof dollarAmount);
 
 //refactor number of lives into a function
-function checkIfGameOver(numberOfLives){
-    if (numberOfLives === 0){
+function checkIfGameOver(numberOfLives) {
+    if (numberOfLives === 0) {
         return "sorry, game over :("
     } else {
         return "Next level!"
     }
 }
+
 //
 // alert(checkIfGameOver(0));
 // alert(checkIfGameOver(5));
@@ -87,12 +88,12 @@ function checkIfGameOver(numberOfLives){
 //     alert ('you are good to go. Enjoy the weather');
 // }
 
-function checkWeather(weather){
-    if (weather === 'snowing' || weather === 'hailing'){
+function checkWeather(weather) {
+    if (weather === 'snowing' || weather === 'hailing') {
         return 'stay inside';
-    } else if (weather ==='raining') {
+    } else if (weather === 'raining') {
         return 'get an umbrella';
-    } else if( weather === 'hailing'){
+    } else if (weather === 'hailing') {
         return 'take cover'
     } else {
         return 'you are good to go. Enjoy the weather';
@@ -153,6 +154,44 @@ var success = true;
 //     message = "oops something went wrong.";
 // }
 
-var message = success ?  "operation was successful" : "oops something went wrong";
+//condition = an expression that evaluates to true of false. It can be comparing variables or numbers or strings.
+
+var message = success ? "operation was successful" : "oops something went wrong";
 console.log(message);
 
+
+var weather = "sunny";
+var weatherMessage;
+
+// if (weather === "rainy"){
+//     weatherMessage = "Its Raining";
+// } else {
+//     weatherMessage = 'Have a nice day';
+// }
+
+//terinary
+weatherMessage = (weather === 'rainy') ? "its raining" : "have a nice day";
+
+console.log(weatherMessage);
+
+//SWITCH STATEMENTS if the question doesnt have an answer of two answers (yes or no), switch statements are probably good to use. There are several options.
+
+var pizzaPreference = prompt("what kind of pizza do you like?").toLowerCase();
+var pizzaConfirmation;
+
+switch (pizzaPreference) {
+    case "pepperoni" :
+        pizzaConfirmation = "What a coincidence, that's my favorite!"
+        break;
+    case "pineapple and hot sauce":
+        pizzaConfirmation = " that is a spicy pizza";
+        break;
+    case "cheese":
+        pizzaConfirmation = "cheese is fine too";
+        break;
+    default:
+        pizzaConfirmation = (pizzaPreference + " isn't my favorite, but let's order some!");
+        break;
+}
+
+console.log(pizzaConfirmation);
