@@ -11,8 +11,11 @@
 
 body {
     background-color: #f1f1f1;
-    margin: 0 auto;
+    width: auto;
+}
 
+h3{
+    text-align: center;
 }
 
 /*header {*/
@@ -38,14 +41,14 @@ img.workshop {
 }
 
 .card {
-    /*width: 250px;*/
+    width: 250px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin: 0 auto;
 }
 
 
 p.card-message {
-    font-size: 0.7em;
+    font-size: 0.6em;
 }
 
 .btn {
@@ -99,7 +102,7 @@ p.card-message {
     width: auto;
     text-align: center;
     padding: 1px;
-    margin: 1px;
+    margin: 5px;
     background-color: #f1f1f1;
 }
 
@@ -109,7 +112,7 @@ p.card-message {
 
 }
 
-.btn-tags:hover {
+.btn-primary:hover {
     color: white;
     background-color: black;
 
