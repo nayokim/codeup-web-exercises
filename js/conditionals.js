@@ -39,7 +39,7 @@ if (confirmNumber) {
     }
 
 }
-;
+
 
 // //function
 // var answerQuestion = prompt("Enter your number");
