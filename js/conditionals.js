@@ -1,5 +1,5 @@
 "use strict";
-console.log("hi, this is a test to make sure the files are connected");
+console.log("hi, this line is a test to make sure the files are connected");
 /**
  * TODO:
  * Write some JavaScript that uses a `confirm` dialog to ask the user if they
@@ -15,7 +15,7 @@ console.log("hi, this is a test to make sure the files are connected");
  *
  * Can you refactor your code to use functions?
  */
-var confirmNumber = confirm("Do you want to enter a number?");
+var confirmNumber = confirm("Do you want to enter a number?"); // confirm function returns boolean. youre taking the boolean value and storing it in the variable
 
 if (confirmNumber) {
     var enteredNumber = prompt("Enter your number");
@@ -23,24 +23,27 @@ if (confirmNumber) {
         if (isNaN(enteredNumber)) {
             alert("hey enter a number!")
         } else {
-            alert(enteredNumber % 2 === 0 ? "your number is even!": "your number is odd!");
+            var evenOrOdd = (enteredNumber % 2 === 0 ? "your number is even!": "your number is odd!");
+            alert(evenOrOdd);
             // if (enteredNumber % 2 === 0) {
             //     alert("your number is even!");
             // } else {
             //     alert("your number is odd!")
             // }
-            alert(parseInt(enteredNumber) + 100);
+            var plusHundred = "If you add 100 to your number, you get: " + (parseInt(enteredNumber) + 100);
+            alert(plusHundred);
             // if (enteredNumber > 0) {
             //     alert("your number is positive");
             // } else {
             //     alert("your number is negative");
-            alert(enteredNumber > 0 ? "your number is positive" : "your number is negative");
+            var posOrNeg = (enteredNumber >= 0 ? "your number is positive" : "your number is negative");
+            alert(posOrNeg);
         }
     }
 
 }
 
-// //function
+//function
 // var answerQuestion = prompt("Enter your number");
 //
 // function evenOrOdd(num) {
@@ -69,6 +72,38 @@ if (confirmNumber) {
 // }
 //
 // positiveOrNegative(num);
+
+
+
+//walkthrough solution
+
+var isEnteringNumber = confirm("would you like to enter a number");
+
+if (isEnteringNumber) {
+    var numberInput = prompt('please enter a number');
+    var parsedNumber = parseInt(numberInput);
+
+    // console.log(parsedNumber, isNaN(parsedNumber));
+    if (isNaN(parsedNumber)) {
+        alert("you didn't enter a number")
+    } else {
+        // alert ('you entered a number')
+        // * - whether the number is even or odd
+        //1. store the text: even or odd
+        //2. terinary expression
+        var evenOrOdd = (parsedNumber % 2 === 0) ? "Even" : "Odd";
+        alert('the number is: ' + evenOrOdd);
+        //     * - what the number plus 100 is
+        var plus100 = parsedNumber + 100;
+        alert('the number plus 100 is: ' + plus100);
+
+        //     * - if the number is negative or positive
+        //1. store the neg or pos
+        var negativeOrPositive = (parsedNumber >= 0) ? "positive" : "negative";
+        alert("the number is: " + negativeOrPositive);
+
+    }
+}
 
 
 /* ########################################################################## */
