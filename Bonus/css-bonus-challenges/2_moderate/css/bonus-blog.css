@@ -117,3 +117,32 @@ p.card-message {
     background-color: black;
 
 }
+
+.bottom-buttons{
+    color:white;
+    border: 1px solid #606060;
+}
+
+.bottom-buttons:hover{
+    background-color: #414141;
+}
+
+footer{
+    background-color: #606060;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+
+.sponsor{
+    color: white;
+    font-size: 0.8em;
+}
+
+.link {
+    color: white;
+    text-decoration: underline;
+    font-size: 0.8em;
+
+}
