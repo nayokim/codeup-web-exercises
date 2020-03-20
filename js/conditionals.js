@@ -16,32 +16,32 @@ console.log("hi, this line is a test to make sure the files are connected");
  * Can you refactor your code to use functions?
  */
 var confirmNumber = confirm("Do you want to enter a number?"); // confirm function returns boolean. youre taking the boolean value and storing it in the variable
-
-if (confirmNumber) {
-    var enteredNumber = prompt("Enter your number");
-    if (enteredNumber) {
-        if (isNaN(enteredNumber)) {
-            alert("hey enter a number!")
-        } else {
-            var evenOrOdd = (enteredNumber % 2 === 0 ? "your number is even!": "your number is odd!");
-            alert(evenOrOdd);
-            // if (enteredNumber % 2 === 0) {
-            //     alert("your number is even!");
-            // } else {
-            //     alert("your number is odd!")
-            // }
-            var plusHundred = "If you add 100 to your number, you get: " + (parseInt(enteredNumber) + 100);
-            alert(plusHundred);
-            // if (enteredNumber > 0) {
-            //     alert("your number is positive");
-            // } else {
-            //     alert("your number is negative");
-            var posOrNeg = (enteredNumber >= 0 ? "your number is positive" : "your number is negative");
-            alert(posOrNeg);
-        }
-    }
-
-}
+//
+// if (confirmNumber) {
+//     var enteredNumber = prompt("Enter your number");
+//     if (enteredNumber) {
+//         if (isNaN(enteredNumber)) {
+//             alert("hey enter a number!")
+//         } else {
+//             var evenOrOdd = (enteredNumber % 2 === 0 ? "your number is even!": "your number is odd!");
+//             alert(evenOrOdd);
+//             // if (enteredNumber % 2 === 0) {
+//             //     alert("your number is even!");
+//             // } else {
+//             //     alert("your number is odd!")
+//             // }
+//             var plusHundred = "If you add 100 to your number, you get: " + (parseInt(enteredNumber) + 100);
+//             alert(plusHundred);
+//             // if (enteredNumber > 0) {
+//             //     alert("your number is positive");
+//             // } else {
+//             //     alert("your number is negative");
+//             var posOrNeg = (enteredNumber >= 0 ? "your number is positive" : "your number is negative");
+//             alert(posOrNeg);
+//         }
+//     }
+//
+// }
 
 //function
 // var answerQuestion = prompt("Enter your number");
@@ -75,7 +75,7 @@ if (confirmNumber) {
 
 
 
-//walkthrough solution
+//================================================= walkthrough solution =============================================================================
 
 var isEnteringNumber = confirm("would you like to enter a number");
 
@@ -92,17 +92,48 @@ if (isEnteringNumber) {
         //1. store the text: even or odd
         //2. terinary expression
         var evenOrOdd = (parsedNumber % 2 === 0) ? "Even" : "Odd";
-        alert('the number is: ' + evenOrOdd);
+        // alert('the number is: ' + evenOrOdd); // the answer without functions
+        alert('the number is:' + evenOrOdd1(parsedNumber)); // if you use the function and pass the parameter through the function;
         //     * - what the number plus 100 is
         var plus100 = parsedNumber + 100;
-        alert('the number plus 100 is: ' + plus100);
+        // alert('the number plus 100 is: ' + plus100);
+        alert('the number plus 100 is: ' + plusHundred(parsedNumber));
 
         //     * - if the number is negative or positive
         //1. store the neg or pos
         var negativeOrPositive = (parsedNumber >= 0) ? "positive" : "negative";
-        alert("the number is: " + negativeOrPositive);
+        // alert("the number is: " + negativeOrPositive);
+        alert("the number is: " + negativeOrPositive1(parsedNumber));
 
     }
+}
+
+//-------------------------------------------------------------REFACTORING WITH FUNCTIONS----------------------------------------------------------------
+
+//prompt the user for a number. will return the number of NaN if they dont enter a number.
+
+function promptForNumber(){
+    var numberInput = prompt('please enter a number');
+    return parseInt (numberInput);
+}
+
+//takes a number and returns the text "even" or "odd" depending on the number.
+function evenOrOdd1 (num){
+    if (num % 2 === 0){
+        return "even";
+    }else {
+        return "odd";
+    }
+}
+
+// add 100 to the number
+function plusHundred(aNumber){
+    return aNumber + 100;
+}
+
+//take a number and return the text "postive" or "negative"
+function negativeOrPositive1(aNumber){
+return (parsedNumber >= 0 ? "positive" : "negative");
 }
 
 
