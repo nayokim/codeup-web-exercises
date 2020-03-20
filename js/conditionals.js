@@ -1,5 +1,5 @@
 "use strict";
-console.log("hi, this is a test to make sure the files are connected")
+console.log("hi, this is a test to make sure the files are connected");
 /**
  * TODO:
  * Write some JavaScript that uses a `confirm` dialog to ask the user if they
@@ -23,7 +23,7 @@ if (confirmNumber) {
         if (isNaN(enteredNumber)) {
             alert("hey enter a number!")
         } else {
-            alert(enteredNumber % 2 === 0 ? "your number is even!": "your number is odd!")
+            alert(enteredNumber % 2 === 0 ? "your number is even!": "your number is odd!");
             // if (enteredNumber % 2 === 0) {
             //     alert("your number is even!");
             // } else {
@@ -39,7 +39,6 @@ if (confirmNumber) {
     }
 
 }
-;
 
 // //function
 // var answerQuestion = prompt("Enter your number");
@@ -127,8 +126,9 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Pass the `randomColor` variable to your function and console.log the results.
  * You should see a different message every time you refresh the page
  */
-// console.log(randomColor);
-// console.log(analyzeColor(randomColor) +  "the random color is: " + randomColor);
+
+console.log(randomColor);
+console.log(analyzeColor(randomColor) +  "the random color is: " + randomColor);
 
 /**
  * TODO:
@@ -165,7 +165,7 @@ function analyzeColorTwo(color) {
     }
 }
 
-// analyzeColorTwo(analyzeColor(randomColor) + randomColor)
+analyzeColorTwo(analyzeColor(randomColor) + randomColor)
 
 
 /**
@@ -235,4 +235,5 @@ console.log(calculateTotal(5, 100));
 var luckyNumber = Math.floor(Math.random() * 6);
 
 var totalBill = parseInt(prompt("what is your total bill?"));
+
 var priceAfterDiscount = alert("your lucky number was: " + luckyNumber + "." + "your total bill prior to the discount was: " + totalBill + ".Your new total is: " + calculateTotal(luckyNumber, totalBill));
