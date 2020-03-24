@@ -35,30 +35,41 @@
 // Here is an odd number: 47
 // Here is an odd number: 49
 
-var randomNumber = (prompt('Pick a random number between 1 and 50 (inclusive)'));
 for (var i = 1; i < 51; i++) {
-    if (i % 2 === 0) {
-        // number isn't even
-        // odd numbers aren't as cool
-        // skip the rest of the loop and continue with the next iteration
-        continue;
+    var randomNumber = (Number(prompt('Pick a random number between 1 and 50 (inclusive)')));
+    if (randomNumber > 0 && randomNumber < 51) {
+        console.log("the number to skip is: " + randomNumber);
+        break;
     }
-    console.log("Here is an odd number: " + i);
-
 }
-    // var randomNumber = (prompt('Pick a random number between 1 and 50 (inclusive)'));
-    // if (randomNumber > 0 && randomNumber < 51 ){
-    // console.log('randomNumber is: ' + randomNumber);
-    // break;
-    // }
+
+for (var i = 1; i < 51; i++) {
+    if (i % 2 === 1) {
+        console.log('Here is an odd number: ' + i);
+    }
+}
+
+
 //     if (i % 2 !== 0) {
 //         console.log("here is an odd number: " + i);
-//     } else if ( i === randomNumber){
+//     } else if (i === randomNumber) {
 //         console.log('Yikes! Skipping number: ' + randomNumber);
-//     } else if (i > randomNumber && i % 2 !== 0){
-//         console.log ("here is an odd number: " + i);
+//     } else if (i > randomNumber && i % 2 !== 0) {
+//         console.log("here is an odd number: " + i);
 //     }
-//
 // }
 
 
+// var randomNumber = (prompt('Pick a random number between 1 and 50 (inclusive)'));
+// for (var i = 1; i < 51; i++) {
+//     if (randomNumber > 0 && randomNumber < 51 ) {
+//         console.log('randomNumber is: ' + randomNumber);
+//         break;
+//     }
+//     if (i % 2 === 0 && i !== randomNumber) {
+//         // number isn't even
+//         // odd numbers aren't as cool
+//         // skip the rest of the loop and continue with the next iteration
+//         continue;
+//     }
+//     console.log("Here is an odd number: " + i);
