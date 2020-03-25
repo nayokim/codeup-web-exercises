@@ -16,20 +16,20 @@
 // 7 x 10 = 70
 
 function showMultiplicationTable(input){
-    for (var i = 1; i <= 10; i++){
-        console.log (( input + '*'  + i + '=' +   (input * i)));
+    for (var i = 1; i < 11; i++){
+        console.log(( input + '*'  + i + '=' +   (input * i)));
     }
 }
-console.log(showMultiplicationTable(1));
-console.log(showMultiplicationTable(2));
-console.log(showMultiplicationTable(3));
-console.log(showMultiplicationTable(4));
-console.log(showMultiplicationTable(5));
-console.log(showMultiplicationTable(6));
-console.log(showMultiplicationTable(7));
-console.log(showMultiplicationTable(8));
-console.log(showMultiplicationTable(9));
-console.log(showMultiplicationTable(10));
+showMultiplicationTable(1);
+showMultiplicationTable(2);
+showMultiplicationTable(3);
+showMultiplicationTable(4);
+showMultiplicationTable(5);
+showMultiplicationTable(6);
+showMultiplicationTable(7);
+showMultiplicationTable(8);
+showMultiplicationTable(9);
+showMultiplicationTable(10);
 
 //Use a for loop and the code from the previous lessons to generate 10 random numbers between 20 and 200 and output to the console whether each number is odd or even. For example:
 //
