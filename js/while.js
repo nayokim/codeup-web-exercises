@@ -21,11 +21,21 @@ console.log("hello from loops js");
 // 32768
 // 65536
 
-var i = 2;
-while ( i <= 65536){
-    console.log(i);
-    i = i * 2;
-}
+//==practice again===
+//
+// var i = 2;
+// while ( i <= 65536){
+//     console.log(i);
+//     i= i * 2;
+// }
+
+//====first time====
+
+// var i = 2;
+// while ( i <= 65536){
+//     console.log(i);
+//     i = i * 2;
+// }
 
 //An ice cream seller can't go home until she sells all of her cones. Write a JS program that generates a random number between 50 and 100 representing the amount of cones to sell. Your code should generate numbers between 1 and 5, simulating the amount of cones being bought by her clients.
 //
@@ -36,20 +46,40 @@ while ( i <= 65536){
 // Yay! I sold them all! // If there are no more cones
 
 // This is how you get a random number between 50 and 100
-var allCones = Math.floor(Math.random() * 50) + 50;
-var conesBeingPurchased= Math.floor(Math.random() * 5) + 1;
+
 // This expression will generate a random number between 1 and 5
+//
 
-do{
-    var conesBeingPurchased= Math.floor(Math.random() * 5) + 1;
-//why does allCones being in the loop cause issues?
-    if (conesBeingPurchased > allCones){
-        console.log('Cannot sell you ' + conesBeingPurchased + ' I only have ' + allCones + " left");
-    } else{
-        console.log(conesBeingPurchased + ' cones sold ' + allCones + ' cones to go!');
-        allCones = allCones- conesBeingPurchased;
+
+var allCones = Math.floor(Math.random() * 50) + 50;
+var conesBeingPurchased = Math.floor(Math.random() * 5) + 1;
+do {
+    var conesBeingPurchased = Math.floor(Math.random() * 5) + 1;
+    console.log("number of cones being purchased: " + conesBeingPurchased);
+    console.log("cones remaining: " + allCones);
+    if (conesBeingPurchased > allCones) {
+        console.log('you cannot purchase ' + conesBeingPurchased + ' I only have ' + allCones + ' left.');
+    } else {
+        allCones = allCones - conesBeingPurchased; // step 1: modify cones remaining
+        console.log('here are your cones ' + conesBeingPurchased + ' there are ' + allCones + " left");
     }
-} while (allCones > 0);
+}  while (allCones > 0) ;
+console.log ('yay you get to go home!!!!')
 
 
-
+//
+//
+// //==first time==
+// do{
+//     var conesBeingPurchased= Math.floor(Math.random() * 5) + 1;
+// //why does allCones being in the loop cause issues?
+//     if (conesBeingPurchased > allCones){
+//         console.log('Cannot sell you ' + conesBeingPurchased + ' I only have ' + allCones + " left");
+//     } else{
+//         console.log(conesBeingPurchased + ' cones sold ' + allCones + ' cones to go!');
+//         allCones = allCones- conesBeingPurchased;
+//     }
+// } while (allCones > 0);
+//
+//
+//
