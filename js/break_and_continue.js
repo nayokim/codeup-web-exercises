@@ -35,21 +35,50 @@
 // Here is an odd number: 47
 // Here is an odd number: 49
 
-while(true) {
-    var randomNumber = parseInt(prompt("Give me an odd number between 1 and 50."));
-    if (randomNumber % 2 !== 0 && randomNumber <= 50 && randomNumber >= 1) {
+
+//==walkthrough
+do {
+    console.log('breaking out');
+    break;
+}while (true);
+
+var userNumber = 0;
+
+do{
+    var userNumber = Number( prompt('please enter an odd number between 1 and 50'));
+    if (userNumber < 1 || userNumber > 50 ){
+        alert (userNumber + ' is not between 1 and 50 and odd.')
+    } else if ( userNumber % 2 === 0) {
+        alert (userNumber + ' is not odd. Please try again.');
+    }else if(isNaN(userNumber)){
+        alert(userNumber + ' is not a number. Please try again.');
+    }else{
+        alert ('yay! you entered a valid number');
         break;
     }
-}
-console.log ("Number to skip is: " + randomNumber);
+}while(true);
 
-for (var i = 0; i <= 50; i++) {
-    if (i % 2 !== 1) {
+console.log("the number to skip is: " + userNumber);
+for ( var i = 1; i <= 50; i+=2){
+    if (i === userNumber){
+        console.log('Yikes! We will skip: ' + userNumber);
         continue;
     }
-    if (randomNumber === i) {
-        console.log('Yikes! Skipping number:' + i);
-    } else {
-        console.log('Here is odd number: ' + i);
-    }
+    console.log("here is odd number: " + i);
 }
+
+// while(true) {
+//     var randomNumber = parseInt(prompt("Give me an odd number between 1 and 50."));
+//     if (randomNumber % 2 !== 0 && randomNumber <= 50 && randomNumber >= 1) {
+//         break;
+//     }
+// }
+// console.log ("Number to skip is: " + randomNumber);
+//
+// for (var i = 0; i <= 50; i+=2) {
+//     if (i === randomNumber) {
+//         console.log('Yikes! Skipping number:' + i);
+//         continue;
+//     }
+//         console.log('Here is odd number: ' + i);
+// }
