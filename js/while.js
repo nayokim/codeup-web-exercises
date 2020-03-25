@@ -1,5 +1,5 @@
 "use strict";
-console.log("hello from loops js");
+console.log("hello from while.js");
 
 //Create a while loop that uses console.log() to create the output shown below.
 //
@@ -22,12 +22,12 @@ console.log("hello from loops js");
 // 65536
 
 //==practice again===
-//
-// var i = 2;
-// while ( i <= 65536){
-//     console.log(i);
-//     i= i * 2;
-// }
+
+var i = 2;
+while ( i <= 65536){
+    console.log(i);
+    i= i * 2;
+}
 
 //====first time====
 
@@ -52,34 +52,37 @@ console.log("hello from loops js");
 
 
 var allCones = Math.floor(Math.random() * 50) + 50;
-var conesBeingPurchased = Math.floor(Math.random() * 5) + 1;
-do {
-    var conesBeingPurchased = Math.floor(Math.random() * 5) + 1;
-    console.log("number of cones being purchased: " + conesBeingPurchased);
-    console.log("cones remaining: " + allCones);
-    if (conesBeingPurchased > allCones) {
-        console.log('you cannot purchase ' + conesBeingPurchased + ' I only have ' + allCones + ' left.');
-    } else {
-        allCones = allCones - conesBeingPurchased; // step 1: modify cones remaining
-        console.log('here are your cones ' + conesBeingPurchased + ' there are ' + allCones + " left");
-    }
-}  while (allCones > 0) ;
-console.log ('yay you get to go home!!!!')
-
-
-//
-//
-// //==first time==
-// do{
-//     var conesBeingPurchased= Math.floor(Math.random() * 5) + 1;
-// //why does allCones being in the loop cause issues?
-//     if (conesBeingPurchased > allCones){
-//         console.log('Cannot sell you ' + conesBeingPurchased + ' I only have ' + allCones + " left");
-//     } else{
-//         console.log(conesBeingPurchased + ' cones sold ' + allCones + ' cones to go!');
-//         allCones = allCones- conesBeingPurchased;
+// var conesBeingPurchased = Math.floor(Math.random() * 5) + 1;
+// do {
+//     var conesBeingPurchased = Math.floor(Math.random() * 5) + 1;
+//     console.log("number of cones being purchased: " + conesBeingPurchased);
+//     console.log("cones remaining: " + allCones);
+//     if (conesBeingPurchased > allCones) {
+//         console.log('you cannot purchase ' + conesBeingPurchased + ' I only have ' + allCones + ' left.');
+//     } else {
+//         allCones = allCones - conesBeingPurchased; // step 1: modify cones remaining
+//         console.log('here are your cones ' + conesBeingPurchased + ' there are ' + allCones + " left");
 //     }
-// } while (allCones > 0);
-//
+// }  while (allCones > 0) ;
+// console.log ('yay you get to go home!!!!');
+
+///========walkthrough answer==========
+
+do{
+    var conesToPurchase = Math.floor(Math.random() * 5) + 1;
+    console.log('all cones: ' + allCones + ' cones to purcahse: ' + conesToPurchase)
+    if (conesToPurchase <= allCones) {
+        allCones -= conesToPurchase;
+        //i can sell the cones
+        console.log(conesToPurchase + " cones sold...");
+        // conesToPurchase = conesToPurchase - allCones;
+
+    } else {
+        // i do not have enough cones to sell
+        console.log("cannot sell you " + conesToPurchase + " cones I only have  " + allCones + "...." );
+    }
+} while (allCones > 0);
+
+console.log('yay I sold them all!');
 //
 //

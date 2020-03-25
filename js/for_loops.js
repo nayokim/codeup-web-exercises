@@ -108,3 +108,11 @@ for (var i = 100; i >= 5; i--){
     }
 }
 
+
+
+
+let animalsIwant = ['puppy','kitten','alpaca'];
+
+for (var i = 0; i < animalsIwant.length; i++){
+    console.log('Ed wont let me get: ' + animalsIwant[i])
+};
