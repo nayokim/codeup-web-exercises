@@ -1,4 +1,4 @@
-(function(){
+(function () {
     "use strict";
 
     /**
@@ -7,15 +7,15 @@
      * 'names'.
      */
 
-    var names =['Nayoung', 'Ed', 'Jen', 'Matt'];
+    var names = ['Nayoung', 'Ed', 'Jen', 'Matt'];
+
 
     /**
      * TODO:
      * Create a log statement that will log the number of elements in the names
      * array.
      */
-
-    console.log(names.length);
+    console.log(names);
 
     /**
      * TODO:
@@ -34,8 +34,8 @@
      * array.
      */
 
-    for (var index = 0; index < names.length; index++){
-        console.log(names[index]);
+    for (var index = 0; index < names.length; index++) {
+        console.log('from for loop: ', names[index]);
     }
 
     /**
@@ -44,13 +44,10 @@
      */
 
 
-    names.forEach(function(element, index, array) {
-        console.log('element' , element);
-        console.log('index' , index);
-        console.log('original array' , array);
-
-
+    names.forEach(function (item) {
+        console.log('from for each: ', item);
     });
+
     /**
      * TODO:
      * Create the following three functions, each will accept an array and
@@ -65,26 +62,49 @@
      *  > last([1, 2, 3, 4, 5]) // return 5
      */
 //first: returns the first item in the array
-    function returnFirst(){
-        var first = [1, 2, 3, 4, 5];
-            return(first [0]);
+
+    function first(array) {
+        return (array[0]);
     }
 
-    console.log(returnFirst());
+    first([1, 2, 3, 4, 5]);
+
+    var numbers = [1, 2, 3, 4, 5]; // save into a variable as we are testing alot
+    //ttd without framework
+    var result = first(numbers);
+    console.log('1: first() ', result === 1);
+    //checking this function with the names array above
+    result = first(names);
+    console.log('2: first() ', result === 'Douglas');
+
+    //== second function ttd test
+    result = second(numbers);
+    console.log('1: second()', result === 2);
+    //checking this function with the names array above
+    result = second(names);
+    console.log('2: second()', result === "fer");
 
 
-    function returnSecond(){
-        var second = [1, 2, 3, 4, 5];
-        return(second [1]);
+    //== third function ttd test
+    result = last(numbers);
+    console.log('1: last()' , result === 5);
+    //checking this function with the names array above
+    result = last(names);
+    console.log('2: last()' , result === "Matt");
+
+    function second(array) {
+
+        return (array[1]);
     }
-    console.log(returnSecond());
 
-    function returnLast(){
-        var last = [1, 2, 3, 4, 5];
-        return(last [last.length - 1]);
+    second = [1, 2, 3, 4, 5];
+
+
+    function last(array) {
+        return (array[array.length - 1]);
     }
-    console.log(returnLast());
 
+    last = [1, 2, 3, 4, 5];
 
 
 })();
