@@ -35,21 +35,18 @@
 // Here is an odd number: 47
 // Here is an odd number: 49
 
-for (var i = 1; i <= 50; i++) {
-    var randomNumber = (Number(prompt('Pick a random number between 1 and 50 (inclusive)')));
-    if (randomNumber > 0 && randomNumber < 51) {
-        console.log("the number to skip is: " + randomNumber);
-        break;
-    } else if(randomNumber % 2 === 0){
+while(true) {
+    var randomNumber = parseInt(prompt("Give me an odd number between 1 and 50."));
+    if (randomNumber % 2 !== 0 && randomNumber <= 50 && randomNumber >= 1) {
         break;
     }
 }
+console.log ("Number to skip is: " + randomNumber);
 
 for (var i = 0; i <= 50; i++) {
     if (i % 2 !== 1) {
         continue;
     }
-
     if (randomNumber === i) {
         console.log('Yikes! Skipping number:' + i);
     } else {
