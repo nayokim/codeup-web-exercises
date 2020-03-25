@@ -73,9 +73,12 @@
     //ttd without framework
     var result = first(numbers);
     console.log('1: first() ', result === 1);
+    // how test to see if its negative
+    // console.error('1: first() ', result !== 1);
     //checking this function with the names array above
     result = first(names);
     console.log('2: first() ', result === 'Douglas');
+
 
     //== second function ttd test
     result = second(numbers);
