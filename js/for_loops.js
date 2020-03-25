@@ -17,7 +17,7 @@
 
 function showMultiplicationTable(input){
     for (var i = 1; i < 11; i++){
-        console.log(( input + '*'  + i + '=' +   (input * i)));
+        console.log(( input + ' * '  + i + '=' +   (input * i)));
     }
 }
 showMultiplicationTable(1);
@@ -44,7 +44,7 @@ showMultiplicationTable(10);
 
 console.log(randomNumber);
 
-for (var i = 1; i <= 10; i++){
+for (var i = 1; i < 10; i++){
     var randomNumber = Math.floor(Math.random() * 180) + 20;
     if (i % 2 === 0){
         console.log( randomNumber + ' is an even number');
@@ -66,17 +66,31 @@ for (var i = 1; i <= 10; i++){
 // 88888888
 // 999999999
 
-function triangle(n) {
-    for (var i = 1; i <= n; i++) {
-        var lineNumber ='';
-        for (var j = 0; j < i; j++) {
-            lineNumber += i;
-        }
-        console.log(lineNumber);
-    }
-}
-console.log(triangle(9));
+// function triangle(n) {
+//     for (var i = 1; i <= n; i++) {
+//         var lineNumber ='';
+//         for (var j = 0; j < i; j++) {
+//             lineNumber += i;
+//         }
+//         console.log(lineNumber);
+//     }
+// }
+// console.log(triangle(9));
 
+for (var i = 1; i <= 9; i++){
+    console.log(i.toString().repeat(i));
+}
+
+//==another method
+
+for (var outer = 1; outer <= 9; outer++){
+    // console.log('outer loop');
+    var output = '';
+    for (var inner = 1; inner <= outer ; inner++ ){
+        output += outer;
+    }
+    console.log(output);
+}
 
 //Create a for loop that uses console.log to create the output shown below.
 //
@@ -108,6 +122,9 @@ for (var i = 100; i >= 5; i--){
     }
 }
 
+for (var i = 100; i >= 5; i-=5){
+        console.log(i);
+}
 
 
 
