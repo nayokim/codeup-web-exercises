@@ -31,7 +31,7 @@
  var planetsBreak = planetsArray.join('<br>');
  console.log(planetsBreak);
  //in html, it will break a break after each word so that each word is on a new line.
-
+.
 
 
 
