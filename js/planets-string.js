@@ -12,9 +12,9 @@
      * console.log planetsArray to check your work
      */
 
-    // var planetsArray = planetsString.split('|');
-    //
-    // console.log(planetsArray);
+    var planetsArray = planetsString.split('|');
+
+    console.log(planetsArray);
 
     /**
      * TODO:
@@ -28,10 +28,10 @@
      * string, and <li> tags around each planet.
      */
 
-    // var planetsBreak = planetsArray.join('<br>');
-    // console.log(planetsBreak);
+    var planetsBreak = planetsArray.join('<br>');
+    console.log(planetsBreak);
     //in html, it will break a break after each word so that each word is on a new line.
-
+    //
     var planetsList = planetsString.split('|');
     planetsList.unshift('<ul>');
     planetsList.push('</ul>');
