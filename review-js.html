@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--elevators -->
+
+<script>
+var tallTower = ["B2", "B1","L","F1","F2","F3","F4","Deck Pool"]; //floors
+var shortTower = ["B2","L","F1"]; //floors
+
+    //take the elevator from the bottom to the top
+
+    shortTower.forEach(function(floor,index){
+        // floor 0 is unavailable
+        if(index === 1){
+            return;
+        }
+        console.log('floor', floor);
+        console.log('index', index);
+    })
+
+    //the tall tower needs to go from the deck pool to b1 but the elevevator will skip the f 3 floor
+
+    for (var currentFloor = tallTower.length-1; currentFloor >0; currentFloor-- ){
+        if("F3"=== tallTower[currentFloor]){
+            continue;
+        }
+        console.log(tallTower[currentFloor])
+
+    }
+
+
+    //
+    var train = [null,null, null, null, null];
+
+    function getRandomFromRange (min,max){
+        return Math.floor(Math.random()*(max-min) +min);
+    }
+
+    var numberOfPeopleWaiting = getRandomFromRange(1,10);
+   console.log(numberOfPeopleWaiting);
+    // train.forEach(function(element, index,){
+        // train[index] =getRandomFromRange (1,10);
+for (var index = 0; index < train.length; index++){
+        if (train [index] === null && numberOfPeopleWaiting !==0){
+        //there is a seat available
+            train [index]= 'taken';
+            numberOfPeopleWaiting --;
+
+        }
+}
+
+    // });
+    // console.log(train);
+
+
+</script>
+
+</body>
+</html>

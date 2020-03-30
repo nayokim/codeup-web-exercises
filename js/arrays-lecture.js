@@ -49,3 +49,29 @@ cohort.forEach(function(element, index, array) {
 
 
 });
+
+
+// cohort === name of array
+//function will always be function - anon. function. As long as its being used with foreach, it will be anon.
+//simplified version of for loop but using arrays
+
+// the first element is the element in the array. the second element is the index value of it.
+
+//for loops - you can control over everything.
+//
+// for each - element, index, and array.
+
+for (var i = 0; i < students.length; i++) {
+    console.log(students[i]);
+}
+
+students.forEach(function(student) {
+    console.log(student);
+});
+
+const days = ['mon','tue','wed','thur','fri','sat']
+
+let sayHello= function (){
+    console.log("hi");
+}
+days.forEach(sayHello);

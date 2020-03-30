@@ -51,7 +51,7 @@
     planetsList.splice(18,0,'</li>');
     planetsList.splice(19,0,'<li>');
     planetsList.splice(21,0,'</li>');
-    planetsList.splice(22,0,'<li>');
+    planetsList.splice(22, 0,'<li>');
     planetsList.splice(24,0,'</li>');
 
 

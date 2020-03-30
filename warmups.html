@@ -159,12 +159,29 @@
     //exercise 18: create a function that prints a list of names randomly from the apex array
     // todo: make sure that there is no duplicates
 
-    function generateMicrowaveList(classmatesArray) {
-        //main problem to solive: only 1 item at the time
-        for (var x = 0; x < classmatesArray.length; x++) {
-            console.log('index: ' + x + ' ' + getRandomItem(classmatesArray));
+    function generateMicrowaveList() {
+        function getRandomFromRange(min, max){
+
+            return Math.floor(Math.random( ) * (max-min) + min);
         }
-    }
+
+
+        // for (var x = 0; x < classmatesArray.length; x++) {
+        var remainingClassmates = classmatesArray;
+        classmatesArray.forEach(function(classmate){
+            remainingclassmates.shift();
+            console.log(classmate);
+            console.log(Classmates);
+
+
+            })
+
+        };
+        // var turn = classmatesArray.shift();
+        // console.log('student: ', turn);
+        //     console.log('turn: ' + x + ' ' + getRandomFromRange (0, classmatesArray.length-1));
+
+
 
     generateMicrowaveList();
 
@@ -175,3 +192,9 @@
 </script>
 </body>
 </html>
+
+var arrayItems;
+var items = [];
+
+var x = 0;
+var y = false;

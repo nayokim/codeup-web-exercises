@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    'use strict';
+// var inventory = [];
+//     var ferCar = {
+//         make: "Nissan",
+//         model: "Maxima",
+//         price : 0, // intializing the value if you dont know the value
+//         year: 0,
+//         features: ["automatic, bluetooth, gps"],
+//         owner: {
+//             name: "fer",
+//             age: 29,
+//         },
+//         honk : function (){
+//             alert("honk!");
+//         },
+//         computerLog: function (){
+//             console.log(" ---" + this.make + " --- " + this.model + " --- ");
+//         }
+//     };
+//
+//     var douglasCar = {
+//         make: "Toyota",
+//         model: "Avalon",
+//         price : 10000,
+//         year: 0
+//
+//     };
+//
+//     // if new information is gained after making the intial variables
+//
+//     douglasCar.features = ["automatic, great gas milage, AM/FM radio"];
+//     douglasCar ['owner']= {name: "douglas", age : 38}; // doesnt need to be in multiple lines, it can be in one line
+//     douglasCar ["owner"]= {name: prompt ("whos car is this?"), age :prompt ('how old are you?')};
+//     douglasCar.honk = function (){
+//         alert("honk!!!");
+//     };
+//     douglasCar.computerLog = function (){
+//         console.log(this.make + " --- " + this.model + " --- ");
+//     };
+//
+//     inventory.push(ferCar);
+//     inventory.push(douglasCar); //instead of doing this for each car, use a foreach loop (below)
+//
+//     inventory.forEach(function(aCar){
+//         console.log(aCar.make + " " + aCar.model + " cost= " + aCar.price + "  " + aCar.features + " " + aCar.owner.name + " " + aCar.owner.age );
+//     });
+//
+//     // get the computerLog
+//     // douglasCar.computerLog(); // to log just douglasCar
+//     inventory.forEach((function(currentCar){ // to loop through both cars
+//         currentCar.computerLog();
+//     }));
+//
+//     //run tests on the car
+//     inventory.forEach(function(currentCar){
+//         //test the honking feature:
+//         currentCar.honk();
+//     });
+//
+//     // console.log(ferCar.make + " " + ferCar.model + " cost: " + ferCar.price );
+//     // console.log(douglasCar.make + " " + douglasCar.model + " cost: " + douglasCar.price );
+//
+
+    //2nd example
+    var ferContact = {
+        name: 'fer mendoza',
+        phoneNumber: "2393931234",
+    };
+
+    var aContact = {
+        name : prompt("name?"),
+        phoneNumber: prompt("number?")
+    };
+    var phone = {
+        screenSize: 5.1,
+        price: 500.34,
+        brand: "Apple",
+        color: "blue",
+        storageSize: 128,
+        contact: [ferContact, aContact],
+        call: function(number){
+            console.log("calling: " + number );
+        }
+    };
+    //print just the name of the first contact
+    console.log(phone.contact[0].name);
+    //print just the number of the first contact
+    console.log(phone.contact[0].phoneNumber);
+
+    //make a call
+    phone.call(phone.contact[1].phoneNumber);
+
+</script>
+</body>
+</html>
