@@ -71,9 +71,9 @@
     //george 320 > 200; discount
     shoppers.forEach(function (shopper) {
         if (shopper.amount > 200) {
-            console.log(shopper.name + " your new total will be " + (shopper.amount * 0.88))
+            console.log(shopper.name + " your total was $ : " + shopper.amount + ". Your new total will be $ " + (shopper.amount * 0.88))
         } else {
-            console.log(shopper.name + " your total is still " + shopper.amount)
+            console.log(shopper.name + " your total is still $ " + shopper.amount)
         }
 
 
@@ -136,6 +136,31 @@
             }
         }
     ];
+
+    console.log(books[0].title);
+    console.log(books[0].author.firstName);
+    console.log(books[0].author.lastName);
+
+    console.log(books[1].title);
+    console.log(books[1].author.firstName);
+    console.log(books[1].author.lastName);
+
+    console.log(books[2].title);
+    console.log(books[2].author.firstName);
+    console.log(books[2].author.lastName);
+
+    console.log(books[3].title);
+    console.log(books[3].author.firstName);
+    console.log(books[3].author.lastName);
+
+    console.log(books[4].title);
+    console.log(books[4].author.firstName);
+    console.log(books[4].author.lastName);
+
+    console.log(books[5].title);
+    console.log(books[5].author.firstName);
+    console.log(books[5].author.lastName);
+
     /**
      * TODO:
      * Loop through the books array and output the following information about
@@ -160,6 +185,14 @@
      *      ---
      *      ...
      */
+
+    books.forEach(function(bookInformation){
+        console.log("Book # " + (parseInt(books.indexOf(bookInformation )) + 1));
+        console.log("Title: " + bookInformation.title);
+        console.log("Author: " + bookInformation.author.firstName + " "+ bookInformation.author.lastName);
+
+    });
+
 
     /**
      * Bonus:
