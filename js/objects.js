@@ -104,7 +104,7 @@
             title: "When Breath Becomes Air",
             author : {
                 firstName: "Paul",
-                lastName: "Kalanithi",
+                lastName: "Kalanithim, MD",
             }
         },
         {
@@ -190,6 +190,7 @@
         console.log("Book # " + (parseInt(books.indexOf(bookInformation )) + 1));
         console.log("Title: " + bookInformation.title);
         console.log("Author: " + bookInformation.author.firstName + " "+ bookInformation.author.lastName);
+        console.log(" ---")
 
     });
 
@@ -204,5 +205,9 @@
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+
+
+
+
 
 })();
