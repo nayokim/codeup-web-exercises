@@ -185,11 +185,14 @@
      *      ---
      *      ...
      */
-
-    books.forEach(function (bookInformation) {
-        console.log("Book # " + (parseInt(books.indexOf(bookInformation)) + 1));
-        console.log("Title: " + bookInformation.title);
-        console.log("Author: " + bookInformation.author.firstName + " " + bookInformation.author.lastName);
+    books.push(createBook("Harry Potter", "JK Rowling"));
+    books.push(createBook("persepolis", "marjane starapi "));
+    books.push(createBook("Harry Potter", "JK Rowling"));
+    books.forEach(function (bookInformation, index) {
+        console.log("Book # " + (index + 1));
+        // console.log("Title: " + bookInformation.title);
+        // console.log("Author: " + bookInformation.author.firstName + " " + bookInformation.author.lastName);
+        showBookInfo(bookInformation);
         console.log(" ---")
 
     });
@@ -206,5 +209,23 @@
      *   `showBookInfo` function.
      */
 
+
+    function createBook(aTitle, authorName) {
+        var names = authorName.split(" ");
+        return {
+            title: aTitle,
+            author: {
+                firstName: names[0],
+                lastName: names[1]
+            }
+        }; // return an object
+    }
+
+    console.log(createBook("Harry Potter and the Goblet of Fire", "JK Rowling"));
+
+    function showBookInfo(book){
+        console.log("Title: " + book.title);
+        console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+    }
 
 })();
