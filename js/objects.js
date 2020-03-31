@@ -49,7 +49,7 @@
      * represents one shopper. Use a foreach loop to iterate through the array,
      * and console.log the relevant messages for each person
      */
-
+// an array of objects
     var shoppers = [
         {
             name: 'Cameron',
@@ -70,13 +70,13 @@
     //ryan 250 > 200 ; discount
     //george 320 > 200; discount
     shoppers.forEach(function (shopper) {
+        var shopperDiscount = shopper.amount;
+        var discount = 0;
         if (shopper.amount > 200) {
-            console.log(shopper.name + " your total was $ : " + shopper.amount + ". Your new total will be $ " + (shopper.amount * 0.88))
-        } else {
-            console.log(shopper.name + " your total is still $ " + shopper.amount)
+            discount = 12;
+            shopperDiscount = 0.88 * shopper.amount;
         }
-
-
+        console.log(shopper.name + " amount:$ " + shopper.amount + " discount: " + discount + " % $" + shopperDiscount);
     });
 
     /** TODO:
@@ -102,7 +102,7 @@
         },
         {
             title: "When Breath Becomes Air",
-            author : {
+            author: {
                 firstName: "Paul",
                 lastName: "Kalanithim, MD",
             }
@@ -186,10 +186,10 @@
      *      ...
      */
 
-    books.forEach(function(bookInformation){
-        console.log("Book # " + (parseInt(books.indexOf(bookInformation )) + 1));
+    books.forEach(function (bookInformation) {
+        console.log("Book # " + (parseInt(books.indexOf(bookInformation)) + 1));
         console.log("Title: " + bookInformation.title);
-        console.log("Author: " + bookInformation.author.firstName + " "+ bookInformation.author.lastName);
+        console.log("Author: " + bookInformation.author.firstName + " " + bookInformation.author.lastName);
         console.log(" ---")
 
     });
@@ -205,9 +205,6 @@
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
-
-
-
 
 
 })();
