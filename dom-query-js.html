@@ -52,13 +52,13 @@
         // listItems[2].style.color= "grey";
         // listItems[4].style.color= "grey";
 
-        for (var i = 0; i < listItems.length; i+=2) {
-            // if (i % 2 === 0){
+        for (var i = 0; i < listItems.length; i++) {
+            if (i % 2 === 0){
             listItems[i].style.color = "grey";
         }
 
         // TODO: Set text color of li with dbid = 1 to blue
-        for (var i = 0; i < listItems.length; i++) {
+        // for (var i = 0; i < listItems.length; i++) {
             var dbId = listItems[i].getAttribute("data-dbid");
             console.log(dbId);//prints the li numbers
             if (dbId === "1"){
