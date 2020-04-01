@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button id="change-bg">Change Background</button>
+
+<button id="change-text">Change text color</button>
+
+<button id="reset">Reset</button>
+<button id="break-everything">Break reset button</button>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam distinctio incidunt, ipsum iste laborum mollitia non? Accusamus consequatur dignissimos eius maiores mollitia, quaerat? Architecto ducimus eius exercitationem quasi totam ut.</p>
+
+<script>
+    "use script";
+
+    var btnBg = document.getElementById('change-bg'); // document is the parent, get element is child
+    var resetBtn = document.querySelector("#reset");
+    console.log(resetBtn);
+    var breakBtn = document.querySelector ("#break-everything");
+
+        console.log(btnBg); // will test to see if you grabbed the correct variable - will print the entire html
+
+    btnBg.addEventListener('click', function () { // everytime you click on the button, you will console log the message
+        console.log("click is working");
+        document.body.style.backgroundColor = "teal";
+    });
+
+    document.getElementById("change-text").addEventListener('click', function () {
+        console.log("click is working for change-text btn");
+        document.body.style.color ="white";
+
+    });// if this is the only time youre going to use this particular button, you do not need to make a new variable.
+
+    //event listener that is a function
+    var resetListener = function(){
+        document.body.style.backgroundColor = "white";
+        document.body.style.color = "black";
+    };
+
+    resetBtn.addEventListener("click", resetListener);
+
+
+//remove event listeners
+    breakBtn.addEventListener("click",function(){
+        resetBtn.removeEventListener("click", resetListener); // the reset button will only work one time now.
+        console.log("resetBtn is broken now");
+    });
+
+
+
+</script>
+</body>
+</html>
