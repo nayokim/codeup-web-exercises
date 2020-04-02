@@ -18,8 +18,8 @@ console.log(mapboxToken);
 //
 // mapboxgl.accessToken = mapboxToken;
 // var map = new mapboxgl.Map({
-//     container: 'map',
-//     style: 'mapbox://styles/mapbox/streets-v9',
+//     container: 'mamapbox://styles/mapbox/streets-v9p',
+//     style: '',
 //     center: [-96.8057, 32.7787],
 //     zoom: 16
 // });
