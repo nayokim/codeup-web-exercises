@@ -9,8 +9,9 @@ var map = new mapboxgl.Map({
 });
 
 var favoriteRestaurant = {
-    name: "<h6>Kirin Court</h6>",
     address: "221 W Polk St #200, Richardson, TX 75081",
+
+    name: "<h6>Kirin Court</h6>"
 
 
 };
@@ -27,11 +28,11 @@ geocode(favoriteRestaurant.address, mapboxTokenExercise).then(function (results)
         color: "pink",
         draggable: true
     };
+
     var marker = new mapboxgl.Marker(markerForRestaurant)
         .setLngLat(results)
         .setPopup(popup)
         .addTo(map);
-    marker.setPopup(popup);
 
 });
 
@@ -39,21 +40,21 @@ geocode(favoriteRestaurant.address, mapboxTokenExercise).then(function (results)
 
 var restaurantsArray = [
     {
-
-        name: "<h5>Kirin Court</h5>"
         address: "221 W Polk St #200, Richardson, TX 75081",
+        name: "<h5>Kirin Court</h5>"
+
 
     },
     {
-
-        name: "<h5>Bubba's Cooks Country</h5>"
         address: "6617 Hillcrest Ave, Dallas, TX 75205",
+        name: "<h5>Bubba's Cooks Country</h5>"
+
 
     },
     {
-
-        name: "<h5>Uchi</h5>"
         address: "2817 Maple Ave, Dallas, TX 75201",
+        name: "<h5>Uchi</h5>"
+
     }];
 
 
@@ -64,7 +65,12 @@ restaurantsArray.forEach(function (restaurant) {
         var popup = new mapboxgl.Popup()
             .setHTML(restaurant.name);
 
-        var marker = new mapboxgl.Marker()
+        var markerForRestaurant = {
+            color: "pink",
+            draggable: true
+        };
+
+        var marker = new mapboxgl.Marker(markerForRestaurant)
             .setLngLat(results)
             .setPopup(popup)
             .addTo(map)
