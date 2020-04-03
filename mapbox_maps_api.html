@@ -4,14 +4,104 @@
     <meta charset="UTF-8">
     <title>mapbox-maps</title>
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js'></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css' rel='stylesheet' />
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css' rel='stylesheet'/>
 </head>
 <body>
 
+<h1>My First Mapbox Map</h1>
 <div id='map' style='width: 600px; height: 700px;'></div>
 
 <script src="js/mapbox_maps_keys.js"></script>
-<script src = "js/mapbox-geocoder-utils.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
 <script src="js/mapbox_maps_api.js"></script>
+<script>
+    "use strict";
+
+    mapboxgl.accessToken = mapboxTokenExercise;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/satellite-streets-v11',
+        center: [-96.734488, 32.94886],
+        zoom: 10
+    });
+
+    //yes you can set zoom programatically - (set zoom after you create the map)
+    // map.setZoom (15);
+
+    var favoriteRestaurant = {
+        address: "221 W Polk St #200, Richardson, TX 75081",
+        name: "<h6>Kirin Court</h6>"
+    };
+
+    geocode(favoriteRestaurant.address, mapboxTokenExercise).then(function (results) {
+        console.log("results coordinates: " + results);
+
+        var popup = new mapboxgl.Popup()
+            .setHTML(favoriteRestaurant.name)
+            .addTo(map);
+
+        var markerForRestaurant = {
+            color: "pink",
+            draggable: false
+        };
+
+        var marker = new mapboxgl.Marker(markerForRestaurant)
+            .setLngLat(results)
+            .setPopup(popup)
+            .addTo(map);
+    });
+
+
+    var restaurantsArray = [
+        {
+            address: "221 W Polk St #200, Richardson, TX 75081",
+            name: "<h5>Kirin Court</h5>"
+
+
+        },
+        {
+            address: "6617 Hillcrest Ave, Dallas, TX 75205",
+            name: "<h5>Bubba's Cooks Country</h5>"
+
+
+        },
+        {
+            address: "2817 Maple Ave, Dallas, TX 75201",
+            name: "<h5>Uchi</h5>"
+
+        }];
+
+
+    restaurantsArray.forEach(function (restaurant) {
+        console.log(restaurant);
+
+        geocode(restaurant.address, mapboxTokenExercise).then(function (results) {
+            var popup = new mapboxgl.Popup()
+                .setHTML(restaurant.name);
+
+            var markerForRestaurant = {
+                color: "pink",
+                draggable: false
+            };
+
+            var marker = new mapboxgl.Marker(markerForRestaurant)
+                .setLngLat(results)
+                .setPopup(popup)
+                .addTo(map)
+        });
+
+        var zoomSelect = document.getElementById("zoom-select");
+        console.log(zoom-select);
+
+        zoomSelect.addEventListener('change', function(){
+            console.log('zoom level change ');
+            var zoomValue = zoomSelect.options[zoomSelect.selectedIndex].value;
+            map.setZoom(zoomValue);
+        })
+
+
+    });
+</script>
+
 </body>
 </html>

@@ -10,10 +10,7 @@ var map = new mapboxgl.Map({
 
 var favoriteRestaurant = {
     address: "221 W Polk St #200, Richardson, TX 75081",
-
     name: "<h6>Kirin Court</h6>"
-
-
 };
 
 geocode(favoriteRestaurant.address, mapboxTokenExercise).then(function (results) {
@@ -33,7 +30,6 @@ geocode(favoriteRestaurant.address, mapboxTokenExercise).then(function (results)
         .setLngLat(results)
         .setPopup(popup)
         .addTo(map);
-
 });
 
 
