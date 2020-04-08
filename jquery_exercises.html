@@ -7,6 +7,7 @@
 <body>
 
 <h1 class="codeup" id="id-1">This is a big heading</h1>
+<h1 class="codeup" id="id-1">This is another big heading</h1>
 
 <p class="codeup" id="id-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus alias aliquid commodi
     corporis doloribus, explicabo fuga id incidunt inventore magnam magni modi perspiciatis quasi reiciendis repudiandae
@@ -19,11 +20,11 @@
 <p class="codeup" id="id-3">
     And so it is, just like you said it would be
 </p>
-<ul class="codeup" id="id-4">
+<ul  id="id-4">
     <h2 class="codeup" id="id-5">things I want to do post-quarantine</h2>
     <li class="codeup" id="id-6">Sit outside and people watch</li>
     <li class="codeup" id="id-7">Eat at a restaurant</li>
-    <li class="codeup" id="id-8">Not cook</li>
+    <li  id="codeup">Not cook</li>
 </ul>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
@@ -40,15 +41,21 @@
         //
         // });
 
-        alert($('#id-1').html());
-        alert(($('#id-2')).html());
+        // alert($('#id-1').html());
+        // alert(($('#id-2')).html());
 
-        $('.codeup').css('border', '1px solid red');
+        // $('.codeup').css('border', '1px solid red');
+
 
         $('li').css('font-size', '20px');
-        $('h1,p,li').css('background-color', 'lightblue');
+        $('li').css('background-color', 'lightblue');
+        $('h1').css('background-color', 'lightblue');
+        $('p').css('background-color', 'lightblue');
 
-        alert(($('h1')).html());
+
+        alert($('h1').text());
+
+        $('h1,p,li').css('background-color', 'lightblue');
 
     })
 
