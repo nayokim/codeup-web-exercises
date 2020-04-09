@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery Events</title>
+</head>
+<body>
+
+<h1 id="header">jQuery Events </h1>
+
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam assumenda, aut commodi dolorem earum fuga iusto
+    maxime non nulla numquam officia omnis placeat, provident quia quibusdam repudiandae rerum sed veniam.
+</p>
+
+<p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi commodi deleniti, dignissimos et fuga, molestiae
+    mollitia officia quae quam quia quo repellat, sed ullam unde velit veritatis vitae! Aperiam, ipsa.
+</p>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script>
+"use strict";
+    console.log($('#header'));
+
+    // //vanilla js
+    // document.getElementById('header').addEventListener('click',function(){
+    //     console.log('Vanilla JS: header was clicked');
+    // });
+
+    $(document).ready(function () { //.ready is typically used once; this function will not load until the document is ready
+        // $('#header').click(function () {
+        //     console.log('from inside jQuery event handler, header was clicked');
+        // });
+
+        //single click
+        $('p').click(function(){
+            console.log('A paragraph was clicked')
+        });
+
+        //double click
+        $('#header').dblclick(function(){
+            $('#header').css('background-color','lightblue');
+        });
+
+        // var paragraphDoubleClick = function(){
+        //     console.log('double click handler');
+        //     $('p').css('color','blue');
+        // };
+        // $('p').dblclick(paragraphDoubleClick);
+
+        $('p').dblclick(function(){
+            $('p').css('color','blue');
+        });
+
+        //hover
+        //create a variable for when the mouse is in the area
+        var inHandler = function(){
+            $('#header').css('background-color','red');
+        };
+        //create a variable for when the mouse is out of  the area
+        var outHandler = function(){
+            $('#header').css('background-color','white');
+        };
+
+        //using the p-tag instead
+        $('#header').hover(inHandler,outHandler);
+
+        var inParagraphHandler = function (){
+            $('p').css('background-color','teal');
+        };
+
+        var outParagraphHandler = function (){
+            $('p').css('background-color','white');
+        };
+
+        $('p').hover(inParagraphHandler,outParagraphHandler); // if you autocomplete, intelliJ will add paranethesis. you do not need the () as this is a callback function. CSS has a hover also. You would use CSS when its fixed that way ALL the time. use jQuery depending on the logic - like if the javascript has changed something on the page after the page has loaded. For example, if youre on a page and you hover on an element. If it is a monday, it will take you one place whereas if it is a friday, it will take you somewhere else. Whereas in CSS, its always fixed, no matter what you do on the page.
+
+
+
+
+
+
+    })
+
+
+</script>
+
+
+</body>
+</html>

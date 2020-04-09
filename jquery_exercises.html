@@ -57,6 +57,8 @@
         //
         // $('h1,p,li').css('background-color', 'lightblue');
 
+
+        //jQuery with mouse event handlers
         $('h1').click(function(){
             $('h1').css('background-color','lightblue');
         });
@@ -74,7 +76,12 @@
             $('li').css('color','black');
         };
 
-        $('li').hover(inLiHandler,outLiHandler);
+        $('li').hover(function(){
+            $('li').css('color','red');
+        }, function (){
+            $('li').css('color','black');
+        });
+
 
     })
 
