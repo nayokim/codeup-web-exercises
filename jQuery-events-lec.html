@@ -18,6 +18,9 @@
     mollitia officia quae quam quia quo repellat, sed ullam unde velit veritatis vitae! Aperiam, ipsa.
 </p>
 
+
+<input type="text" id="name">
+
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
@@ -78,12 +81,36 @@
 
         $('p').hover(inParagraphHandler,outParagraphHandler); // if you autocomplete, intelliJ will add paranethesis. you do not need the () as this is a callback function. CSS has a hover also. You would use CSS when its fixed that way ALL the time. use jQuery depending on the logic - like if the javascript has changed something on the page after the page has loaded. For example, if youre on a page and you hover on an element. If it is a monday, it will take you one place whereas if it is a friday, it will take you somewhere else. Whereas in CSS, its always fixed, no matter what you do on the page.
 
+        //keyboard events
+
+        //keydown notifies when key is pressed down
+        $('#name').keydown(function(){
+            console.log('keydown');
+        });
+        //key press only notifies us when a non-modifier (cmd,control,shift) key is pressed
+        $('#name').keypress(function(){
+            console.log('keypress');
+        });
+
+        //KEY UP IS TRIGGERED AFTER THE KEY IS RELEASED
+        $('#name').keyup(function(){
+            console.log('keyup')
+        });
+
+        // a different way to assign events
+        $('p').on('click',function(){
+            console.log('using "on" to add a click event handler')
+        })
+
+        $('#name').on('keyup',function(){
+            console.log('using "on" to add a key event handler')
+        })
 
 
 
 
 
-    })
+    });
 
 
 </script>
