@@ -46,16 +46,35 @@
 
         // $('.codeup').css('border', '1px solid red');
 
+        //
+        // $('li').css('font-size', '20px');
+        // $('li').css('background-color', 'lightblue');
+        // $('h1').css('background-color', 'lightblue');
+        // $('p').css('background-color', 'lightblue');
+        //
+        //
+        // alert($('h1').text());
+        //
+        // $('h1,p,li').css('background-color', 'lightblue');
 
-        $('li').css('font-size', '20px');
-        $('li').css('background-color', 'lightblue');
-        $('h1').css('background-color', 'lightblue');
-        $('p').css('background-color', 'lightblue');
+        $('h1').click(function(){
+            $('h1').css('background-color','lightblue');
+        });
+
+        $('p').dblclick(function(){
+            $('p').css('font-size','18px');
+        });
 
 
-        alert($('h1').text());
+        var inLiHandler = function(){
+            $('li').css('color','red');
+        };
 
-        $('h1,p,li').css('background-color', 'lightblue');
+        var outLiHandler = function(){
+            $('li').css('color','black');
+        };
+
+        $('li').hover(inLiHandler,outLiHandler);
 
     })
 
