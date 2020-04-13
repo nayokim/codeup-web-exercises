@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery attributes</title>
+    <style>
+        body{
+            background-color: white;
+            color:black;
+        }
+        
+        #flower-image{
+            /*the starting wdith*/
+            width:20%;
+        }
+
+        #grades-table{
+            width: 50%;
+            height: 500px;
+            background-color: blue;
+        }
+
+        .hidden{
+            visibility: hidden;
+        }
+
+        .show{
+            font-weight: bolder;
+            visibility: visible;
+        }
+        
+        .dark-theme{
+            background-color: black;
+            color: white;
+        }
+
+
+
+    </style>
+</head>
+
+<body>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio doloremque est eveniet iste itaque laboriosam non repellat, temporibus. Alias aperiam eum ex excepturi hic molestias natus nobis porro quasi <quibusdam class=""></quibusdam></p>
+
+
+<button id="zoom-in"> zoom in</button>
+<button id="reset">reset</button>
+<button id = "toggle-theme">Dark Mode</button>
+
+<p id="control-alert" class="alert hidden">placeholder</p>
+
+<div id="grades-table">
+</div>
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+
+<script>
+    "use strict";
+    $(document).ready(function () {
+        var $gradesTable = $('#grades-table'); // since we are using this alot, set it to a variable
+        $gradesTable.html('<img id="flower-image" src="imgs/flower.jpeg" alt="">');
+
+        var $flower = $('#flower-image');
+        console.log($flower.css('width'));
+
+        var $alertP = $('#control-alert');
+
+        //using the .css() as a getter
+        var currentWidth = parseFloat($flower.css('width')); //
+        var totalOfPx = currentWidth * 5; // total width
+        var increasePx = totalOfPx * 0.05; // 5% increase
+        console.log(totalOfPx);
+        console.log(increasePx);
+
+
+
+        $('#zoom-in').click(function(){
+            //executing setters for classes
+            //zoom increase by 5%
+           $alertP.removeClass('hidden');
+           $alertP.addClass('show');
+           $alertP.text('zoom increased by 5%');
+
+            //using .css() as a getter
+            currentWidth = parseFloat($flower.css('width'));
+
+            console.log('new size ' + (currentWidth + increasePx + ' px'));
+
+            //using .css() as a setter
+            $flower.css('width', (currentWidth + increasePx + 'px')); //css function is acting as a setter as it is setting the function
+        });
+
+        $('#reset').click(function(){
+            //chaining - changing multiple settings in one line. Not recommended to try to change too many things in one line as it is difficult to follow what is going on when you need to update it.
+            // $flower.css('width',totalOfPx / 5).css('opacity', 0.5);
+
+            //method chaining
+            $alertP.removeClass('hidden').addClass('show').text('Zoom back to the original');
+            $flower.css('width',totalOfPx / 5)
+        });
+        
+        $('#toggle-theme').click(function(){
+            $('body').toggleClass('dark-theme');
+        });
+
+    })
+
+
+</script>
+</body>
+</html>
