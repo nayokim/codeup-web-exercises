@@ -18,10 +18,6 @@
             visibility: hidden;
         }
 
-        .show{
-            background-color: white;
-
-        }
         .highlight{
             background-color: lightblue;
         }
@@ -43,28 +39,28 @@
     <dt class="show">How many areas are in the National Park System?</dt>
     <dd class="invisible answers">The system includes 419 areas covering more than 85 million acres in every state</dd>
 
-    <dt class="highlight">What is the largest national park site?</dt>
+    <dt class="show">What is the largest national park site?</dt>
     <dd class="invisible">Wrangell-St. Elias National Park and Preserve, AK, at 13.2 million acres</dd>
 
-    <dt class="highlight">What is the smallest national park site?</dt>
+    <dt class="show">What is the smallest national park site?</dt>
     <dd class="invisible"> Thaddeus Kosciuszko National Memorial, PA, at 0.02 acres</dd>
 
-    <dt class="highlight">How many people visit the national parks?</dt>
+    <dt class="show">How many people visit the national parks?</dt>
     <dd class="invisible">in 2018: 318,211,833.</dd>
 
-    <dt class="highlight">What is the National Park Service budget?</dt>
+    <dt class="show">What is the National Park Service budget?</dt>
     <dd class="invisible">FY 2017 Enacted: $2.932 billion</dd>
 
-    <dt class="highlight">How many employees are in the National Park Service?</dt>
+    <dt class="show">How many employees are in the National Park Service?</dt>
     <dd class="invisible">Permanent, temporary, and seasonal employees: More than 20,000</dd>
 
-    <dt class="highlight">Can I bring my pet to a national park?</dt>
+    <dt class="show">Can I bring my pet to a national park?</dt>
     <dd class="invisible">Some national parks welcome pets—in developed areas, on many trails and campgrounds, and in some lodging facilities. Learn more about pets in parks.</dd>
 
-    <dt class="highlight">Can I bring my service dog to a national park?</dt>
+    <dt class="show">Can I bring my service dog to a national park?</dt>
     <dd class="invisible">Yes, service dogs are legally permitted</dd>
 
-    <dt class="highlight">What do I need to know about driving off road in national parks?</dt>
+    <dt class="show">What do I need to know about driving off road in national parks?</dt>
     <dd class="invisible">Before you head out, check with the national parks that you intend to visit.</dd>
 </dl>
 
@@ -80,7 +76,6 @@
             $('dd').removeClass('invisible')
         });
 
-        $('dt').addClass('highlight');
 
         $('dt').click(function(){
             $('dt').toggleClass('highlight');
