@@ -6,10 +6,6 @@
 
     <style>
 
-        dt{
-            background-color: white;
-        }
-
         dd{
             font-weight:bolder;
         }
@@ -31,6 +27,8 @@
 <p>FAQs</p>
 
 <button id="answers"> Show ALL Answers </button>
+<button id="hide"> Hide ALL Answers </button>
+
 <dl>
     <dt class="show">How old is the National Park System?</dt>
     <dd class="invisible">March 1, 1872</dd>
@@ -73,7 +71,11 @@
     $(document).ready(function () {
 
         $('#answers').click(function(){
-            $('dd').removeClass('invisible')
+            $('dd').removeClass('invisible');
+        });
+
+        $('#hide').click(function(){
+            $('dd').addClass('invisible');
         });
 
 
