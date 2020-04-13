@@ -6,6 +6,10 @@
 
     <style>
 
+        body{
+            font-family: "Helvetica", SansSerif
+        }
+
         dd{
             font-weight:bolder;
         }
@@ -23,43 +27,44 @@
     </style>
 </head>
 <body>
+<h1>FAQs</h1>
 
-<p>FAQs</p>
+<a href="#" id="answers-link">Toggle your answers</a>
 
-<button id="answers"> Show ALL Answers </button>
+<button id="answers-button"> Show ALL Answers </button>
 <button id="hide"> Hide ALL Answers </button>
 
 <dl>
-    <dt class="show">How old is the National Park System?</dt>
-    <dd class="invisible">March 1, 1872</dd>
+    <dt class="show">Lorem Park</dt>
+    <dd class="invisible">Lorem? Lorem!</dd>
 
 
-    <dt class="show">How many areas are in the National Park System?</dt>
-    <dd class="invisible answers">The system includes 419 areas covering more than 85 million acres in every state</dd>
+    <dt class="show">What is the name of a national park in Maine?</dt>
+    <dd class="invisible answers">Arcadia</dd>
 
-    <dt class="show">What is the largest national park site?</dt>
-    <dd class="invisible">Wrangell-St. Elias National Park and Preserve, AK, at 13.2 million acres</dd>
+    <dt class="show">What is the name of a national park in Utah?</dt>
+    <dd class="invisible">Arches</dd>
 
-    <dt class="show">What is the smallest national park site?</dt>
-    <dd class="invisible"> Thaddeus Kosciuszko National Memorial, PA, at 0.02 acres</dd>
+    <dt class="show">What is the name of a national park in Texas?</dt>
+    <dd class="invisible"> Big Bend</dd>
 
-    <dt class="show">How many people visit the national parks?</dt>
-    <dd class="invisible">in 2018: 318,211,833.</dd>
+    <dt class="show">What is the name of a national park in Oregon?</dt>
+    <dd class="invisible">Crater Lake</dd>
 
-    <dt class="show">What is the National Park Service budget?</dt>
-    <dd class="invisible">FY 2017 Enacted: $2.932 billion</dd>
+    <dt class="show">What is the name of a national park in California</dt>
+    <dd class="invisible">Death Valley</dd>
 
-    <dt class="show">How many employees are in the National Park Service?</dt>
-    <dd class="invisible">Permanent, temporary, and seasonal employees: More than 20,000</dd>
+    <dt class="show">What is the name of a national park in Florida</dt>
+    <dd class="invisible">Dry Tortugas</dd>
 
-    <dt class="show">Can I bring my pet to a national park?</dt>
-    <dd class="invisible">Some national parks welcome pets—in developed areas, on many trails and campgrounds, and in some lodging facilities. Learn more about pets in parks.</dd>
+    <dt class="show">What is the name of a national park in Arkansas</dt>
+    <dd class="invisible"> Hot Springs</dd>
 
-    <dt class="show">Can I bring my service dog to a national park?</dt>
-    <dd class="invisible">Yes, service dogs are legally permitted</dd>
+    <dt class="show">What is the name of a national park in North Dakota</dt>
+    <dd class="invisible">Theodore Roosevelt</dd>
 
-    <dt class="show">What do I need to know about driving off road in national parks?</dt>
-    <dd class="invisible">Before you head out, check with the national parks that you intend to visit.</dd>
+    <dt class="show">What is the name of a national park in America Samoa</dt>
+    <dd class="invisible">America Samoa</dd>
 </dl>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
@@ -70,14 +75,17 @@
 
     $(document).ready(function () {
 
-        $('#answers').click(function(){
+        $('#answers-button').click(function(event){
             $('dd').removeClass('invisible');
+        });
+
+        $('#answers-link').click(function(event){
+            $('dd').toggleClass('invisible');
         });
 
         $('#hide').click(function(){
             $('dd').addClass('invisible');
         });
-
 
         $('dt').click(function(){
             $('dt').toggleClass('highlight');
