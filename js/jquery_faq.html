@@ -10,6 +10,10 @@
             font-family: "Helvetica", SansSerif
         }
 
+        dt{
+            cursor: pointer;
+        }
+
         dd{
             font-weight:bolder;
         }
@@ -87,8 +91,18 @@
             $('dd').addClass('invisible');
         });
 
+        // $('dt').click(function(){
+        //     $('dt').toggleClass('highlight');
+        // })
+
+        //using this
+        // $('dt').click(function(){
+        //     $(this).addClass('highlight') // this refers to the element that is trigging the event
+        // });
+
+        //using this to toggle
         $('dt').click(function(){
-            $('dt').toggleClass('highlight');
+            $(this).toggleClass('highlight') // this refers to the element that is trigging the event
         })
 
 
