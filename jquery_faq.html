@@ -85,6 +85,14 @@
 
         $('#answers-link').click(function(event){
             $('dd').toggleClass('invisible');
+
+            //to show/hide answers
+            // $($('dd')[0]).attr('class')
+            if ($('dd')[0].className !== 'invisible') {
+                $(this).text('hide definitions')
+            } else {
+                $(this).text('show definitions')
+            }
         });
 
         $('#hide').click(function(){
