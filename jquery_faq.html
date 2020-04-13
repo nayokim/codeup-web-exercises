@@ -6,26 +6,25 @@
 
     <style>
 
-        body{
+        body {
             font-family: "Helvetica", SansSerif
         }
 
-        dt{
+        dt {
             cursor: pointer;
         }
 
-        dd{
-            font-weight:bolder;
+        dd {
+            font-weight: bolder;
         }
 
-        .invisible{
+        .invisible {
             visibility: hidden;
         }
 
-        .highlight{
+        .highlight {
             background-color: lightblue;
         }
-
 
 
     </style>
@@ -35,8 +34,8 @@
 
 <a href="#" id="answers-link">Toggle your answers</a>
 
-<button id="answers-button"> Show ALL Answers </button>
-<button id="hide"> Hide ALL Answers </button>
+<button id="answers-button"> Show ALL Answers</button>
+<button id="hide"> Hide ALL Answers</button>
 
 <dl>
     <dt class="show">Lorem Park</dt>
@@ -71,6 +70,37 @@
     <dd class="invisible">America Samoa</dd>
 </dl>
 
+
+<!--traversing -->
+
+<button id="li-last-item">Highlight last item</button>
+
+
+<h3>Everglades</h3>
+<ul>
+    <li>Its a river</li>
+    <li>Alligators and crocodiles co-exist</li>
+    <li>FIREEEE</li>
+    <li>Provides drinking water</li>
+</ul>
+
+<h3>Yellowstone</h3>
+<ul>
+    <li>Larger than RI and DE combined</li>
+    <li> > 500 active geyers</li>
+    <li>Has bears</li>
+    <li>Has birds</li>
+</ul>
+
+<h3>Acadia</h3>
+<ul>
+    <li>originally named Lafayette National Park</li>
+    <li>Almost All of the Land Came from Private Donations.</li>
+    <li>The park includes mountains, an ocean shoreline, woodlands, and lakes.</li>
+    <li>There are more than 190 kilometers (120 miles) of hiking trails in the park.</li>
+</ul>
+
+
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
@@ -78,26 +108,26 @@
     "use strict";
 
     $(document).ready(function () {
+        //
+        // $('#answers-button').click(function(event){
+        //     $('dd').removeClass('invisible');
+        // });
+        //
+        // $('#answers-link').click(function(event){
+        //     $('dd').toggleClass('invisible');
+        //
+        //     //to show/hide answers
+        //     // $($('dd')[0]).attr('class')
+        //     if ($('dd')[0].className !== 'invisible') {
+        //         $(this).text('hide definitions')
+        //     } else {
+        //         $(this).text('show definitions')
+        //     }
+        // });
 
-        $('#answers-button').click(function(event){
-            $('dd').removeClass('invisible');
-        });
-
-        $('#answers-link').click(function(event){
-            $('dd').toggleClass('invisible');
-
-            //to show/hide answers
-            // $($('dd')[0]).attr('class')
-            if ($('dd')[0].className !== 'invisible') {
-                $(this).text('hide definitions')
-            } else {
-                $(this).text('show definitions')
-            }
-        });
-
-        $('#hide').click(function(){
-            $('dd').addClass('invisible');
-        });
+        // $('#hide').click(function(){
+        //     $('dd').addClass('invisible');
+        // });
 
         // $('dt').click(function(){
         //     $('dt').toggleClass('highlight');
@@ -109,10 +139,24 @@
         // });
 
         //using this to toggle
-        $('dt').click(function(){
-            $(this).toggleClass('highlight') // this refers to the element that is trigging the event
-        })
+        // $('dt').click(function(){
+        //     $(this).toggleClass('highlight') // this refers to the element that is trigging the event
+        // });
 
+        $('#li-last-item').click(function () {
+            $('ul').each(function (index) {
+                $(this).children().last().css('background-color', "yellow");
+            })
+        });
+
+        $('h3').click(function () {
+            // $('ul').children().css("font-weight","bold") //this will bold all the LIs on the page
+            $(this).next().children().css('font-weight', 'bold'); // this will be specific to the h3 you click
+        });
+
+        $('li').click(function () {
+            $(this).parent().children().first().css('color', 'blue');
+        });
 
 
     });
