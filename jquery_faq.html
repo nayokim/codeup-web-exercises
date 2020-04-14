@@ -26,6 +26,10 @@
             background-color: lightblue;
         }
 
+        .bold-font{
+            font-weight: bolder;
+        }
+
 
     </style>
 </head>
@@ -145,16 +149,19 @@
 
         $('#li-last-item').click(function () {
             $('ul').each(function (index) {
-                $(this).children().last().css('background-color', "yellow");
+                // $(this).children().last().css('background-color', "yellow");
+                $(this).children().last().toggleClass('highlight');
             })
         });
 
         $('h3').click(function () {
             // $('ul').children().css("font-weight","bold") //this will bold all the LIs on the page
-            $(this).next().children().css('font-weight', 'bold'); // this will be specific to the h3 you click
+            // $(this).next().children().css('font-weight', 'bold'); // this will be specific to the h3 you click
+            $(this).next().children().toggleClass('bold-font');
         });
 
         $('li').click(function () {
+            //li -->ul --> all li of ul->first
             $(this).parent().children().first().css('color', 'blue');
         });
 
