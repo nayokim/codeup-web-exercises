@@ -30,6 +30,10 @@
             font-weight: bolder;
         }
 
+        .first-item-color{
+            color:blue;
+        }
+
 
     </style>
 </head>
@@ -162,7 +166,8 @@
 
         $('li').click(function () {
             //li -->ul --> all li of ul->first
-            $(this).parent().children().first().css('color', 'blue');
+            // $(this).parent().children().first().css('color', 'blue');
+            $(this).parent().children().first().toggleClass('first-item-color');
         });
 
 
