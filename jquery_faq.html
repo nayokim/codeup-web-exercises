@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>jQuery National Parks FAQ</title>
 
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">-->
+
     <style>
 
         body {
@@ -26,18 +28,31 @@
             background-color: lightblue;
         }
 
-        .bold-font{
+        .bold-font {
             font-weight: bolder;
         }
 
-        .first-item-color{
-            color:blue;
+        .first-item-color {
+            color: blue;
         }
 
 
     </style>
 </head>
 <body>
+
+<!--jQuery effects-->
+
+<div id="sign-up">
+    <h1>Would you like to sign up for our newsletter?</h1>
+    <span id="hide-h1">x</span>
+</div>
+<br>
+
+<button id="li-last-item">Highlight last item</button>
+
+
+<!--jQuery attributes-->
 <h1>FAQs</h1>
 
 <a href="#" id="answers-link">Toggle your answers</a>
@@ -81,27 +96,26 @@
 
 <!--traversing -->
 
-<button id="li-last-item">Highlight last item</button>
+<h2>Please consider registering for the site</h2>
 
-
-<h3>Everglades</h3>
-<ul>
+<h3 id="everglades">Everglades</h3>
+<ul id="everglades-hide-ul">
     <li>Its a river</li>
     <li>Alligators and crocodiles co-exist</li>
     <li>FIREEEE</li>
     <li>Provides drinking water</li>
 </ul>
 
-<h3>Yellowstone</h3>
-<ul>
+<h3 id="yellowstone">Yellowstone</h3>
+<ul id="yellowstone-hide-ul">
     <li>Larger than RI and DE combined</li>
     <li> > 500 active geyers</li>
     <li>Has bears</li>
     <li>Has birds</li>
 </ul>
 
-<h3>Acadia</h3>
-<ul>
+<h3 id="acadia">Acadia</h3>
+<ul id="acadia-hide-ul">
     <li>originally named Lafayette National Park</li>
     <li>Almost All of the Land Came from Private Donations.</li>
     <li>The park includes mountains, an ocean shoreline, woodlands, and lakes.</li>
@@ -109,8 +123,10 @@
 </ul>
 
 
+
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
 
 <script>
     "use strict";
@@ -170,8 +186,23 @@
             $(this).parent().children().first().toggleClass('first-item-color');
         });
 
+        //jQuery effects
+        //At the top of the page, add a div with two elements, an h1 that reads "Would you like to sign up for our newsletter?" and a span that         has an 'x' in it. When the 'x' is clicked, hide the entire div element
+        $('span').click(function () {
+            $(this).parent().hide();
+        });
+
+        //The uls next to each h3 that contain facts about each park should start out hidden, and when the corresponding h3 is clicked, the display of the ul should be toggled with a sliding effect.
+        $('ul').hide();
+        $('h3').click(function () {
+            $(this).next().slideToggle();
+        });
+
+        //After the user has been on the page for 8 seconds, an h2 should fade in that asks the user to register for the site.
+        $('h2').hide().delay(8000).fadeIn();
 
     });
+
 </script>
 
 </body>

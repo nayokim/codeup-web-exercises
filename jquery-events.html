@@ -2,40 +2,148 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>jquery effects</title>
+    <style type="text/css">
+        #red.circle {
+            background-color: red;
+        }
 
-    <style>
-        /*#national-parks, #state-parks-texas {*/
-        /*    display: none;*/
-        /*}*/
+        #orange.circle {
+            background-color: darkorange;
+        }
+
+        #yellow.circle {
+            background-color: #FACE0A;
+        }
+
+        #green.circle {
+            background-color: #8cd63d;
+        }
+
+        #blue.circle {
+            background-color: darkblue;
+        }
+
+        #purple.circle {
+            background-color: rebeccapurple;
+        }
+
+        .circle {
+            width: 70px;
+            height: 70px;
+            border-radius: 35px;
+            margin-left: 15px;
+        }
+
+        .circles {
+            width: 80%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            margin-bottom: 30px;
+        }
 
     </style>
 </head>
 <body>
 
-<h1>Parks List</h1>
-<h3 id="national-parks-toggle">National Parks</h3>
-<ul id="national-parks">
-    <li>Arches</li>
-    <li>Badlands</li>
-    <li>Carlsbad Caverns</li>
-    <li>Denali</li>
-    <li>Everglades</li>
-</ul>
-<h3 id="state-parks-texas-toggle">State Parks of Texas</h3>
-<ul id="state-parks-texas">
-    <li>Abilene</li>
-    <li>Big Bend</li>
-    <li>Choke Canyon</li>
-    <li>Davis Mountains</li>
-    <li>Enchanted Rock</li>
-</ul>
+
+
+
+<div class="circles">
+    <div id="red" class="circle"></div>
+    <div id="orange" class="circle"></div>
+    <div id="yellow" class="circle"></div>
+    <div id="green" class="circle"></div>
+    <div id="blue" class="circle"></div>
+    <div id="purple" class="circle"></div>
+</div>
+
+<button id="show-circles">Show All Circles</button>
+<button id="hide-circles">Hide All Circles</button>
+<button id="toggle-circles">Toggle Circles</button>
+<br>
+<button id="toggle-circles-fade">Toggle Circles with fade</button>
+<button id="toggle-circles-slide">Toggle Circles with slide</button>
+
+<!--<h1>Parks List</h1>-->
+<!--<h3 id="national-parks-toggle">National Parks</h3>-->
+<!--<ul id="national-parks">-->
+<!--    <li>Arches</li>-->
+<!--    <li>Badlands</li>-->
+<!--    <li>Carlsbad Caverns</li>-->
+<!--    <li>Denali</li>-->
+<!--    <li>Everglades</li>-->
+<!--</ul>-->
+<!--<h3 id="state-parks-texas-toggle">State Parks of Texas</h3>-->
+<!--<ul id="state-parks-texas">-->
+<!--    <li>Abilene</li>-->
+<!--    <li>Big Bend</li>-->
+<!--    <li>Choke Canyon</li>-->
+<!--    <li>Davis Mountains</li>-->
+<!--    <li>Enchanted Rock</li>-->
+<!--</ul>-->
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 
 
 <script>
+
+    $(document).ready(function(){
+        console.log('ready');
+
+        var circleElements = $('.circle'); //used more than once
+
+        //========== using hide ===========
+        // $('.circle').click(function(){ //used $('circle') more than once
+        //     // console.log($(this)) this is the circle, jquery object
+        //     $(this).hide(); //when we use hide, (when you look at the elements in the browser) the "display:none" in the html
+        // });
+
+        //hide by clicking each individual circle
+        circleElements.click(function(){
+            // console.log($(this)) this is the circle, jquery object
+            $(this).hide(); //when we use hide, (when you look at the elements in the browser) the "display:none" in the html
+        });
+
+        //button to hide all circles
+        $('#hide-circles').click(function(){
+            circleElements.hide()
+        });
+
+
+        //========== using show ===========
+        // $('#show-circles').click(function(){ //used $('circle') more than once
+        //     $('.circle').show();
+        // });
+
+        $('#show-circles').click(function(){
+            circleElements.show();
+        });
+
+        //========== using toggle ===========
+
+        $('#toggle-circles').click(function(){
+            circleElements.toggle();
+        });
+
+        //========== using  fadeToggle ===========
+
+        $('#toggle-circles-fade').click(function(){
+            circleElements.fadeToggle(3000);
+        });
+
+        //========== using  slideToggle ===========
+
+        $('#toggle-circles-slide').click(function(){
+            circleElements.slideToggle(3000);
+        });
+
+
+    });
+
+
     // $('#national-parks-toggle').click(function() {
     //     $('#national-parks').hide();
     // });
@@ -58,13 +166,13 @@
     //     $('#state-parks-texas').toggle();
     // });
 
-    $('#national-parks-toggle').click(function() {
-        $('#national-parks').slideUp();
-    });
-
-    $('#state-parks-texas-toggle').click(function() {
-        $('#state-parks-texas').fadeToggle(2500);
-    });
+    // $('#national-parks-toggle').click(function () {
+    //     $('#national-parks').slideUp();
+    // });
+    //
+    // $('#state-parks-texas-toggle').click(function () {
+    //     $('#state-parks-texas').fadeToggle(2500);
+    // });
 </script>
 </body>
 </html>
