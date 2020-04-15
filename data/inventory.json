@@ -30,57 +30,12 @@
             "tool"
         ],
         "price": 10
-    },
-
-    {
-        "title": "Drill Press",
-        "quantity": 5,
-        "categories": [
-            "tool",
-            "powered"
-        ],
-        "price": 1000
-    },
-
-    {
-        "title": "Router",
-        "quantity": 15,
-        "categories": [
-            "tool",
-            "powered"
-        ],
-        "price": 200
-    },
-    {
-        "title": "Biscuits",
-        "quantity": 12,
-        "categories": [
-            "tool"
-        ],
-        "price": 10
-    },
-    {
-        "title": "cookies",
-        "quantity": 12,
-        "categories": [
-            "tool"
-        ],
-        "price": 10
-    },
-    {
-        "title": "miter saw",
-        "quantity": 1,
-        "categories": [
-            "tool"
-        ],
-        "price": 300
-    },
-    {
-        "title": "hand saw",
-        "quantity": 1,
-        "categories": [
-            "tool"
-        ],
-        "price": 30
-    }
+    }, {
+    "title": "Screwdrivers",
+    "quantity": 25,
+    "categories": [
+        "tool"
+    ],
+    "price": 10
+}
 ]

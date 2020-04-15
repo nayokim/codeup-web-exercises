@@ -40,21 +40,38 @@
 
             getInfo();
 
-            function renderHTML(toolsArray) {
+            function renderHTML(inventory) {
                 var product = "";
-                var HTML = "";
+                var generateHTML = "";
                 $('#insertProducts').empty(); //clean up structure
-
-                toolsArray.forEach(function (tool) {
-                    HTML = "<tr>" +
-                        "            <td>" + tool.title + "</td>" +
-                        "            <td>" + tool.quantity + "</td>" +
-                        "            <td>$" + tool.price + "</td>" +
-                        "            <td>" + tool.categories + "</td>" +
+                for (var i = 0; i < inventory.length; i++) {
+                    console.log(inventory);
+                    product = inventory[i];
+                    generateHTML = "<tr>" +
+                        "            <td>" + product.title + "</td>" +
+                        "            <td>" + product.quantity + "</td>" +
+                        "            <td>" +"$" + product.price + "</td>" +
+                        "            <td>" + product.categories + "</td>" +
                         "        </tr>";
-                    $("#insertProducts").append(HTML);
-                });
+                    $("#insertProducts").append(generateHTML);
+                }
             }
+
+            // function renderHTML(toolsArray) {
+            //     var product = "";
+            //     var HTML = "";
+            //     $('#insertProducts').empty(); //clean up structure
+            //
+            //     toolsArray.forEach(function (tool) {
+            //         HTML = "<tr>" +
+            //             "            <td>" + tool.title + "</td>" +
+            //             "            <td>" + tool.quantity + "</td>" +
+            //             "            <td>$" + tool.price + "</td>" +
+            //             "            <td>" + tool.categories + "</td>" +
+            //             "        </tr>";
+            //         $("#insertProducts").append(HTML);
+            //     });
+            // }
 
             function getInfo() {
                 $.get(url).done(function (inventory) {
