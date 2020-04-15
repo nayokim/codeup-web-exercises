@@ -18,6 +18,8 @@
     </thead>
     <tbody id="insertProducts"></tbody>
 
+    <button id="refresh">Refresh</button>
+
 
 </table>
 
@@ -28,44 +30,47 @@
         "use strict";
         // TODO: Create an ajax GET request for /data/inventory.json
 
-        var url = 'data/inventory.json';
-
 
         // TODO: Take the data from inventory.json and append it to the products table
         //       HINT: Your data should come back as a JSON object; use console.log() to inspect
         //             its contents and fields
         //       HINT: You will want to target #insertProducts for your new HTML elements
 
-        $.get(url).done(function (inventory) {
-            // console.log(inventory[0].title);
-
-            var product = "";
-            var generatedHTML = "";
-            for (var i = 0; i < inventory.length; i++) {
-                // console.log((inventory[i].title));
-                product = inventory[i];
-                console.log(product);
-                console.log(product.title);
-                generatedHTML = "<tr>"+
-                    "<td>"+ product.title+"</td>"+
-                    "<td>"+ product.quantity+"</td>"+
-                    "<td>"+ product.price+"</td>"+
-                    "<td>"+ product.categories+"</td>"+
-                    "</tr>";
-
-
-                $('table').find('tbody').append(generatedHTML);
-                // generatedHTML="<tbody>"+ product.title+ "</tbody>";
-                // $('#insertProducts').text(generatedHTML);
-
-            }
-
-            // // var firstProduct = inventory[0];
-            // $('#insertProducts').text(inventory[0].title);
+        $('#refresh').click(function (event) {
+            event.preventDefault();
+            // var refreshTable = $('#products').val();
             //
-            // // var secondProduct = inventory[1];
-            // $('#insertProducts').text(inventory[1].title);
+            var url = 'data/inventory.json';
 
+            $.get(url).done(function (inventory) {
+                // console.log(inventory[0].title);
+
+                var product = "";
+                var generatedHTML = "";
+                for (var i = 0; i < inventory.length; i++) {
+                    // console.log((inventory[i].title));
+                    product = inventory[i];
+                    console.log(product);
+                    console.log(product.title);
+                    // $('#insertProducts').text(generatedHTML);
+                    // // var firstProduct = inventory[0];
+                    // $('#insertProducts').text(inventory[0].title);
+                    //
+                    // // var secondProduct = inventory[1];
+                    // $('#insertProducts').text(inventory[1].title);
+                    // generatedHTML="<tbody>"+ product.title+ "</tbody>";
+                    generatedHTML = "<tr>" +
+                        "<td>" + product.title + "</td>" +
+                        "<td>" + product.quantity + "</td>" +
+                        "<td>" + product.price + "</td>" +
+                        "<td>" + product.categories + "</td>" +
+                        "</tr>";
+
+                    $('table').find('tbody').append(generatedHTML);
+                }
+            }).fail(function (errors) {
+                console.error(errors);
+            });
         });
 
     })();
