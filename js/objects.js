@@ -188,6 +188,8 @@
     books.push(createBook("Harry Potter", "JK Rowling"));
     books.push(createBook("persepolis", "marjane starapi "));
     books.push(createBook("Harry Potter", "JK Rowling"));
+
+
     books.forEach(function (bookInformation, index) {
         console.log("Book # " + (index + 1));
         // console.log("Title: " + bookInformation.title);
