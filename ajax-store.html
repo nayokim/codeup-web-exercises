@@ -7,7 +7,8 @@
 
 <h1>My Tool Store</h1>
 
-<table id="products">
+
+<table id="products" border='1'>
     <thead>
     <tr>
         <th>Title</th>
@@ -18,16 +19,16 @@
     </thead>
     <tbody id="insertProducts"></tbody>
 
-    <button id="refresh">Refresh</button>
-
-
 </table>
+
+<button id="refresh">Refresh</button>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 <script>
+    "use strict";
     (function () {
-        "use strict";
+
         // TODO: Create an ajax GET request for /data/inventory.json
 
 
@@ -35,6 +36,8 @@
         //       HINT: Your data should come back as a JSON object; use console.log() to inspect
         //             its contents and fields
         //       HINT: You will want to target #insertProducts for your new HTML elements
+
+
 
         $('#refresh').click(function (event) {
             event.preventDefault();
@@ -47,6 +50,8 @@
 
                 var product = "";
                 var generatedHTML = "";
+                $('#insertProducts').empty(); //clean up structure
+
                 for (var i = 0; i < inventory.length; i++) {
                     // console.log((inventory[i].title));
                     product = inventory[i];
@@ -62,11 +67,11 @@
                     generatedHTML = "<tr>" +
                         "<td>" + product.title + "</td>" +
                         "<td>" + product.quantity + "</td>" +
-                        "<td>" + product.price + "</td>" +
+                        "<td>" + "$" + product.price + "</td>" +
                         "<td>" + product.categories + "</td>" +
                         "</tr>";
 
-                    $('table').find('tbody').append(generatedHTML);
+                    $('#insertProducts').append(generatedHTML);
                 }
             }).fail(function (errors) {
                 console.error(errors);

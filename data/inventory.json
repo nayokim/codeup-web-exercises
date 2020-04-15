@@ -58,5 +58,21 @@
             "tool"
         ],
         "price": 10
+    },
+    {
+        "title": "cookies",
+        "quantity": 12,
+        "categories": [
+            "tool"
+        ],
+        "price": 10
+    },
+    {
+        "title": "miter saw",
+        "quantity": 1,
+        "categories": [
+            "tool"
+        ],
+        "price": 300
     }
 ]
