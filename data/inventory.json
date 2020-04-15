@@ -74,5 +74,13 @@
             "tool"
         ],
         "price": 300
+    },
+    {
+        "title": "hand saw",
+        "quantity": 1,
+        "categories": [
+            "tool"
+        ],
+        "price": 30
     }
 ]
