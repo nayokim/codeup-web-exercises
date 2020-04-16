@@ -5,12 +5,18 @@
     <title>ajax-weather</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css' rel='stylesheet'/>
 </head>
 <body>
 
 
 <main class="container-fluid">
     <div id="weather" class="card-deck"></div>
+
+    <div class="mt-5 mb-5" id='map' style='width: 1400px; height: 300px'></div>
 
 
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"
@@ -22,11 +28,19 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
-
     <script src="js/keys.js"></script>
+
 
     <script>
         'use strict';
+
+        mapboxgl.accessToken = OMW_MAPBOX_KEY;
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/satellite-streets-v11',
+            center: [-96.734488, 32.94886],
+            zoom: 10
+        });
         (function () {
 
             $.get("http://api.openweathermap.org/data/2.5/forecast", {
@@ -57,11 +71,11 @@
                             '<div class="card-body p-0 m-1">' +
                             '<h5 class="card-header text-center">' + printDate + '</h5>' +
                             '<h5 class="card-title text-center ">' + Math.floor(mainList.temp) + degreeSign + ' ' + '</h5>' +
-                            '<p class="card-text text-center">' + Math.floor(mainList.temp_min) + degreeSign + ' / ' +                                    (Math.floor(mainList.temp_max) + degreeSign) + '</p>' +
-                            '<img class="mx-auto d-block" src=' + 'http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png'+  ' alt="">' +
-                            '<p class="card-text border-bottom ">' + 'Description: ' + startSpan + data.list[i].weather[0].description +                                '</span>' + '</p>' +
+                            '<p class="card-text text-center">' + Math.floor(mainList.temp_min) + degreeSign + ' / ' + (Math.floor(mainList.temp_max) + degreeSign) + '</p>' +
+                            '<img class="mx-auto d-block" src=' + 'http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png' + ' alt="">' +
+                            '<p class="card-text border-bottom ">' + 'Description: ' + startSpan + data.list[i].weather[0].description + '</span>' + '</p>' +
                             '<p class="card-text border-bottom">' + 'Humidity:  ' + startSpan + mainList.humidity + '%' + endSpan + '</p>' +
-                            '<p class="card-text border-bottom">' + 'Wind:  ' + startSpan + data.list[i].wind.speed + ' mi/hr' + endSpan +                             '</p>' +
+                            '<p class="card-text border-bottom">' + 'Wind:  ' + startSpan + data.list[i].wind.speed + ' mi/hr' + endSpan + '</p>' +
                             '<p class="card-text ">' + 'Pressure:  ' + startSpan + mainList.pressure + ' hPa' + endSpan + '</p>' +
                             '</div>';
                         $("#weather").append(weatherCards);
@@ -136,6 +150,8 @@
             }).fail(function (errors) {
                 console.error(errors)
             });
+
+
 
 
         })();
