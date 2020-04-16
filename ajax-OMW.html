@@ -10,19 +10,7 @@
 
 
 <main class="container">
-    <div id="weather" class="card-deck">
-        <!--        <div id="weather">-->
-
-        <!--            <h3 id="date"></h3>-->
-        <!--            <h3 id="temperature"></h3>-->
-        <!--            <h4 id="lowAndHigh"></h4>-->
-        <!--            <p id="weatherDescription"></p>-->
-        <!--            <p id="humidPercentage"></p>-->
-        <!--            <p id="windSpeed"></p>-->
-        <!--            <p id="hPA"></p>-->
-
-    </div>
-
+    <div id="weather" class="card-deck"></div>
 
 
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"
@@ -47,32 +35,28 @@
                 "lon": -75.188125,
                 "units": "imperial"
             }).done(function (data) {
-                // var day1 = data.list[i];
-                var degreeSign = '\xB0F';
-
-
-
                 for (var i = 0; i < data.list.length; i++) {
                     if (data.list[i].dt % 86400 === 0) {
                         //get rid of the time from the date
+                        var degreeSign = '\xB0F';
                         var dateNoTime = data.list[i].dt_txt;
                         var printDate = dateNoTime.slice(0, 10);
+                        var mainList = data.list[i].main;
                         var weatherCards = "";
 
                         weatherCards = '<div class="card">' +
                             '<div class="card-body">' +
                             '<h5 class="card-title">' + printDate + '</h5>' +
-                            '<h5 class="card-title">' + 'Main temperature: ' + data.list[i].main.temp + degreeSign + ' ' + '</h5>' +
-                            '<p class="card-text">' + Math.floor(data.list[i].main.temp_min) + degreeSign + '/' + (Math.floor(data.list[i].main.temp_max) + degreeSign + '                           ') + '</p>' +
-                            '<p class="card-text">' + 'Description: '  + data.list[i].weather[0].description + '</p>' +
-                            '<p class="card-text">' + 'Humidity:  '  + data.list[i].main.humidity + '%'+ '</p>'+
-                            '<p class="card-text">' + 'Wind:  '  + data.list[i].wind.speed + ' mi/hr'+ '</p>'+
-                            '<p class="card-text">' + 'Pressure:  '  + data.list[i].main.pressure + ' hPa'+ '</p>'+
+                            '<h5 class="card-title">' + 'Main temperature: ' + mainList.temp + degreeSign + ' ' + '</h5>' +
+                            '<p class="card-text">' + Math.floor(mainList.temp_min) + degreeSign + '/' + (Math.floor(mainList.temp_max) + degreeSign + '                           ') + '</p>' +
+                            '<p class="card-text">' + 'Description: ' + data.list[i].weather[0].description + '</p>' +
+                            '<p class="card-text">' + 'Humidity:  ' + mainList.humidity + '%' + '</p>' +
+                            '<p class="card-text">' + 'Wind:  ' + data.list[i].wind.speed + ' mi/hr' + '</p>' +
+                            '<p class="card-text">' + 'Pressure:  ' +mainList.pressure + ' hPa' + '</p>' +
                             '</div>';
                         $("#weather").append(weatherCards);
                     }
                 }
-
 
 
                 //weather
