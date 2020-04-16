@@ -48,9 +48,7 @@
                     // console.log(data.list[i]);
                     $('#temperature').append(data.list[i].main.temp + degreeSign +  ' ');
                     $('#lowAndHigh').append(Math.floor(data.list[i].main.temp_min)+ degreeSign + '/' + (Math.floor(data.list[i].main.temp_max) + degreeSign + ' '));
-
                 }
-                // console.log('main tem', data.list[i].main.temp)
             }
 
             //===================== for one day=============================
