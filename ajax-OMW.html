@@ -3,100 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <title>ajax-weather</title>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
 
-<div id="weather">
 
-    <h3 id="date"></h3>
+<main class="container">
+    <div id="weather" class="card-deck">
+        <!--        <div id="weather">-->
 
-    <div>
-        <h3 id="temperature"></h3>
-
+        <!--            <h3 id="date"></h3>-->
+        <!--            <h3 id="temperature"></h3>-->
+        <!--            <h4 id="lowAndHigh"></h4>-->
+        <!--            <p id="weatherDescription"></p>-->
+        <!--            <p id="humidPercentage"></p>-->
+        <!--            <p id="windSpeed"></p>-->
+        <!--            <p id="hPA"></p>-->
 
     </div>
 
-    <h4 id="lowAndHigh"></h4>
 
-    <p id="weatherDescription"></p>
-    <p id="humidPercentage"></p>
-    <p id="windSpeed"></p>
-    <p id="hPA"></p>
 
-</div>
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"
+            integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="js/keys.js"></script>
+    <script src="js/keys.js"></script>
 
-<script>
-    'use strict';
-    (function () {
+    <script>
+        'use strict';
+        (function () {
 
-        $.get("http://api.openweathermap.org/data/2.5/forecast", {
-            "APPID": OWM_KEY,
-            "lat": 40.011677,
-            "lon": -75.188125,
-            "units": "imperial"
-        }).done(function (data) {
-            // var day1 = data.list[i];
-            var degreeSign='\xB0F';
-            // var mainTemp= data.list[i].main;
-            // var weather=data.list[i].weather[0];
-            for (var i = 0; i < data.list.length; i++){
-                if(data.list[i].dt % 86400 === 0){//86400 sec in 24 hours
-                    // console.log(data.list[i]);
-                    $('#temperature').append(data.list[i].main.temp + degreeSign +  ' ');
-                    $('#lowAndHigh').append(Math.floor(data.list[i].main.temp_min)+ degreeSign + '/' + (Math.floor(data.list[i].main.temp_max) + degreeSign + ' '));
+            $.get("http://api.openweathermap.org/data/2.5/forecast", {
+                "APPID": OWM_KEY,
+                "lat": 40.011677,
+                "lon": -75.188125,
+                "units": "imperial"
+            }).done(function (data) {
+                // var day1 = data.list[i];
+                var degreeSign = '\xB0F';
+
+
+
+                for (var i = 0; i < data.list.length; i++) {
+                    if (data.list[i].dt % 86400 === 0) {
+                        //get rid of the time from the date
+                        var dateNoTime = data.list[i].dt_txt;
+                        var printDate = dateNoTime.slice(0, 10);
+                        var weatherCards = "";
+
+                        weatherCards = '<div class="card">' +
+                            '<div class="card-body">' +
+                            '<h5 class="card-title">' + printDate + '</h5>' +
+                            '<h5 class="card-title">' + 'Main temperature: ' + data.list[i].main.temp + degreeSign + ' ' + '</h5>' +
+                            '<p class="card-text">' + Math.floor(data.list[i].main.temp_min) + degreeSign + '/' + (Math.floor(data.list[i].main.temp_max) + degreeSign + '                           ') + '</p>' +
+                            '<p class="card-text">' + 'Description: '  + data.list[i].weather[0].description + '</p>' +
+                            '<p class="card-text">' + 'Humidity:  '  + data.list[i].main.humidity + '%'+ '</p>'+
+                            '<p class="card-text">' + 'Wind:  '  + data.list[i].wind.speed + ' mi/hr'+ '</p>'+
+                            '<p class="card-text">' + 'Pressure:  '  + data.list[i].main.pressure + ' hPa'+ '</p>'+
+                            '</div>';
+                        $("#weather").append(weatherCards);
+                    }
                 }
-            }
-
-            //===================== for one day=============================
-            // console.log(data);
-            // var day1 = data.list[0];
-            // var degreeSign='\xB0F';
-            // var mainTemp= data.list[0].main;
-            // var weather=data.list[0].weather[0];
-            // // console.log('all',day1);
-            // //main temp
-            // // var mainTemp= data.list[0].main;
-            // // console.log('main temp', mainTemp.temp);
-            // // console.log('main temp feels like', mainTemp.feels_like);
-            // // console.log('main temp low', mainTemp.temp_min);
-            // // console.log('main temp high', mainTemp.temp_max);
-            // // console.log('main temp humidity', mainTemp.humidity);
-            // // console.log('main Pressure', mainTemp.pressure );
-            // $('#temperature').append(Math.floor(mainTemp.temp)+ degreeSign); // main temp
-            // $('#lowAndHigh').append(Math.floor(mainTemp.temp_min)+ degreeSign + '/' + (Math.floor(mainTemp.temp_max) + degreeSign)); //low and high
-            // $('#humidPercentage').append('Humidity: ' + mainTemp.humidity + '%'); //humidity
-            // $('#hPA').append("Pressure: " + mainTemp.pressure + ' hPa'); //humidity
-            //
-            // //weather
-            // // var weather=data.list[0].weather[0];
-            // // console.log('weather',weather.main);
-            // // console.log('weather', weather.description );
-            // // console.log('weather',weather.icon );
-            // $('#weatherDescription').text('Description: ' + weather.description ); // forecast
-            // //wind
-            // // console.log('wind',day1.wind.speed);
-            // $('#windSpeed').text('Wind: ' + day1.wind.speed + ' miles/hour' ); // forecast
-            //
-            //
-            // //date and time
-            // // console.log('time and date',day1.dt_txt);
-            // $('#date').text(day1.dt_txt);
-
-            //=========================== end of one day ============================================
 
 
 
-        }).fail(function (errors) {
-            console.error(errors)
-        });
+                //weather
+                // // var weather=data.list[0].weather[0];
+                // // console.log('weather',weather.main);
+                // // console.log('weather', weather.description );
+                // // console.log('weather',weather.icon );
+                // $('#weatherDescription').text('Description: ' + weather.description ); // forecast
 
 
-    })();
-</script>
+                // for (var i = 0; i < data.list.length; i++) {
+                //     if (data.list[i].dt % 86400 === 0) {//86400 sec in 24 hours
+                //         // console.log(data.list[i]);
+                //         $('#temperature').append(data.list[i].main.temp + degreeSign + ' ');
+                //         $('#lowAndHigh').append(Math.floor(data.list[i].main.temp_min) + degreeSign + '/' + (Math.floor(data.list[i].main.temp_max) + degreeSign + ' '));
+                //     }
+                // }
+
+                //===================== for one day=============================
+                // console.log(data);
+                // var day1 = data.list[0];
+                // var degreeSign='\xB0F';
+                // var mainTemp= data.list[0].main;
+                // var weather=data.list[0].weather[0];
+                // // console.log('all',day1);
+                // //main temp
+                // // var mainTemp= data.list[0].main;
+                // // console.log('main temp', mainTemp.temp);
+                // // console.log('main temp feels like', mainTemp.feels_like);
+                // // console.log('main temp low', mainTemp.temp_min);
+                // // console.log('main temp high', mainTemp.temp_max);
+                // // console.log('main temp humidity', mainTemp.humidity);
+                // // console.log('main Pressure', mainTemp.pressure );
+                // $('#temperature').append(Math.floor(mainTemp.temp)+ degreeSign); // main temp
+                // $('#lowAndHigh').append(Math.floor(mainTemp.temp_min)+ degreeSign + '/' + (Math.floor(mainTemp.temp_max) + degreeSign)); //low and high
+                // $('#humidPercentage').append('Humidity: ' + mainTemp.humidity + '%'); //humidity
+                // $('#hPA').append("Pressure: " + mainTemp.pressure + ' hPa'); //humidity
+                //
+                // //weather
+                // // var weather=data.list[0].weather[0];
+                // // console.log('weather',weather.main);
+                // // console.log('weather', weather.description );
+                // // console.log('weather',weather.icon );
+                // $('#weatherDescription').text('Description: ' + weather.description ); // forecast
+                // //wind
+                // // console.log('wind',day1.wind.speed);
+                // $('#windSpeed').text('Wind: ' + day1.wind.speed + ' miles/hour' ); // forecast
+                //
+                //
+                // //date and time
+                // // console.log('time and date',day1.dt_txt);
+                // $('#date').text(day1.dt_txt);
+
+                // var printDate = function() {
+                //     var dateNoTime = data.list[0].dt_txt;
+                //     var dateNoTimeArr = dateNoTime.split('');
+                //     var spliceArr = dateNoTimeArr.splice(0, 10);
+                //     var finalDate = spliceArr.join('');
+                // };
+
+
+                // var mainTemp= data.list[i].main;
+                // var weather=data.list[i].weather[0];
+
+
+                //=========================== end of one day ============================================
+
+
+            }).fail(function (errors) {
+                console.error(errors)
+            });
+
+
+        })();
+    </script>
 </main>
 </body>
 </html>
