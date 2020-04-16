@@ -9,7 +9,7 @@
 <body>
 
 
-<main class="container">
+<main class="container-fluid">
     <div id="weather" class="card-deck"></div>
 
 
@@ -54,7 +54,7 @@
 
                         //populates the cards
                         weatherCards = '<div class="card">' +
-                            '<div class="card-body pr-0 pl-0 pt-0 m-1">' +
+                            '<div class="card-body p-0 m-1">' +
                             '<h5 class="card-header text-center">' + printDate + '</h5>' +
                             '<h5 class="card-title text-center ">' + Math.floor(mainList.temp) + degreeSign + ' ' + '</h5>' +
                             '<p class="card-text text-center">' + Math.floor(mainList.temp_min) + degreeSign + ' / ' +                                    (Math.floor(mainList.temp_max) + degreeSign) + '</p>' +
