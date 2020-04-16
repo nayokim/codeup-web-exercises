@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax-weather</title>
+
+</head>
+<body>
+
+<div id="weather">
+
+    <h3 id="date"></h3>
+
+    <div>
+        <h3 id="temperature"></h3>
+
+
+    </div>
+
+    <h4 id="lowAndHigh"></h4>
+
+    <p id="weatherDescription"></p>
+    <p id="humidPercentage"></p>
+    <p id="windSpeed"></p>
+    <p id="hPA"></p>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="js/keys.js"></script>
+
+<script>
+    'use strict';
+    (function () {
+
+        $.get("http://api.openweathermap.org/data/2.5/forecast", {
+            "APPID": OWM_KEY,
+            "lat": 40.011677,
+            "lon": -75.188125,
+            "units": "imperial"
+        }).done(function (data) {
+            console.log(data);
+            var day1 = data.list[0];
+            var degreeSign='\xB0F';
+            console.log('all',day1);
+
+            //main temp
+            var mainTemp= data.list[0].main;
+
+            console.log('main temp', mainTemp.temp);
+            console.log('main temp feels like', mainTemp.feels_like);
+            console.log('main temp low', mainTemp.temp_min);
+            console.log('main temp high', mainTemp.temp_max);
+            console.log('main temp humidity', mainTemp.humidity);
+            console.log('main Pressure', mainTemp.pressure );
+
+            $('#temperature').append(Math.floor(mainTemp.temp)+ degreeSign); // main temp
+            $('#lowAndHigh').append(Math.floor(mainTemp.temp_min)+ degreeSign + '/' + (Math.floor(mainTemp.temp_max) + degreeSign)); //low and high
+            $('#humidPercentage').append('Humidity: ' + mainTemp.humidity + '%'); //humidity
+            $('#hPA').append("Pressure: " + mainTemp.pressure + ' hPa'); //humidity
+
+            //weather
+            var weather=data.list[0].weather[0];
+            console.log('weather',weather.main);
+            console.log('weather', weather.description );
+            console.log('weather',weather.icon );
+
+            $('#weatherDescription').text('Description: ' + weather.description ); // forecast
+
+            //wind
+            console.log('wind',day1.wind.speed);
+            $('#windSpeed').text('Wind: ' + day1.wind.speed + ' miles/hour' ); // forecast
+
+
+            //date and time
+            console.log('time and date',day1.dt_txt);
+            $('#date').text(day1.dt_txt);
+
+
+
+            // $('#').text()
+
+
+
+
+            // var resultHTML="";
+            // resultHTML = data.weather[0].id;
+            // $('#weather').text(resultHTML);
+
+
+        }).fail(function (errors) {
+            console.error(errors)
+        });
+
+
+    })
+    ();
+</script>
+</main>
+</body>
+</html>
