@@ -38,10 +38,15 @@
             }).done(function (data) {
                 for (var i = 0; i < data.list.length; i++) {
                     if (data.list[i].dt % 86400 === 0) {
-                        //get rid of the time from the date
+                        //icon
+                        var imgIcon = 'http://openweathermap.org/img/w/"+data.list[i].weather[0].icon+".png';
+
                         var degreeSign = '\xB0F';
+
+                        //get rid of the time from the date
                         var dateNoTime = data.list[i].dt_txt;
                         var printDate = dateNoTime.slice(0, 10);
+
                         var mainList = data.list[i].main;
                         var startSpan = '<span class="font-weight-bold">';
                         var endSpan = '</span>';
@@ -51,8 +56,9 @@
                         weatherCards = '<div class="card">' +
                             '<div class="card-body pr-0 pl-0 pt-0 m-1">' +
                             '<h5 class="card-header">' + printDate + '</h5>' +
-                            '<h5 class="card-title text-center p-4">' + Math.floor(mainList.temp) + degreeSign + ' ' + '</h5>' +
-                            '<p class="card-text border-bottom text-center">' + Math.floor(mainList.temp_min) + degreeSign + ' / ' +                                    (Math.floor(mainList.temp_max) + degreeSign) + '</p>' +
+                            '<h5 class="card-title text-center ">' + Math.floor(mainList.temp) + degreeSign + ' ' + '</h5>' +
+                            '<p class="card-text text-center">' + Math.floor(mainList.temp_min) + degreeSign + ' / ' +                                    (Math.floor(mainList.temp_max) + degreeSign) + '</p>' +
+                            '<img class="mx-auto d-block" src=' + 'http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png'+  ' alt="">' +
                             '<p class="card-text border-bottom ">' + 'Description: ' + startSpan + data.list[i].weather[0].description +                                '</span>' + '</p>' +
                             '<p class="card-text border-bottom">' + 'Humidity:  ' + startSpan + mainList.humidity + '%' + endSpan + '</p>' +
                             '<p class="card-text border-bottom">' + 'Wind:  ' + startSpan + data.list[i].wind.speed + ' mi/hr' + endSpan +                             '</p>' +
