@@ -45,14 +45,14 @@
                         var weatherCards = "";
 
                         weatherCards = '<div class="card">' +
-                            '<div class="card-body">' +
-                            '<h5 class="card-title">' + printDate + '</h5>' +
-                            '<h5 class="card-title">' + 'Main temperature: ' + mainList.temp + degreeSign + ' ' + '</h5>' +
-                            '<p class="card-text">' + Math.floor(mainList.temp_min) + degreeSign + '/' + (Math.floor(mainList.temp_max) + degreeSign + '                           ') + '</p>' +
-                            '<p class="card-text">' + 'Description: ' + data.list[i].weather[0].description + '</p>' +
-                            '<p class="card-text">' + 'Humidity:  ' + mainList.humidity + '%' + '</p>' +
-                            '<p class="card-text">' + 'Wind:  ' + data.list[i].wind.speed + ' mi/hr' + '</p>' +
-                            '<p class="card-text">' + 'Pressure:  ' +mainList.pressure + ' hPa' + '</p>' +
+                            '<div class="card-body pr-0 pl-0 pt-0 m-1">' +
+                            '<h5 class="card-header">' + printDate + '</h5>' +
+                            '<h5 class="card-title text-center p-4">' + mainList.temp + degreeSign + ' ' + '</h5>' +
+                            '<p class="card-text border-bottom text-center">' + Math.floor(mainList.temp_min) + degreeSign + '/' + (Math.floor(mainList.temp_max) + degreeSign + '                           ') + '</p>' +
+                            '<p class="card-text border-bottom ">' + 'Description: ' + data.list[i].weather[0].description + '</p>' +
+                            '<p class="card-text border-bottom">' + 'Humidity:  ' + mainList.humidity + '%' + '</p>' +
+                            '<p class="card-text border-bottom">' + 'Wind:  ' + data.list[i].wind.speed + ' mi/hr' + '</p>' +
+                            '<p class="card-text ">' + 'Pressure:  ' +mainList.pressure + ' hPa' + '</p>' +
                             '</div>';
                         $("#weather").append(weatherCards);
                     }
