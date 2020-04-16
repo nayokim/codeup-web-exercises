@@ -31,8 +31,9 @@
 
             $.get("http://api.openweathermap.org/data/2.5/forecast", {
                 "APPID": OWM_KEY,
-                "lat": 40.011677,
-                "lon": -75.188125,
+                "zip": 75081,
+                // "lat": 43.205873,
+                // "lon": -77.689085,
                 "units": "imperial"
             }).done(function (data) {
                 for (var i = 0; i < data.list.length; i++) {
@@ -42,22 +43,24 @@
                         var dateNoTime = data.list[i].dt_txt;
                         var printDate = dateNoTime.slice(0, 10);
                         var mainList = data.list[i].main;
+                        var startSpan = '<span class="font-weight-bold">';
+                        var endSpan = '</span>';
                         var weatherCards = "";
 
+                        //populates the cards
                         weatherCards = '<div class="card">' +
                             '<div class="card-body pr-0 pl-0 pt-0 m-1">' +
                             '<h5 class="card-header">' + printDate + '</h5>' +
-                            '<h5 class="card-title text-center p-4">' + mainList.temp + degreeSign + ' ' + '</h5>' +
-                            '<p class="card-text border-bottom text-center">' + Math.floor(mainList.temp_min) + degreeSign + '/' + (Math.floor(mainList.temp_max) + degreeSign + '                           ') + '</p>' +
-                            '<p class="card-text border-bottom ">' + 'Description: ' + data.list[i].weather[0].description + '</p>' +
-                            '<p class="card-text border-bottom">' + 'Humidity:  ' + mainList.humidity + '%' + '</p>' +
-                            '<p class="card-text border-bottom">' + 'Wind:  ' + data.list[i].wind.speed + ' mi/hr' + '</p>' +
-                            '<p class="card-text ">' + 'Pressure:  ' +mainList.pressure + ' hPa' + '</p>' +
+                            '<h5 class="card-title text-center p-4">' + Math.floor(mainList.temp) + degreeSign + ' ' + '</h5>' +
+                            '<p class="card-text border-bottom text-center">' + Math.floor(mainList.temp_min) + degreeSign + ' / ' +                                    (Math.floor(mainList.temp_max) + degreeSign) + '</p>' +
+                            '<p class="card-text border-bottom ">' + 'Description: ' + startSpan + data.list[i].weather[0].description +                                '</span>' + '</p>' +
+                            '<p class="card-text border-bottom">' + 'Humidity:  ' + startSpan + mainList.humidity + '%' + endSpan + '</p>' +
+                            '<p class="card-text border-bottom">' + 'Wind:  ' + startSpan + data.list[i].wind.speed + ' mi/hr' + endSpan +                             '</p>' +
+                            '<p class="card-text ">' + 'Pressure:  ' + startSpan + mainList.pressure + ' hPa' + endSpan + '</p>' +
                             '</div>';
                         $("#weather").append(weatherCards);
                     }
                 }
-
 
                 //weather
                 // // var weather=data.list[0].weather[0];
@@ -123,7 +126,6 @@
 
 
                 //=========================== end of one day ============================================
-
 
             }).fail(function (errors) {
                 console.error(errors)
