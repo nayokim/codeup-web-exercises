@@ -39,13 +39,13 @@
             "lon": -75.188125,
             "units": "imperial"
         }).done(function (data) {
+            //===================== for one day=============================
             console.log(data);
             var day1 = data.list[0];
             var degreeSign='\xB0F';
             var mainTemp= data.list[0].main;
             var weather=data.list[0].weather[0];
             // console.log('all',day1);
-
             //main temp
             // var mainTemp= data.list[0].main;
             // console.log('main temp', mainTemp.temp);
@@ -54,7 +54,6 @@
             // console.log('main temp high', mainTemp.temp_max);
             // console.log('main temp humidity', mainTemp.humidity);
             // console.log('main Pressure', mainTemp.pressure );
-
             $('#temperature').append(Math.floor(mainTemp.temp)+ degreeSign); // main temp
             $('#lowAndHigh').append(Math.floor(mainTemp.temp_min)+ degreeSign + '/' + (Math.floor(mainTemp.temp_max) + degreeSign)); //low and high
             $('#humidPercentage').append('Humidity: ' + mainTemp.humidity + '%'); //humidity
@@ -66,7 +65,6 @@
             // console.log('weather', weather.description );
             // console.log('weather',weather.icon );
             $('#weatherDescription').text('Description: ' + weather.description ); // forecast
-
             //wind
             // console.log('wind',day1.wind.speed);
             $('#windSpeed').text('Wind: ' + day1.wind.speed + ' miles/hour' ); // forecast
@@ -75,6 +73,8 @@
             //date and time
             // console.log('time and date',day1.dt_txt);
             $('#date').text(day1.dt_txt);
+
+            //=========================== end of one day ============================================
 
 
         }).fail(function (errors) {
