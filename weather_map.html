@@ -64,9 +64,8 @@
                         zoom: 13
                     });
                     map.setCenter(result);
+                    // map.flyTo({center: result});
                 });
-
-
 
                 $.get("http://api.openweathermap.org/data/2.5/forecast", {
                     "APPID": OWM_KEY,
@@ -78,15 +77,6 @@
                     console.error(errors)
                 });
             }
-
-
-
-
-
-
-
-
-
 
             function renderHTML(data) {
 
@@ -123,7 +113,6 @@
                             '<p class="card-text ">' + 'Pressure:  ' + startSpan + mainList.pressure + ' hPa' + endSpan + '</p>' +
                             '</div>';
                         $("#weather").append(weatherCards);
-
                     }
                 }
             }
@@ -131,13 +120,12 @@
             $('#do-search').click(function (event) {
                 event.preventDefault();
                 getInfo(); //API request
-                // renderMap(); // renders MAPBOX on dom
             });
 
 
         })();
 
-        //
+        // previous drafts of code
         // (function () {
         //     $('#search-term').empty();
         //
