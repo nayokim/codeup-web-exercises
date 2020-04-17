@@ -80,7 +80,7 @@
                             weatherCards = '<div class="card">' +
                                 '<div class="card-body p-0 m-1">' +
                                 '<h5 class="card-header text-center">' + printDate + '</h5>' +
-                                '<h5 class="card-title text-center ">' + Math.floor(mainList.temp) + degreeSign + ' ' + '</h5>' +
+                                '<h5 class="card-title text-center mt-1 pt-1">' + Math.floor(mainList.temp) + degreeSign + ' ' + '</h5>' +
                                 '<p class="card-text text-center">' + Math.floor(mainList.temp_min) + degreeSign + ' / ' + (Math.floor(mainList.temp_max) + degreeSign) + '</p>' +
                                 '<img class="mx-auto d-block" src=' + 'http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png' + ' alt="">' +
                                 '<p class="card-text border-bottom ">' + 'Description: ' + startSpan + data.list[i].weather[0].description + '</span>' + '</p>' +
@@ -97,6 +97,15 @@
                     event.preventDefault();
                     getInfo();
                 });
+
+
+                mapboxgl.accessToken = OMW_MAPBOX_KEY;
+                var map = new mapboxgl.Map({
+                    "container": "map",
+                    "style": 'mapbox://styles/mapbox/streets-v9',
+                    "zoom": 16
+                });
+                map.setCenter(result);
             }
         )();
 
