@@ -43,13 +43,13 @@
 
 
         (function () {
+            $('#search-term').empty();
 
             //Search and button
-
             $('#do-search').click(function(event) {
-                event.preventDefault();
                 var q = $('#search-term').val();
-                console.log(q);
+                event.preventDefault();
+                // console.log(q);
                 $.get("http://api.openweathermap.org/data/2.5/forecast", {
                     "APPID": OWM_KEY,
                     "q": q,
@@ -58,6 +58,7 @@
                     // "lon": -77.68908
                     "units": "imperial"
                 }).done(function (data) {
+
                     for (var i = 0; i < data.list.length; i++) {
                         if (data.list[i].dt % 86400 === 0) {
                             //icon
@@ -158,6 +159,7 @@
                 }).fail(function (errors) {
                     console.error(errors)
                 });
+
             });
 
 
