@@ -12,14 +12,14 @@
 </head>
 <body>
 
+<nav class="navbar navbar-light bg-light">
+    <p></p>
+    <p id="location" class=" navbar-brand mb-0 p-0 h1 text-right">
+    </p>
+</nav>
 
 <main class="container-fluid">
 
-    <nav class="navbar navbar-light bg-light">
-        <p></p>
-        <p id="location" class=" navbar-brand mb-0 h1 text-right">
-        </p>
-    </nav>
 
     <form>
         <input type="text" name="q" id="search-term" class="mt-2 mb-2" placeholder="Search City">
@@ -28,7 +28,7 @@
 
     <div id="weather" class="card-deck"></div>
 
-    <div class="mt-5 mb-5 pt-2" id='map' style='width: 1400px; height: 300px'></div>
+    <div class="mt-2 mb-5 pt-2" id='map' style='width: 1400px; height: 300px'></div>
 
 
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"
@@ -48,77 +48,94 @@
         'use strict';
         (function () {
 
+            var q = $('#search-term').val();
 
-                function getInfo() {
-                    var q = $('#search-term').val();
-                    $.get("http://api.openweathermap.org/data/2.5/forecast", {
-                        "APPID": OWM_KEY,
-                        "q": q,
-                        "units": "imperial"
-                    }).done(function (data) {
-                        renderHTML(data);
-                    }).fail(function (errors) {
-                        console.error(errors)
+            function getInfo() {
+                var q = $('#search-term').val();
+                console.log(q);
+
+                geocode(q,OMW_MAPBOX_KEY).then(function(result) {
+                    console.log(result);
+                    mapboxgl.accessToken = OMW_MAPBOX_KEY;
+                    var map = new mapboxgl.Map({
+                        container: 'map',
+                        style: 'mapbox://styles/mapbox/streets-v9',
+                        center: result,
+                        zoom: 13
                     });
-                }
-
-                function renderHTML(data) {
-
-                    $('#weather').empty();
-                    $('#location').empty();
-                    $('#location').append(data.city.name);
-                    for (var i = 0; i < data.list.length; i++) {
-                        if (data.list[i].dt % 86400 === 0) {
-                            //icon
-                            var imgIcon = 'http://openweathermap.org/img/w/"+data.list[i].weather[0].icon+".png';
-
-                            var degreeSign = '\xB0F';
-
-                            //get rid of the time from the date
-                            var dateNoTime = data.list[i].dt_txt;
-                            var printDate = dateNoTime.slice(0, 10);
-
-                            var mainList = data.list[i].main;
-                            var startSpan = '<span class="font-weight-bold">';
-                            var endSpan = '</span>';
-                            var weatherCards = "";
-                            var headerLocation="";
+                    map.setCenter(result);
+                });
 
 
 
-                            //populates the cards
-                            weatherCards = '<div class="card">' +
-                                '<div class="card-body p-0 m-1">' +
-                                '<h5 class="card-header text-center">' + printDate + '</h5>' +
-                                '<h5 class="card-title text-center mt-1 pt-1">' + Math.floor(mainList.temp) + degreeSign + ' ' + '</h5>' +
-                                '<p class="card-text text-center">' + Math.floor(mainList.temp_min) + degreeSign + ' / ' + (Math.floor(mainList.temp_max) + degreeSign) + '</p>' +
-                                '<img class="mx-auto d-block" src=' + 'http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png' + ' alt="">' +
-                                '<p class="card-text border-bottom ">' + 'Description: ' + startSpan + data.list[i].weather[0].description + '</span>' + '</p>' +
-                                '<p class="card-text border-bottom">' + 'Humidity:  ' + startSpan + mainList.humidity + '%' + endSpan + '</p>' +
-                                '<p class="card-text border-bottom">' + 'Wind:  ' + startSpan + data.list[i].wind.speed + ' mi/hr' + endSpan + '</p>' +
-                                '<p class="card-text ">' + 'Pressure:  ' + startSpan + mainList.pressure + ' hPa' + endSpan + '</p>' +
-                                '</div>';
-                            $("#weather").append(weatherCards);
+                $.get("http://api.openweathermap.org/data/2.5/forecast", {
+                    "APPID": OWM_KEY,
+                    "q": q,
+                    "units": "imperial"
+                }).done(function (data) {
+                    renderHTML(data);
+                }).fail(function (errors) {
+                    console.error(errors)
+                });
+            }
 
-                        }
+
+
+
+
+
+
+
+
+
+            function renderHTML(data) {
+
+                $('#weather,#location').empty();
+                $('#location').append(data.city.name);
+                for (var i = 0; i < data.list.length; i++) {
+                    if (data.list[i].dt % 86400 === 0) {
+                        //icon
+                        var imgIcon = 'http://openweathermap.org/img/w/"+data.list[i].weather[0].icon+".png';
+
+                        var degreeSign = '\xB0F';
+
+                        //get rid of the time from the date
+                        var dateNoTime = data.list[i].dt_txt;
+                        var printDate = dateNoTime.slice(0, 10);
+
+                        var mainList = data.list[i].main;
+                        var startSpan = '<span class="font-weight-bold">';
+                        var endSpan = '</span>';
+                        var weatherCards = "";
+                        var headerLocation = "";
+
+
+                        //populates the cards
+                        weatherCards = '<div class="card">' +
+                            '<div class="card-body p-0 m-1">' +
+                            '<h5 class="card-header text-center">' + printDate + '</h5>' +
+                            '<h5 class="card-title text-center mt-1 pt-1">' + Math.floor(mainList.temp) + degreeSign + ' ' + '</h5>' +
+                            '<p class="card-text text-center">' + Math.floor(mainList.temp_min) + degreeSign + ' / ' + (Math.floor(mainList.temp_max) + degreeSign) + '</p>' +
+                            '<img class="mx-auto d-block" src=' + 'http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png' + ' alt="">' +
+                            '<p class="card-text border-bottom ">' + 'Description: ' + startSpan + data.list[i].weather[0].description + '</span>' + '</p>' +
+                            '<p class="card-text border-bottom">' + 'Humidity:  ' + startSpan + mainList.humidity + '%' + endSpan + '</p>' +
+                            '<p class="card-text border-bottom">' + 'Wind:  ' + startSpan + data.list[i].wind.speed + ' mi/hr' + endSpan + '</p>' +
+                            '<p class="card-text ">' + 'Pressure:  ' + startSpan + mainList.pressure + ' hPa' + endSpan + '</p>' +
+                            '</div>';
+                        $("#weather").append(weatherCards);
+
                     }
                 }
-
-                $('#do-search').click(function (event) {
-                    event.preventDefault();
-                    getInfo();
-                });
-
-
-                mapboxgl.accessToken = OMW_MAPBOX_KEY;
-                var map = new mapboxgl.Map({
-                    "container": "map",
-                    "style": 'mapbox://styles/mapbox/streets-v9',
-                    "zoom": 0
-                });
-                map.setCenter(result);
             }
-        )();
+
+            $('#do-search').click(function (event) {
+                event.preventDefault();
+                getInfo(); //API request
+                // renderMap(); // renders MAPBOX on dom
+            });
+
+
+        })();
 
         //
         // (function () {
@@ -265,6 +282,33 @@
         //
         //
         // });
+
+        //======MAPBOX====//
+        //function to render map on dom
+        // function renderMap() {
+        //     mapboxgl.accessToken = OMW_MAPBOX_KEY;
+        //     var map = new mapboxgl.Map({
+        //         "container": "map",
+        //         "style": 'mapbox://styles/mapbox/streets-v9',
+        //         "zoom": 10,
+        //         "center": [10,0]
+        //     });
+        // }
+
+
+        //
+        // function setMap() {
+        //     var qMapBox= $('#search-term').val();
+        //     mapboxgl.accessToken = OMW_MAPBOX_KEY;
+        //     var map = new mapboxgl.Map({
+        //         "container": "map",
+        //         "style": 'mapbox://styles/mapbox/streets-v9',
+        //         "zoom": 10,
+        //         "center":qMapBox
+        //     });
+        //
+        //
+        // }
 
 
         // })();
