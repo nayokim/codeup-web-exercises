@@ -15,9 +15,15 @@
 
 <main class="container-fluid">
 
+    <nav class="navbar navbar-light bg-light">
+        <p></p>
+        <p id="location" class=" navbar-brand mb-0 h1 text-right">
+        </p>
+    </nav>
+
     <form>
-    <input type="text" name="q" id="search-term" class="mt-2 mb-2"placeholder="Search City">
-    <button id="do-search">Search</button>
+        <input type="text" name="q" id="search-term" class="mt-2 mb-2" placeholder="Search City">
+        <button id="do-search">Search</button>
     </form>
 
     <div id="weather" class="card-deck"></div>
@@ -57,7 +63,10 @@
                 }
 
                 function renderHTML(data) {
+
                     $('#weather').empty();
+                    $('#location').empty();
+                    $('#location').append(data.city.name);
                     for (var i = 0; i < data.list.length; i++) {
                         if (data.list[i].dt % 86400 === 0) {
                             //icon
@@ -73,6 +82,9 @@
                             var startSpan = '<span class="font-weight-bold">';
                             var endSpan = '</span>';
                             var weatherCards = "";
+                            var headerLocation="";
+
+
 
                             //populates the cards
                             weatherCards = '<div class="card">' +
@@ -87,6 +99,7 @@
                                 '<p class="card-text ">' + 'Pressure:  ' + startSpan + mainList.pressure + ' hPa' + endSpan + '</p>' +
                                 '</div>';
                             $("#weather").append(weatherCards);
+
                         }
                     }
                 }
@@ -238,20 +251,20 @@
         //
         //
 
-            //     geocode("Codeup", OMW_MAPBOX_KEY).then(function (result) {
-            //     mapboxgl.accessToken = OMW_MAPBOX_KEY;
-            //     var map = new mapboxgl.Map({
-            //         "container": "map",
-            //         "style": 'mapbox://styles/mapbox/streets-v9',
-            //         "zoom": 16
-            //     });
-            //     map.setCenter(result);
-            // });
+        //     geocode("Codeup", OMW_MAPBOX_KEY).then(function (result) {
+        //     mapboxgl.accessToken = OMW_MAPBOX_KEY;
+        //     var map = new mapboxgl.Map({
+        //         "container": "map",
+        //         "style": 'mapbox://styles/mapbox/streets-v9',
+        //         "zoom": 16
+        //     });
+        //     map.setCenter(result);
+        // });
 
-            // $('#search-city').click(function(event){
-            //
-            //
-            // });
+        // $('#search-city').click(function(event){
+        //
+        //
+        // });
 
 
         // })();
