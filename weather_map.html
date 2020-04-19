@@ -6,9 +6,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-
+    <style>
+        .card-body{
+            background: url("imgs/5c289afb9a15752881893abd_81. Kobi.jpg");
+        }
+    </style>
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css' rel='stylesheet'/>
+
 </head>
 <body>
 
@@ -18,7 +23,7 @@
     </p>
 </nav>
 
-<main class="container-fluid">
+<main class="container">
 
 
     <form>
@@ -26,9 +31,13 @@
         <button id="do-search">Search</button>
     </form>
 
-    <div id="weather" class="card-deck"></div>
+    <div id="weather" class="card-deck">
+        <h5 id="date"></h5>
+        <h5 id="high and low temper"></h5>
+        <p id="weather"></p>
+    </div>
 
-    <div class="mt-2 mb-5 pt-2" id='map' style='width: 1400px; height: 300px'></div>
+    <div class="mt-2 mb-5 pt-2" id='map' style='width: 1110px; height: 300px'></div>
 
 
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"
@@ -48,13 +57,14 @@
         'use strict';
         (function () {
 
+
             var q = $('#search-term').val();
 
             function getInfo() {
                 var q = $('#search-term').val();
                 console.log(q);
 
-                geocode(q,OMW_MAPBOX_KEY).then(function(result) {
+                geocode(q, OMW_MAPBOX_KEY).then(function (result) {
                     console.log(result);
                     mapboxgl.accessToken = OMW_MAPBOX_KEY;
                     var map = new mapboxgl.Map({
@@ -72,6 +82,7 @@
                     "q": q,
                     "units": "imperial"
                 }).done(function (data) {
+                    console.log(data);
                     renderHTML(data);
                 }).fail(function (errors) {
                     console.error(errors)
@@ -183,13 +194,13 @@
         //             // $('#weatherDescription').text('Description: ' + weather.description ); // forecast
         //
         //
-        //             // for (var i = 0; i < data.list.length; i++) {
-        //             //     if (data.list[i].dt % 86400 === 0) {//86400 sec in 24 hours
-        //             //         // console.log(data.list[i]);
-        //             //         $('#temperature').append(data.list[i].main.temp + degreeSign + ' ');
-        //             //         $('#lowAndHigh').append(Math.floor(data.list[i].main.temp_min) + degreeSign + '/' + (Math.floor(data.list[i].main.temp_max) + degreeSign + ' '));
-        //             //     }
-        //             // }
+        //             for (var i = 0; i < data.list.length; i++) {
+        //                 if (data.list[i].dt % 86400 === 0) {//86400 sec in 24 hours
+        //                     // console.log(data.list[i]);
+        //                     $('#temperature').append(data.list[i].main.temp + degreeSign + ' ');
+        //                     $('#lowAndHigh').append(Math.floor(data.list[i].main.temp_min) + degreeSign + '/' + (Math.floor(data.list[i].main.temp_max) + degreeSign + ' '));
+        //                 }
+        //             }
         //
         //             //===================== for one day=============================
         //             // console.log(data);
@@ -198,6 +209,8 @@
         //             // var mainTemp= data.list[0].main;
         //             // var weather=data.list[0].weather[0];
         //             // // console.log('all',day1);
+
+
         //             // //main temp
         //             // // var mainTemp= data.list[0].main;
         //             // // console.log('main temp', mainTemp.temp);
@@ -206,6 +219,7 @@
         //             // // console.log('main temp high', mainTemp.temp_max);
         //             // // console.log('main temp humidity', mainTemp.humidity);
         //             // // console.log('main Pressure', mainTemp.pressure );
+
         //             // $('#temperature').append(Math.floor(mainTemp.temp)+ degreeSign); // main temp
         //             // $('#lowAndHigh').append(Math.floor(mainTemp.temp_min)+ degreeSign + '/' + (Math.floor(mainTemp.temp_max) + degreeSign)); //low and high
         //             // $('#humidPercentage').append('Humidity: ' + mainTemp.humidity + '%'); //humidity
