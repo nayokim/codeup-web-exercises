@@ -5,40 +5,138 @@
     <title>ajax-weather</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-    <style>
-        .card-body{
-            background: url("imgs/5c289afb9a15752881893abd_81. Kobi.jpg");
-        }
-    </style>
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css' rel='stylesheet'/>
+    <link href="https://fonts.googleapis.com/css?family=Lato|Montserrat&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f3223ae940.js" crossorigin="anonymous"></script>
 
+    <style>
+
+        /** {*/
+        /*    border: 1px solid red;*/
+        /*}*/
+
+        body {
+            background: url("imgs/pexels-photo-1367179.jpeg") no-repeat center center;
+            background-size: 100% 100%;
+            min-height: 100vh;
+            font-family: 'Lato', sans-serif;
+        }
+
+        p.h1 {
+            font-family: "montserrat", sans-serif;
+            font-weight: bolder;
+            color: #2c2d68;
+        }
+
+        p {
+            color:#2c2d68;
+            font-size: 0.99em;
+        }
+
+        #weather-info{
+            color: white;
+        }
+        nav{
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            opacity: 80%;
+        }
+
+        form{
+            width:90%;
+        }
+
+        .search-bar {
+
+            background-size: cover;
+            min-height: 180px;
+        }
+
+        .search-bar {
+            align-items: center;
+        }
+
+
+
+        .container-fluid {
+            /*background: url("imgs/pexels-photo-917494.jpeg") no-repeat center center;*/
+            /*background-size: cover;*/
+            height: 100%;
+        }
+
+        .card {
+            color: #2c2d68;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            /*background-color: #dadbdd;*/
+        }
+
+        .card-header{
+            background-color: #7F716D;
+            color: white;
+        }
+        footer{
+            border-top: 1px solid grey;
+            color:#EDECE8;
+        }
+
+        .footer-links{
+            color:#EDECE8;
+        }
+        .footer-links:hover{
+            color: #4D6F99;
+        }
+
+        .icon-link{
+            color:#EDECE8;
+        }
+
+        .icon-link:hover{
+            color:#4D6F99;
+        }
+    </style>
 </head>
+
+
 <body>
 
-<nav class="navbar navbar-light bg-light">
-    <p></p>
-    <p id="location" class=" navbar-brand mb-0 p-0 h1 text-right">
-    </p>
-</nav>
+<header class="header">
 
-<main class="container">
+    <nav class="navbar navbar-light bg-light">
+        <a href="#"><p class="h1">My Weather App</p></a>
+        <p id="location" class=" navbar-brand mb-0 p-0 h1 text-right"></p>
+    </nav>
 
-
-    <form>
-        <input type="text" name="q" id="search-term" class="mt-2 mb-2" placeholder="Search City">
-        <button id="do-search">Search</button>
-    </form>
-
-    <div id="weather" class="card-deck">
-        <h5 id="date"></h5>
-        <h5 id="high and low temper"></h5>
-        <p id="weather"></p>
+    <div class="search-bar d-flex justify-content-center mb-0">
+        <form class="d-flex">
+            <input class="form-control form-control-lg input-medium" id="search-term" name="q" type="text"
+                   placeholder="Search City">
+            <button type="button" id="do-search" class="btn  btn-outline-dark  ml-2">Search</button>
+        </form>
     </div>
 
-    <div class="mt-2 mb-5 pt-2" id='map' style='width: 1110px; height: 300px'></div>
+    </div>
+</header>
 
+<main class="container-fluid">
+
+    <div class="row">
+        <div class="col-1 "></div>
+        <div class="info col-10">
+            <div id="weather-info" class="mt-1"></div>
+            <div id="weather" class="card-deck mt-4"></div>
+            <div class="attributes mt-4" id="powered-by-owm"></div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-1"></div>
+        <div class="map-box col-10">
+            <div class="mt-3 mb-5" id='map' style='width: 1170px; height: 300px'></div>
+        </div>
+        <div class="col-1"></div>
+    </div>
+    <div class="col-1"></div>
 
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"
             integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
@@ -56,6 +154,19 @@
     <script>
         'use strict';
         (function () {
+
+            geocode("East Falls", OMW_MAPBOX_KEY).then(function (result) {
+                console.log(result);
+                mapboxgl.accessToken = OMW_MAPBOX_KEY;
+                var map = new mapboxgl.Map({
+                    container: 'map',
+                    style: 'mapbox://styles/mapbox/streets-v9',
+                    center: result,
+                    zoom: 13
+                });
+                map.setCenter(result);
+                // map.flyTo({center: result});
+            });
 
 
             var q = $('#search-term').val();
@@ -92,14 +203,14 @@
             function renderHTML(data) {
 
                 $('#weather,#location').empty();
-                $('#location').append(data.city.name);
+                $('#location').append("Your current location is: ", data.city.name);
+                $('#powered-by-owm').html("Powered by: "+ "<a href='https://openweathermap.org/'>OpenWeather</a>");
                 for (var i = 0; i < data.list.length; i++) {
                     if (data.list[i].dt % 86400 === 0) {
                         //icon
                         var imgIcon = 'http://openweathermap.org/img/w/"+data.list[i].weather[0].icon+".png';
 
                         var degreeSign = '\xB0F';
-
                         //get rid of the time from the date
                         var dateNoTime = data.list[i].dt_txt;
                         var printDate = dateNoTime.slice(0, 10);
@@ -110,211 +221,94 @@
                         var weatherCards = "";
                         var headerLocation = "";
 
+                        $('#weather-info').html("<h3>" + "For the week beginning: " + data.list[0].dt_txt.slice(0,10)+ "</h3>");
 
                         //populates the cards
                         weatherCards = '<div class="card">' +
-                            '<div class="card-body p-0 m-1">' +
-                            '<h5 class="card-header text-center">' + printDate + '</h5>' +
-                            '<h5 class="card-title text-center mt-1 pt-1">' + Math.floor(mainList.temp) + degreeSign + ' ' + '</h5>' +
+                            '<h5 class="card-header text-center border-bottom">' + printDate + '</h5>' +
+                            '<div class="card-body p-0 m-0">' +
+                            // '<h5 class="card-header text-center">' + printDate + '</h5>' +
+                            '<div class="card-no-header">' +
+                            '<h5 class="card-title text-center  pt-2">' + Math.floor(mainList.temp) + degreeSign + ' ' + '</h5>' +
                             '<p class="card-text text-center">' + Math.floor(mainList.temp_min) + degreeSign + ' / ' + (Math.floor(mainList.temp_max) + degreeSign) + '</p>' +
                             '<img class="mx-auto d-block" src=' + 'http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png' + ' alt="">' +
-                            '<p class="card-text border-bottom ">' + 'Description: ' + startSpan + data.list[i].weather[0].description + '</span>' + '</p>' +
-                            '<p class="card-text border-bottom">' + 'Humidity:  ' + startSpan + mainList.humidity + '%' + endSpan + '</p>' +
-                            '<p class="card-text border-bottom">' + 'Wind:  ' + startSpan + data.list[i].wind.speed + ' mi/hr' + endSpan + '</p>' +
-                            '<p class="card-text ">' + 'Pressure:  ' + startSpan + mainList.pressure + ' hPa' + endSpan + '</p>' +
-                            '</div>';
+                            '<p class="card-text border-bottom pl-1 ">' + 'Description: ' + startSpan + data.list[i].weather[0].description + endSpan + '</p>' +
+                            '<p class="card-text border-bottom pl-1">' + 'Humidity:  ' + startSpan + mainList.humidity + '%' + endSpan + '</p>' +
+                            '<p class="card-text border-bottom pl-1">' + 'Wind:  ' + startSpan + data.list[i].wind.speed + ' mi/hr' + endSpan + '</p>' +
+                            '<p class="card-text pl-1 ">' + 'Pressure:  ' + startSpan + mainList.pressure + ' hPa' + endSpan + '</p>' +
+                            '</div>' + '</div>';
                         $("#weather").append(weatherCards);
                     }
                 }
             }
+
 
             $('#do-search').click(function (event) {
                 event.preventDefault();
                 getInfo(); //API request
             });
 
+            $('#do-search').keyup(function (event) {
+                event.preventDefault();
+                getInfo(); //API request
+            });
 
         })();
 
-        // previous drafts of code
-        // (function () {
-        //     $('#search-term').empty();
-        //
-        //     //Search and button
-        //     $('#do-search').click(function(event) {
-        //         var q = $('#search-term').val();
-        //         event.preventDefault();
-        //         // console.log(q);
-        //         $.get("http://api.openweathermap.org/data/2.5/forecast", {
-        //             "APPID": OWM_KEY,
-        //             "q": q,
-        //             // "zip": 75081,
-        //             // "lat": 43.205873,
-        //             // "lon": -77.68908
-        //             "units": "imperial"
-        //         }).done(function (data) {
-        //
-        //             for (var i = 0; i < data.list.length; i++) {
-        //                 if (data.list[i].dt % 86400 === 0) {
-        //                     //icon
-        //                     var imgIcon = 'http://openweathermap.org/img/w/"+data.list[i].weather[0].icon+".png';
-        //
-        //                     var degreeSign = '\xB0F';
-        //
-        //                     //get rid of the time from the date
-        //                     var dateNoTime = data.list[i].dt_txt;
-        //                     var printDate = dateNoTime.slice(0, 10);
-        //
-        //                     var mainList = data.list[i].main;
-        //                     var startSpan = '<span class="font-weight-bold">';
-        //                     var endSpan = '</span>';
-        //                     var weatherCards = "";
-        //
-        //                     //populates the cards
-        //                     weatherCards = '<div class="card">' +
-        //                         '<div class="card-body p-0 m-1">' +
-        //                         '<h5 class="card-header text-center">' + printDate + '</h5>' +
-        //                         '<h5 class="card-title text-center ">' + Math.floor(mainList.temp) + degreeSign + ' ' + '</h5>' +
-        //                         '<p class="card-text text-center">' + Math.floor(mainList.temp_min) + degreeSign + ' / ' + (Math.floor(mainList.temp_max) + degreeSign) + '</p>' +
-        //                         '<img class="mx-auto d-block" src=' + 'http://openweathermap.org/img/w/' + data.list[i].weather[0].icon + '.png' + ' alt="">' +
-        //                         '<p class="card-text border-bottom ">' + 'Description: ' + startSpan + data.list[i].weather[0].description + '</span>' + '</p>' +
-        //                         '<p class="card-text border-bottom">' + 'Humidity:  ' + startSpan + mainList.humidity + '%' + endSpan + '</p>' +
-        //                         '<p class="card-text border-bottom">' + 'Wind:  ' + startSpan + data.list[i].wind.speed + ' mi/hr' + endSpan + '</p>' +
-        //                         '<p class="card-text ">' + 'Pressure:  ' + startSpan + mainList.pressure + ' hPa' + endSpan + '</p>' +
-        //                         '</div>';
-        //                     $("#weather").append(weatherCards);
-        //                 }
-        //             }
-        //
-        //             //weather
-        //             // // var weather=data.list[0].weather[0];
-        //             // // console.log('weather',weather.main);
-        //             // // console.log('weather', weather.description );
-        //             // // console.log('weather',weather.icon );
-        //             // $('#weatherDescription').text('Description: ' + weather.description ); // forecast
-        //
-        //
-        //             for (var i = 0; i < data.list.length; i++) {
-        //                 if (data.list[i].dt % 86400 === 0) {//86400 sec in 24 hours
-        //                     // console.log(data.list[i]);
-        //                     $('#temperature').append(data.list[i].main.temp + degreeSign + ' ');
-        //                     $('#lowAndHigh').append(Math.floor(data.list[i].main.temp_min) + degreeSign + '/' + (Math.floor(data.list[i].main.temp_max) + degreeSign + ' '));
-        //                 }
-        //             }
-        //
-        //             //===================== for one day=============================
-        //             // console.log(data);
-        //             // var day1 = data.list[0];
-        //             // var degreeSign='\xB0F';
-        //             // var mainTemp= data.list[0].main;
-        //             // var weather=data.list[0].weather[0];
-        //             // // console.log('all',day1);
-
-
-        //             // //main temp
-        //             // // var mainTemp= data.list[0].main;
-        //             // // console.log('main temp', mainTemp.temp);
-        //             // // console.log('main temp feels like', mainTemp.feels_like);
-        //             // // console.log('main temp low', mainTemp.temp_min);
-        //             // // console.log('main temp high', mainTemp.temp_max);
-        //             // // console.log('main temp humidity', mainTemp.humidity);
-        //             // // console.log('main Pressure', mainTemp.pressure );
-
-        //             // $('#temperature').append(Math.floor(mainTemp.temp)+ degreeSign); // main temp
-        //             // $('#lowAndHigh').append(Math.floor(mainTemp.temp_min)+ degreeSign + '/' + (Math.floor(mainTemp.temp_max) + degreeSign)); //low and high
-        //             // $('#humidPercentage').append('Humidity: ' + mainTemp.humidity + '%'); //humidity
-        //             // $('#hPA').append("Pressure: " + mainTemp.pressure + ' hPa'); //humidity
-        //             //
-        //             // //weather
-        //             // // var weather=data.list[0].weather[0];
-        //             // // console.log('weather',weather.main);
-        //             // // console.log('weather', weather.description );
-        //             // // console.log('weather',weather.icon );
-        //             // $('#weatherDescription').text('Description: ' + weather.description ); // forecast
-        //             // //wind
-        //             // // console.log('wind',day1.wind.speed);
-        //             // $('#windSpeed').text('Wind: ' + day1.wind.speed + ' miles/hour' ); // forecast
-        //             //
-        //             //
-        //             // //date and time
-        //             // // console.log('time and date',day1.dt_txt);
-        //             // $('#date').text(day1.dt_txt);
-        //
-        //             // var printDate = function() {
-        //             //     var dateNoTime = data.list[0].dt_txt;
-        //             //     var dateNoTimeArr = dateNoTime.split('');
-        //             //     var spliceArr = dateNoTimeArr.splice(0, 10);
-        //             //     var finalDate = spliceArr.join('');
-        //             // };
-        //
-        //
-        //             // var mainTemp= data.list[i].main;
-        //             // var weather=data.list[i].weather[0];
-        //
-        //
-        //             //=========================== end of one day ============================================
-        //
-        //         }).fail(function (errors) {
-        //             console.error(errors)
-        //         });
-        //
-        //     });
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-        //
-
-        //     geocode("Codeup", OMW_MAPBOX_KEY).then(function (result) {
-        //     mapboxgl.accessToken = OMW_MAPBOX_KEY;
-        //     var map = new mapboxgl.Map({
-        //         "container": "map",
-        //         "style": 'mapbox://styles/mapbox/streets-v9',
-        //         "zoom": 16
-        //     });
-        //     map.setCenter(result);
-        // });
-
-        // $('#search-city').click(function(event){
-        //
-        //
-        // });
-
-        //======MAPBOX====//
-        //function to render map on dom
-        // function renderMap() {
-        //     mapboxgl.accessToken = OMW_MAPBOX_KEY;
-        //     var map = new mapboxgl.Map({
-        //         "container": "map",
-        //         "style": 'mapbox://styles/mapbox/streets-v9',
-        //         "zoom": 10,
-        //         "center": [10,0]
-        //     });
-        // }
-
-
-        //
-        // function setMap() {
-        //     var qMapBox= $('#search-term').val();
-        //     mapboxgl.accessToken = OMW_MAPBOX_KEY;
-        //     var map = new mapboxgl.Map({
-        //         "container": "map",
-        //         "style": 'mapbox://styles/mapbox/streets-v9',
-        //         "zoom": 10,
-        //         "center":qMapBox
-        //     });
-        //
-        //
-        // }
-
-
-        // })();
     </script>
 </main>
+
+
+<footer>
+    <div class="footer-bottom-links">
+        <div class="row">
+            <div class="col-sm">
+                <div>
+                    <h4 class="p-4">
+                        MY WEATHER APP
+                        <p class="text-muted slogan">It really works!</p>
+                    </h4>
+                </div>
+            </div>
+
+            <div class="col-sm  d-inline-block text-center ">
+                <div class="p-1"><a class="footer-links" href="#">
+                    FAQ
+                </a>
+                </div>
+
+                <div class="p-1"><a class="footer-links" href="#">
+                    CONTACT US
+                </a>
+                </div>
+
+                <div class="p-1"><a class="footer-links" href="#">
+                    HELP CENTER
+                </a>
+                </div>
+
+                <div class="p-1"><a class="footer-links" href="#">
+                    MEDIA INQUIRIES
+                </a>
+                </div>
+                <div class="icons">
+                    <a class="icon-link" href="#"><i class="fab fa-facebook-square fa-3x p-1"></i></a>
+                    <a class="icon-link" href="#"><i class="fab fa-instagram fa-3x p-1"></i></a>
+                    <a class="icon-link" href="#"><i class="fab fa-pinterest-square fa-3x p-1"></i></a>
+                </div>
+            </div>
+
+            <div class="col-sm pr-4 d-inline-block text-center">
+                <div class="p-1"><a class="footer-links" href="#">
+                    TERMS & CONDITIONS
+                </a>
+                </div>
+                <div class="p-1"><a class="footer-links" href="#">
+                    PRIVACY POLICY
+                </a>
+                </div>
+            </div>
+        </div>
+
 </body>
 </html>
