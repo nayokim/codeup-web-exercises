@@ -30,20 +30,21 @@
         }
 
         p {
-            color:#2c2d68;
+            color: #2c2d68;
             font-size: 0.99em;
         }
 
-        #weather-info{
+        #weather-info {
             color: white;
         }
-        nav{
+
+        nav {
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             opacity: 80%;
         }
 
-        form{
-            width:90%;
+        form {
+            width: 90%;
         }
 
         .search-bar {
@@ -55,7 +56,6 @@
         .search-bar {
             align-items: center;
         }
-
 
 
         .container-fluid {
@@ -70,35 +70,35 @@
             /*background-color: #dadbdd;*/
         }
 
-        .card-header{
+        .card-header {
             background-color: #7F716D;
             color: white;
         }
-        footer{
+
+        footer {
             border-top: 1px solid grey;
-            color:#EDECE8;
+            color: #EDECE8;
         }
 
-        .footer-links{
-            color:#EDECE8;
+        .footer-links {
+            color: #EDECE8;
         }
-        .footer-links:hover{
+
+        .footer-links:hover {
             color: #4D6F99;
         }
 
-        .icon-link{
-            color:#EDECE8;
+        .icon-link {
+            color: #EDECE8;
         }
 
-        .icon-link:hover{
-            color:#4D6F99;
+        .icon-link:hover {
+            color: #4D6F99;
         }
     </style>
 </head>
 
-
 <body>
-
 <header class="header">
 
     <nav class="navbar navbar-light bg-light">
@@ -113,12 +113,10 @@
             <button type="button" id="do-search" class="btn  btn-outline-dark  ml-2">Search</button>
         </form>
     </div>
-
     </div>
 </header>
 
 <main class="container-fluid">
-
     <div class="row">
         <div class="col-1 "></div>
         <div class="info col-10">
@@ -138,6 +136,7 @@
     </div>
     <div class="col-1"></div>
 
+    <!--  jQuery &  bootstrap-->
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"
             integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ="
             crossorigin="anonymous"></script>
@@ -147,6 +146,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
             crossorigin="anonymous"></script>
+
+
     <script src="js/keys.js"></script>
     <script src="js/mapbox-geocoder-utils.js"></script>
 
@@ -184,8 +185,15 @@
                         center: result,
                         zoom: 13
                     });
-                    map.setCenter(result);
-                    // map.flyTo({center: result});
+                    // map.setCenter(result);
+                    map.flyTo({center: result});
+                    var markerOptions = {
+                        color: "#2c2d68",
+                        draggable: true
+                    };
+                    var marker = new mapboxgl.Marker(markerOptions)
+                        .setLngLat(result)
+                        .addTo(map);
                 });
 
                 $.get("http://api.openweathermap.org/data/2.5/forecast", {
@@ -201,12 +209,10 @@
             }
 
             function renderHTML(data) {
-
                 $('#weather,#location').empty();
                 $('#location').append("Your current location is: ", data.city.name);
-                $('#powered-by-owm').html("Powered by: "+ "<a href='https://openweathermap.org/'>OpenWeather</a>");
-                for (var i = 0; i < data.list.length; i++) {
-                    if (data.list[i].dt % 86400 === 0) {
+                $('#powered-by-owm').html("Powered by: " + "<a href='https://openweathermap.org/'>OpenWeather</a>");
+                for (var i = 0; i < 40; i+=8) {
                         //icon
                         var imgIcon = 'http://openweathermap.org/img/w/"+data.list[i].weather[0].icon+".png';
 
@@ -221,13 +227,12 @@
                         var weatherCards = "";
                         var headerLocation = "";
 
-                        $('#weather-info').html("<h3>" + "For the week beginning: " + data.list[0].dt_txt.slice(0,10)+ "</h3>");
+                        $('#weather-info').html("<h3>" + "For the week beginning: " + data.list[0].dt_txt.slice(0, 10) + "</h3>");
 
                         //populates the cards
                         weatherCards = '<div class="card">' +
                             '<h5 class="card-header text-center border-bottom">' + printDate + '</h5>' +
                             '<div class="card-body p-0 m-0">' +
-                            // '<h5 class="card-header text-center">' + printDate + '</h5>' +
                             '<div class="card-no-header">' +
                             '<h5 class="card-title text-center  pt-2">' + Math.floor(mainList.temp) + degreeSign + ' ' + '</h5>' +
                             '<p class="card-text text-center">' + Math.floor(mainList.temp_min) + degreeSign + ' / ' + (Math.floor(mainList.temp_max) + degreeSign) + '</p>' +
@@ -240,7 +245,6 @@
                         $("#weather").append(weatherCards);
                     }
                 }
-            }
 
 
             $('#do-search').click(function (event) {
@@ -252,7 +256,6 @@
                 event.preventDefault();
                 getInfo(); //API request
             });
-
         })();
 
     </script>
