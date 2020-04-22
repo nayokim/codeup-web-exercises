@@ -23,11 +23,8 @@ function mostRecentCommit(username) {
                         return event.created_at;
                     }
                 }
-            }
-                // console.log(data)(data[0].created_at);
-            )
-        )
-        .catch(error => console.log(error));
+            })
+        ).catch(error => console.log(error));
 }
 
 mostRecentCommit('nayokim')
