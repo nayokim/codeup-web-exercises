@@ -5,28 +5,19 @@
     <title>Title</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 </head>
 <body>
 
 <div id="weather">
 
-    <div class="card-deck">
-        <div class="card">
-            <div id ="weather-day" class="card-body">
-            </div>
-            </div>
-        </div>
-        </div>
-    </div>
-
-
+    <h5>Date</h5>
+    <h5>Temperature</h5>
+    <h5 id="low">Low</h5>
 
 
 </div>
-
-
 
 
 <script src="https://code.jquery.com/jquery-3.5.0.min.js"
@@ -38,52 +29,116 @@
 
     "use strict";
 
-    console.log("hi");
 
     $.get("http://api.openweathermap.org/data/2.5/forecast", {
         "APPID": OWM_KEY,
         "q": "dallas,us",
         "units": "imperial"
     }).done(function (data) {
-        console.log(data);
-        // console.log(data.list);
-        // console.log(data.list[0]);
-        // console.log(data.list[0].main);
-        // console.log(data.list[0].main.temp);//temperature of the day
-        //
-        // var tempOfDay  = data.list[0].main.temp;
-        //
-        //
-        // $('#weather-day').append(Math.floor(tempOfDay));
+        console.log('all data', data);
 
 
+        //this function logs min temp first day
 
 
-    //  <h5 class="card-title">date</h5>
-    //         <p class="card-text">temp</p>
-    //         <p class="card-text">descript</p>
-    //         <p class="card-text">wind</p>
-    //         <p class="card-text">pressure</p>
-    //     var generateHTML = "";
-    //     for (var i=0; i <data.list.length;i++) {
-    //         console.log(data.list[i].main.temp);
-    //         if (data.list[i].dt % 86400 === 0) {
-    //             console.log(data.list[i]);
-    //             generateHTML =
-    //                 '<div class="card">'+
-    //                 "<h5 class='card-title'>" + data.list[i].dt_txt + "</h5>" +
-    //                 "<p class='card-text'>" + data.list[i].main.temp + "</p>" +
-    //                 '</div>';
-    //             $('#weather-day').append(generateHTML);
-    //         }
-    //     }
-    }).fail(function (errors) {
-        console.error(errors)
+        function minTemp0() {
+            var miniTempArr0 = [];
+            for (var i = 0; i < 6; i++) {
+                // console.log('mintemp',data.list[i].main.temp_min);
+                miniTempArr0.push(data.list[i].main.temp_min);
+            }
+            return (Math.floor(Math.min(...miniTempArr0)));
+        }
+
+
+        console.log('mintemp of outlier first couple hours', minTemp0(data));
+
+
+        function minTemp1() {
+            var miniTempArr1 = [];
+            for (var i = 6; i < 13; i++) {
+                // console.log('mintemp',data.list[i].main.temp_min);
+                miniTempArr1.push(data.list[i].main.temp_min);
+            }
+            return (Math.floor(Math.min(...miniTempArr1)));
+
+        }
+
+        console.log('mintemp of first day', minTemp1(data));
+
+        //this function logs min temp second day
+        function minTemp2() {
+            var miniTempArr2 = [];
+            for (var i = 13; i < 20; i++) {
+                // console.log('mintemp',data.list[i].main.temp_min);
+                miniTempArr2.push(data.list[i].main.temp_min);
+            }
+            return (Math.floor(Math.min(...miniTempArr2)));
+        }
+
+        console.log('mintemp of second day', minTemp2(data));
+
+        //this function logs min temp third day
+        function minTemp3() {
+            var miniTempArr3 = [];
+            for (var i = 20; i < 27; i++) {
+                // console.log('mintemp',data.list[i].main.temp_min);
+                miniTempArr3.push(data.list[i].main.temp_min);
+            }
+            return (Math.floor(Math.min(...miniTempArr3)));
+        }
+
+        console.log('mintemp of third day', minTemp3(data));
+
+        //this function logs min temp fourth day
+        function minTemp4() {
+            var miniTempArr4 = [];
+            for (var i = 27; i < 34; i++) {
+                // console.log('mintemp',data.list[i].main.temp_min);
+                miniTempArr4.push(data.list[i].main.temp_min);
+            }
+            return (Math.floor(Math.min(...miniTempArr4)));
+        }
+
+        console.log('mintemp of fourth day', minTemp4(data));
+
+        //this function logs min temp fifth day
+        function minTemp5() {
+            var miniTempArr5 = [];
+            for (var i = 34; i <= 39; i++) {
+                // console.log('mintemp',data.list[i].main.temp_min);
+                miniTempArr5.push(data.list[i].main.temp_min);
+            }
+            return (Math.floor(Math.min(...miniTempArr5)));
+        }
+
+        console.log('mintemp of fifth day', minTemp5(data));
+
+        var allMinTemps = [];
+
+
+        allMinTemps.push(minTemp1(data));
+        allMinTemps.push(minTemp2(data));
+        allMinTemps.push(minTemp3(data));
+        allMinTemps.push(minTemp4(data));
+        allMinTemps.push(minTemp5(data));
+        console.log(allMinTemps); //all min temps in an array
+
+        for (var i = 0; i < allMinTemps.length;i++){
+            $('#low').append(allMinTemps[i]);
+        }
+
+
+        // var renderLowTemp;
+
+        // $('#low').append(minTemp1(data));
+        // $('#low').append(minTemp2(data));
+        // $('#low').append(minTemp3(data));
+        // $('#low').append(minTemp4(data));
+        // $('#low').append(minTemp5(data));
+
+
     });
-
-    console.log("hi");
-
-
 
 
 </script>
