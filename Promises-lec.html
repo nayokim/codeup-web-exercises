@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Promises lecture</title>
+</head>
+<body>
+
+
+<script>
+
+    let url = 'https://api.github.com/users';
+    //when a promise is being resolved, you get a response object but you have to wait for the data. this isnt enough - you need more.
+    // fetch(url)
+    //     .then(response => console.log(response)) //in jQuery this is .done
+    //     .catch(error => console.error(error)); // in jQuery this is .fail
+
+
+    //another way to do the above function. Create a promise and save it into a variable myPromise
+    const myPromise = fetch('https://api.github.com/users');
+    // 1st step - handle the response if the promise is resolved
+    // myPromise.then(response => console.log(response));
+
+    // 1st step - handle the response if the promise is resolved
+    myPromise.then(response => response.json() // you get a response object
+        //2nd step-handle the response and get json data
+        // .then(data => console.log(data))
+        .then(users => { // this gets the data
+            //handle the data and do something with it.
+            let html = '<ul>';
+            for (let user of users) {
+                // console.log(user.login);
+                html += `<li>${user.login}</li>`
+            }
+            html += '</ul>';
+            document.body.innerHTML = html;
+        })
+    );
+
+    //handle the errors if the promise is resolved
+    myPromise.catch(error => console.error(error));
+
+    //calling multiple promises at the same time
+    // Promise.all([myPromise,anotherPromise])
+
+    //from lecture
+    // fetch('https://api.github.com/users')
+    //     .then(response => response.json())
+    //     .then(users => {
+    //         users.forEach( userObj => {
+    //             // do something with each username
+    //             console.log(userObj.login);
+    //         })
+    //     })
+    //     .catch(error => console.error(error));
+
+    function makeRequest() {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (Math.random() > 0.1) {
+                    resolve('Here is your data: ...');
+                } else {
+                    reject('Network Connection Error!');
+                }
+            }, 1500);
+        });
+    }
+    const request = makeRequest();
+    console.log(request); // pending promise
+    request.then(data => console.log('Promise resolved!', data));
+    // if resolved, will log "Promise resolved!" and "Here is your data: ..."
+    request.catch(error => console.log('Promise rejected!', error));
+    // if rejected, will log "Promise rejected!" and "Network Connection Error!"
+
+    // const myCustomPromise = new Promise((resolve, reject) => {
+    //     let random = Math.random();
+    //     console.log(random);
+    //     if (random > 0.5) {
+    //         resolve();
+    //     } else {
+    //         reject();
+    //     }
+    // });
+    //
+    // console.log(myCustomPromise);
+    // myCustomPromise.then(() => console.log('this is resolved') );
+    // myCustomPromise.catch(() => console.log('this is being rejected'));
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
