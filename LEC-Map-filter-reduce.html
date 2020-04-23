@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Functional Idioms: map, filter, and reduce</title>
+</head>
+<body>
+
+<script>
+    "use strict";
+
+
+    //old way
+    // var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    // var evens = [];
+    // for (var i = 0; i < numbers.length; i += 1) {
+    //     if (numbers[i] % 2 === 0) {
+    //         evens.push(numbers[i]);
+    //     }
+    // }
+    // console.log(evens); // [2, 4, 6, 8, 10]
+    //
+    // var odds =[];
+    // for (var i = 0; i < numbers.length; i += 1) {
+    //     if (numbers[i] % 2 !== 0) {
+    //         odds.push(numbers[i]);
+    //     }
+    // }
+    // console.log(odds); //
+    //
+    //
+
+    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    function arrayFilter (array, checkFunction){
+        const result = [];
+        for (let index = 0; index < array.length; index++){
+            const value = array[index];
+            if (checkFunction(value, index, array)){
+                result.push(value);
+            }
+        }
+        return result;
+    }
+    //
+    const evens= arrayFilter(numbers,function(value){
+        return value % 2 ===0
+    // });
+    // console.log('even from arrayFilter', evens);
+    //
+    // const odds = arrayFilter(numbers,(number) => number % 2 !==0);
+    // console.log('odds from arrayFilter', odds);
+    //
+
+    //using built-in filter - new array with everything that is true
+    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    // const evens = numbers.filter(function(value){
+    //     return value % 2 === 0;
+    // });
+    //using arrow notation
+    const evens = numbers.filter(value => value % 2 === 0);
+    const odds = numbers.filter(number => number % 2 !== 0);
+    console.log('evens from filter', evens);
+    console.log('odds from filter', odds);
+
+    //using map
+
+    const plusOne = numbers.map(function (number) {
+        return number + 1;
+    });
+    console.log(plusOne);
+    console.log(numbers);
+
+    const doubles = numbers.map(number => number * 2);
+    console.log(doubles);
+
+    //What is the difference: They do different things: . filter() returns a subset of the elements from the original array, while . map() produces an array with new, different entries based on the elements in the original array.
+
+    //what does map do?
+    function arrayMap(array, transformFunction) {
+        const result = [];
+        for (let index = 0; index < array.length; index++) {
+            const value = array[index];
+            result.push(transformFunction(value, index, array))
+        }
+        return result;
+    }
+
+    const squares = arrayMap(numbers, number => number ** 2);
+    console.log(squares);
+
+    //.reduce is used to reduce a collection to a single value. Most commonly, we will use it to transform a collection into a primitive value.
+
+    //sum numbers using for-loop
+    //
+    // let sumOfAllNumbers = 0;
+    // for (let index = 0; index <numbers.length; index++){
+    //     const value = numbers[index];
+    //     sumOfAllNumbers += value;
+    // }
+    // console.log('using for-loop to sum', sumOfAllNumbers);
+
+    //using reduce
+    const sumOfAllNumbers = numbers.reduce(function(accumulator, value){
+        return accumulator + value;
+    },0);
+    console.log('sumOfAllNumbers using reduce', sumOfAllNumbers);
+
+
+    const salesPeople = [
+        {name: 'Jim Halpert', sales: 100},
+        {name: 'Dwight Schrute', sales: 50},
+        {name: 'Andy Bernard', sales: 150},
+    ];
+
+    const totalSales = salesPeople.reduce((total,person) => {
+
+        console.log('total from in reduce',total);
+        return total + person.sales;
+    },300 );
+
+    console.log('sum of total sales',totalSales);
+
+
+
+
+</script>
+</body>
+</html>
