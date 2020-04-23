@@ -18,6 +18,10 @@ function mostRecentCommit(username) {
     return fetch(url, {headers: {'Authorization': `token ${GITHUB_KEY}`}})
         .then(response => response.json()
             .then(listOfEvents=>{
+
+                // for (variable of object) {
+                //     statement
+                // }
                 for (let event of listOfEvents){
                     if (event.type === 'PushEvent'){
                         return event.created_at;
