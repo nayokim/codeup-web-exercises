@@ -208,10 +208,7 @@
             }
 
             function renderHTML(data) {
-
                 console.log(data);
-
-
                 //this function logs min temp for JUST one day.
                 function minTemp(){
                     var miniTempArr=[];
@@ -296,10 +293,6 @@
                 getInfo(); //API request
             });
 
-            $('#do-search').keyup(function (event) {
-                event.preventDefault();
-                getInfo(); //API request
-            });
         })();
 
     </script>

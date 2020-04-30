@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 console.log('test');
 
 const users = [
@@ -57,18 +57,20 @@ console.log(threeLanguages);
 //     Use .map to create an array of strings where each element is a user's email address
 
 let emails= users.map(user => user.email);
-// console.log(emails);
+console.log(emails);
 // Use .reduce to get the total years of experience from the list of users. Once you get the total of years you can use the result to calculate the average.
 
-let totalExp = users.reduce((accumulator, value) =>{
+
+let totalExp = users.reduce((totalYears, user) =>{
+// let totalExp = users.reduce((accumulator, value) =>{
     // console.log("total from reduce", value); // gives each object
     // console.log(value.yearsOfExperience);
-    return accumulator + value.yearsOfExperience;
+    return totalYears + user.yearsOfExperience;
 },0);
 
-// console.log(totalExp);
+console.log(totalExp);
 
-// console.log(totalExp/users.length);
+console.log(totalExp/users.length);
 //     Use .reduce to get the longest email from the list of users.
 
 let longestEmail = users.reduce((userLongestEmail, user) => {
@@ -94,3 +96,13 @@ let listOfInstructors = users.reduce((instructors,user,index) => {
 },'Your instructors are: ');
 
 console.log(listOfInstructors);
+
+const allLanguages = users.reduce((languages, user) => {
+    user.languages.forEach((language) => {
+        if(!languages.includes(language)) {
+            languages.push(language)
+        }
+});
+return languages;
+},[]);
+console.log(allLanguages);
