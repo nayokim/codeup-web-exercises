@@ -28,6 +28,8 @@
         .then(users => { // this gets the data
             //handle the data and do something with it.
             let html = '<ul>';
+            //the for and for/in looping constructs give you access to the index in the array, not the actual element.
+            //With the other two constructs, forEach() and for/of, you get access to the array element itself. With forEach() you can access the array index i, with for/of you cannot.
             for (let user of users) {
                 // console.log(user.login);
                 html += `<li>${user.login}</li>`
